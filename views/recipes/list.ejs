@@ -1,0 +1,25 @@
+<% layout("layouts/boilerplate") %>
+
+<h1 class="mb-4">All Recipes</h1>
+<div class="row">
+    <% for(let recipe of recipes) { %>
+        <div class="col-md-6 mb-4">
+            <div class="card h-100">
+                <img src="<%=recipe.image%>" class="card-img-top" alt="<%=recipe.title%> picture">
+                <div class="card-body">
+                    <h3 class="card-title"><%=recipe.title%></h3>
+                    <h5>Total Time: <%=recipe.prep_time + recipe.cook_time%> minutes</h5>
+                    <h5>Servings: <%=recipe.servings%></h5>
+                    <h5>Calories: <%=recipe.nutrition.calories%></h5>
+                    <footer class="mt-3">
+                        <% for(let tag of recipe.tags) { %>
+                            <span class="badge text-bg-secondary"><%=tag%></span>
+                        <% } %>
+                    </footer>
+                    <a href="/recipes/<%=recipe._id%>" class="stretched-link"></a>
+                </div>
+            </div>
+        </div>
+    <% } %>
+</div>
+

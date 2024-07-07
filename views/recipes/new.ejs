@@ -1,0 +1,99 @@
+<% layout("layouts/boilerplate") %>
+
+<div class="container mt-5">
+  <h1 class="display-4">Create New Recipe</h1>
+  <form action="/recipes" method="POST">
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input type="text" class="form-control" id="title" name="recipe[title]" required minlength="3" maxlength="100">
+    </div>
+
+    <div class="form-group">
+      <label for="image">Image URL</label>
+      <input type="url" class="form-control" id="image" name="recipe[image]">
+    </div>
+
+    <div class="form-group">
+      <label for="prep_time">Preparation Time (minutes)</label>
+      <input type="number" class="form-control" id="prep_time" name="recipe[prep_time]" min="0">
+    </div>
+
+    <div class="form-group">
+      <label for="cook_time">Cooking Time (minutes)</label>
+      <input type="number" class="form-control" id="cook_time" name="recipe[cook_time]" min="0">
+    </div>
+
+    <div class="form-group">
+      <label for="servings">Servings</label>
+      <input type="number" class="form-control" id="servings" name="recipe[servings]" min="1">
+    </div>
+
+    <div class="form-group">
+      <label for="difficulty">Difficulty</label>
+      <select class="form-control" id="difficulty" name="recipe[difficulty]">
+        <option value="Easy">Easy</option>
+        <option value="Medium">Medium</option>
+        <option value="Hard">Hard</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Ingredients</label>
+      <ol id="ingredients">
+        <li class="ingredient form-row mb-3">
+          <div class="col">
+            <input type="text" class="form-control" name="recipe[ingredients][0][ingredient]" placeholder="Ingredient" required>
+          </div>
+          <div class="col">
+            <input type="number" class="form-control" name="recipe[ingredients][0][quantity]" placeholder="Quantity" min="0.01" step="any" required>
+          </div>
+          <button type="button" class="btn btn-danger remove-ingredient">Remove</button>
+        </li>
+      </ol>
+      <button type="button" class="btn btn-primary mb-3" id="add-ingredient">Add Ingredient</button>
+    </div>
+
+    <div class="form-group">
+      <label>Directions</label>
+      <ol id="directions">
+        <li class="direction form-row mb-3">
+          <div class="col">
+            <textarea class="form-control" name="recipe[directions][0]" required></textarea>
+          </div>
+          <button type="button" class="btn btn-danger remove-direction">Remove</button>
+        </li>
+      </ol>
+      <button type="button" class="btn btn-primary mb-3" id="add-direction">Add Direction</button>
+    </div>
+
+    <div class="form-group">
+      <label for="calories">Calories</label>
+      <input type="number" class="form-control" id="calories" name="recipe[nutrition][calories]" min="0">
+    </div>
+
+    <div class="form-group">
+      <label for="fat">Fat (grams)</label>
+      <input type="number" class="form-control" id="fat" name="recipe[nutrition][fat]" min="0">
+    </div>
+
+    <div class="form-group">
+      <label for="protein">Protein (grams)</label>
+      <input type="number" class="form-control" id="protein" name="recipe[nutrition][protein]" min="0">
+    </div>
+
+    <div class="form-group">
+      <label for="carbs">Carbs (grams)</label>
+      <input type="number" class="form-control" id="carbs" name="recipe[nutrition][carbs]" min="0">
+    </div>
+
+    <div class="form-group">
+      <label for="tags">Tags</label>
+      <input type="text" class="form-control" id="tags" name="recipe[tags]" placeholder="Comma separated tags">
+    </div>
+
+    <button type="submit" class="btn btn-primary me-2">Create Recipe</button>
+    <a href="/recipes" class="btn btn-warning">Back to All Recipes</a>
+  </form>
+</div>
+
+<script src="/javascripts/forms.js"></script>

@@ -1,0 +1,21 @@
+<% layout("layouts/boilerplate") %>
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header bg-danger text-white">
+                    <h3 class="card-title"><%= err.message %></h3>
+                </div>
+                <div class="card-body">
+                    <pre><code><%= err.stack %></code></pre>
+                </div>
+                <div class="card-footer text-center">
+                    <a href="/" class="btn btn-primary">Go Home</a>
+                    <a href="javascript:history.back()" class="btn btn-secondary">Go Back</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

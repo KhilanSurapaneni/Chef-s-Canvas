@@ -1,0 +1,67 @@
+<% layout("layouts/boilerplate") %>
+
+<div class="container mt-5">
+  <h1 class="display-4"><%= recipe.title %></h1>
+  
+  <% if (recipe.image) { %>
+    <img src="<%= recipe.image %>" class="img-fluid rounded" alt="<%= recipe.title %> image">
+  <% } %>
+  
+  <div class="mt-4">
+    <h3>Ingredients</h3>
+    <ul class="list-group">
+      <% recipe.ingredients.forEach(ingredient => { %>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          <%= ingredient.ingredient %>
+          <span class="badge badge-primary badge-pill"><%= ingredient.quantity %></span>
+        </li>
+      <% }) %>
+    </ul>
+  </div>
+
+  <div class="mt-4">
+    <h3>Directions</h3>
+    <ol class="list-group list-group-numbered">
+      <% recipe.directions.forEach((direction, index) => { %>
+        <li class="list-group-item"><%= direction %></li>
+      <% }) %>
+    </ol>
+  </div>
+
+  <div class="mt-4">
+    <h3>Details</h3>
+    <p><strong>Preparation Time:</strong> <%= recipe.prep_time ? recipe.prep_time + ' minutes' : 'N/A' %></p>
+    <p><strong>Cooking Time:</strong> <%= recipe.cook_time ? recipe.cook_time + ' minutes' : 'N/A' %></p>
+    <p><strong>Servings:</strong> <%= recipe.servings || 'N/A' %></p>
+    <p><strong>Difficulty:</strong> <%= recipe.difficulty || 'N/A' %></p>
+  </div>
+
+  <% if (recipe.nutrition) { %>
+    <div class="mt-4">
+      <h3>Nutrition</h3>
+      <p><strong>Calories:</strong> <%= recipe.nutrition.calories || 'N/A' %></p>
+      <p><strong>Fat:</strong> <%= recipe.nutrition.fat ? recipe.nutrition.fat + ' grams' : 'N/A' %></p>
+      <p><strong>Protein:</strong> <%= recipe.nutrition.protein ? recipe.nutrition.protein + ' grams' : 'N/A' %></p>
+      <p><strong>Carbs:</strong> <%= recipe.nutrition.carbs ? recipe.nutrition.carbs + ' grams' : 'N/A' %></p>
+    </div>
+  <% } %>
+
+  <% if (recipe.tags && recipe.tags.length) { %>
+    <div class="mt-4">
+      <h3>Tags</h3>
+      <p>
+        <% recipe.tags.forEach(tag => { %>
+          <span class="badge bg-secondary"><%= tag %></span>
+        <% }) %>
+      </p>
+    </div>
+  <% } %>
+
+  <div class="mt-4">
+    <form action="/recipes/<%= recipe._id %>?_method=DELETE" method="POST" class="d-inline">
+      <button type="submit" class="btn btn-danger me-2">Delete</button>
+    </form>
+    <a href="/recipes" class="btn btn-primary me-2">Back to All Recipes</a>
+    <a href="/recipes/<%= recipe._id %>/edit" class="btn btn-warning">Edit Recipe</a>
+  </div>
+</div>
