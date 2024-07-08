@@ -7,7 +7,7 @@ import Recipe from './pages/Recipe';
 import HomePage from './pages/HomePage';
 import CreateRecipe from './pages/CreateRecipe';
 import EditRecipe from "./pages/EditRecipe";
-import Navbar from './components/Navbar';
+import Navbar from './components/Navbar/Navbar';
 import './index.css';
 
 const App = () => {
