@@ -36,10 +36,11 @@ const CreateRecipe = () => {
   });
 
   const navigate = useNavigate();
+  const backend_url = 'http://localhost:3000'; // Backend URL
 
   return (
     <form 
-      onSubmit={(event) => handleSubmit(axios, event, formData, ingredients, directions, navigate)} 
+      onSubmit={(event) => handleSubmit(axios, event, formData, ingredients, directions, navigate, backend_url)} 
       className="max-w-3xl mx-auto p-6 bg-white rounded-lg shadow-md"
     >
       <h2 className="text-2xl font-bold mb-6">Create a New Recipe</h2>
