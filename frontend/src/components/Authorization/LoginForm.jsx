@@ -1,19 +1,18 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { handleSubmit } from './functions';
+import { useNavigate } from 'react-router-dom';
+import { handleSubmitLogin } from './functions';
 import InputField from './InputField';
 import ErrorMessage from './ErrorMessage';
 
-const RegisterForm = ({ backend_url }) => {
+const LoginForm = ({backend_url}) => {
     const [username, setUsername] = useState('');
-    const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState(null);
     const navigate = useNavigate();
 
     return (
-        <form onSubmit={(event) => handleSubmit(event, username, email, password, axios, navigate, backend_url, setError)} className="space-y-4">
+        <form onSubmit={(event) => handleSubmitLogin(event, username, password, axios, navigate, backend_url, setError)} className="space-y-4">
             <ErrorMessage message={error} />
             <InputField
                 id="username"
@@ -21,13 +20,6 @@ const RegisterForm = ({ backend_url }) => {
                 type="text"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
-            />
-            <InputField
-                id="email"
-                label="Email"
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
             />
             <InputField
                 id="password"
@@ -40,10 +32,10 @@ const RegisterForm = ({ backend_url }) => {
                 type="submit"
                 className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
             >
-                Register
+                Login
             </button>
         </form>
     );
 };
 
-export default RegisterForm;
+export default LoginForm;
