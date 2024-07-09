@@ -22,7 +22,7 @@ import FormButton from '../components/CreateRecipe/FormButton';
 const EditRecipe = () => {
     const { id } = useParams();
     const [loading, setLoading] = useState(true);
-
+    const backend_url = import.meta.env.VITE_BACKEND_URL; // Accessing the VITE_BACKEND_URL environment variable
     const [ingredients, setIngredients] = useState([{ ingredient: '', quantity: '' }]);
     const [directions, setDirections] = useState(['']);
     const [formData, setFormData] = useState({
@@ -69,7 +69,6 @@ const EditRecipe = () => {
     }, [id]);
 
     const navigate = useNavigate();
-    const backend_url = 'http://localhost:3000'; // Backend URL
 
     
 

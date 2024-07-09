@@ -8,6 +8,7 @@ import HomePage from './pages/HomePage';
 import CreateRecipe from './pages/CreateRecipe';
 import EditRecipe from "./pages/EditRecipe";
 import Navbar from './components/Navbar/Navbar';
+import Register from './pages/Register';
 import './index.css';
 
 const App = () => {
@@ -27,6 +28,7 @@ const App = () => {
         <Route path='/recipes/create' element={<CreateRecipe />} />
         <Route path='/recipes/:id' element={<Recipe />} />
         <Route path='/recipes/:id/edit' element={<EditRecipe />} />
+        <Route path='/register' element = {<Register />} />
       </Routes>
     </>
 

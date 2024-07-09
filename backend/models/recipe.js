@@ -66,6 +66,11 @@ const recipeSchema = new mongoose.Schema({
     type: String,
     required: false,
     enum: ['Easy', 'Medium', 'Hard']
+  },
+  chef: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User",
+    required: true
   }
 });
 

@@ -36,7 +36,7 @@ const CreateRecipe = () => {
   });
 
   const navigate = useNavigate();
-  const backend_url = 'http://localhost:3000'; // Backend URL
+  const backend_url = import.meta.env.VITE_BACKEND_URL; // Accessing the VITE_BACKEND_URL environment variable
 
   return (
     <form 

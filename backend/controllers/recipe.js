@@ -1,59 +1,40 @@
 import Recipe from '../models/recipe.js';
+import ExpressError from '../utils/expressError.js';
 
-export const all_recipes = async (req, res, next) => {
-    try {
-        const recipes = await Recipe.find({});
-        res.status(200).send(recipes);
-    } catch (error) {
-        next(error);
-    }
+export const all_recipes = async (req, res) => {
+    const recipes = await Recipe.find({});
+    res.status(200).send(recipes);
 }
 
-export const find_recipe = async (req, res, next) => {
-    try {
-        const { id } = req.params;
-        const recipe = await Recipe.findById(id);
-        if (!recipe) {
-            throw new ExpressError('Recipe not found', 404);
-        }
-        res.status(200).send(recipe);
-    } catch (error) {
-        next(error);
+export const find_recipe = async (req, res) => {
+    const { id } = req.params;
+    const recipe = await Recipe.findById(id);
+    if (!recipe) {
+        throw new ExpressError('Recipe not found', 404);
     }
+    res.status(200).send(recipe);
 }
 
-export const delete_recipe = async (req, res, next) => {
-    try {
-        const { id } = req.params;
-        const deleted_recipe = await Recipe.findByIdAndDelete(id);
-        if (!deleted_recipe) {
-            throw new ExpressError('Recipe not found', 404);
-        }
-        res.status(200).send(deleted_recipe);
-    } catch (error) {
-        next(error);
+export const delete_recipe = async (req, res) => {
+    const { id } = req.params;
+    const deleted_recipe = await Recipe.findByIdAndDelete(id);
+    if (!deleted_recipe) {
+        throw new ExpressError('Recipe not found', 404);
     }
+    res.status(200).send(deleted_recipe);
 }
 
-export const add_recipe = async (req, res, next) => {
-    try {
-        const recipe = new Recipe(req.body.recipe);
-        await recipe.save();
-        res.status(201).send(recipe);
-    } catch (error) {
-        next(error);
-    }
+export const add_recipe = async (req, res) => {
+    const recipe = new Recipe(req.body.recipe);
+    await recipe.save();
+    res.status(201).send(recipe);
 }
 
-export const update_recipe = async (req, res, next) => {
-    try {
-        const { id } = req.params;
-        const updated_recipe = await Recipe.findByIdAndUpdate(id, { ...req.body.recipe }, { new: true });
-        if (!updated_recipe) {
-            throw new ExpressError('Recipe not found', 404);
-        }
-        res.status(200).send(updated_recipe);
-    } catch (error) {
-        next(error);
+export const update_recipe = async (req, res) => {
+    const { id } = req.params;
+    const updated_recipe = await Recipe.findByIdAndUpdate(id, { ...req.body.recipe }, { new: true });
+    if (!updated_recipe) {
+        throw new ExpressError('Recipe not found', 404);
     }
+    res.status(200).send(updated_recipe);
 }
