@@ -7,3 +7,10 @@ export const register_user = async (req, res) => {
     console.log(registeredUser);
     res.status(201).send(registeredUser);
 }
+
+export const logout_user = (req, res, next) => {
+    req.logout((err) => {
+        if (err) { return next(err); }
+        res.status(200).send({ message: 'Logout successful' });
+    })
+}

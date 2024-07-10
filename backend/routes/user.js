@@ -1,7 +1,8 @@
 import express from 'express';
-import { register_user } from '../controllers/user.js';
+import { logout_user, register_user } from '../controllers/user.js';
 import passport from 'passport';
 import catchAsync from '../utils/catchAsync.js';
+import { isLoggedIn } from '../middleware.js';
 
 const router = express.Router();
 
@@ -30,5 +31,8 @@ router.route('/login')
             });
         })(req, res, next); // Invoke the function returned by passport.authenticate with req, res, next
     });
+
+router.route("/logout")
+    .post(isLoggedIn, logout_user);
 
 export default router;
