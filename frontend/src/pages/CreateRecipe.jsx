@@ -17,6 +17,7 @@ import FormSelect from '../components/CreateRecipe/FormSelect';
 import IngredientList from '../components/CreateRecipe/IngredientList';
 import DirectionList from '../components/CreateRecipe/DirectionList';
 import FormButton from '../components/CreateRecipe/FormButton';
+import ErrorMessage from '../components/Authorization/ErrorMessage';
 
 const CreateRecipe = () => {
   const [ingredients, setIngredients] = useState([{ ingredient: '', quantity: '' }]);
@@ -34,15 +35,16 @@ const CreateRecipe = () => {
     carbs: '',
     tags: ''
   });
-
+  const [error, setError] = useState(null);
   const navigate = useNavigate();
   const backend_url = import.meta.env.VITE_BACKEND_URL; // Accessing the VITE_BACKEND_URL environment variable
 
   return (
     <form 
-      onSubmit={(event) => handleSubmit(axios, event, formData, ingredients, directions, navigate, backend_url)} 
+      onSubmit={(event) => handleSubmit(axios, event, formData, ingredients, directions, navigate, backend_url, setError)} 
       className="max-w-3xl mx-auto p-6 bg-white rounded-lg shadow-md"
     >
+      <ErrorMessage message={error}/>
       <h2 className="text-2xl font-bold mb-6">Create a New Recipe</h2>
       <FormInput
         label="Title"

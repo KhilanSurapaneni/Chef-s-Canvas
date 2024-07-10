@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Spinner from '../components/Spinner';
 import BackButton from '../components/Recipe/BackButton';
@@ -15,7 +15,7 @@ const Recipe = () => {
     directions: [],
     tags: [],
   });
-
+  const navigate = useNavigate();
   const backend_url = import.meta.env.VITE_BACKEND_URL; // Accessing the VITE_BACKEND_URL environment variable
 
   useEffect(() => {
@@ -24,13 +24,19 @@ const Recipe = () => {
         const response = await axios.get(`${backend_url}/recipes/${id}`);
         setRecipe(response.data);
       } catch (error) {
-        console.error('Error fetching recipes:', error);
+        if (error.response && (error.response.status === 401 || error.response.status === 403)) {
+          navigate('/error', { state: { message: 'Authentication error. Please login again.' } });
+        } else {
+          const errorMessage = error.response?.data?.message || 'An error occurred while fetching the recipe. Please try again later.';
+          navigate('/error', { state: { message: errorMessage } });
+        }
+        console.error('Error fetching recipe:', error);
       } finally {
         setLoading(false);
       }
     };
     getData();
-  }, [id]);
+  }, [id, backend_url, navigate]);
 
   if (loading) {
     return <Spinner />;

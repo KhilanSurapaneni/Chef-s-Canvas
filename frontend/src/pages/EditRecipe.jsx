@@ -18,6 +18,7 @@ import FormSelect from '../components/CreateRecipe/FormSelect';
 import IngredientList from '../components/CreateRecipe/IngredientList';
 import DirectionList from '../components/CreateRecipe/DirectionList';
 import FormButton from '../components/CreateRecipe/FormButton';
+import ErrorMessage from '../components/Authorization/ErrorMessage';
 
 const EditRecipe = () => {
     const { id } = useParams();
@@ -38,9 +39,12 @@ const EditRecipe = () => {
         carbs: '',
         tags: ''
     });
+    const [error, setError] = useState(null);
+    const navigate = useNavigate();
 
     useEffect(() => {
         const getData = async () => {
+            setError(null);  // Reset the error state before making the request
             try {
                 const response = await axios.get(`${backend_url}/recipes/${id}`);
                 const recipeData = response.data;
@@ -60,15 +64,36 @@ const EditRecipe = () => {
                 setIngredients(recipeData.ingredients);
                 setDirections(recipeData.directions);
             } catch (error) {
-                console.error('Error fetching recipes:', error);
+                if (error.response) {
+                    // Handle specific client-side errors without redirecting
+                    const errorMessage = error.response.data.message || 'An error occurred. Please try again.';
+                    setError(errorMessage);
+                    console.error('Response data:', error.response.data);
+                    console.error('Response status:', error.response.status);
+                    console.error('Response headers:', error.response.headers);
+                } else if (error.request) {
+                    // The request was made but no response was received
+                    const errorMessage = 'No response from server. Please try again later.';
+                    setError(errorMessage);
+                    navigate('/error', { state: { message: errorMessage } });
+                    console.error('Request data:', error.request);
+                } else {
+                    // Something happened in setting up the request that triggered an Error
+                    const errorMessage = 'An error occurred. Please try again.';
+                    setError(errorMessage);
+                    navigate('/error', { state: { message: errorMessage } });
+                    console.error('Error message:', error.message);
+                }
+                console.error('Error config:', error.config);
             } finally {
                 setLoading(false);
             }
         };
         getData();
-    }, [id]);
+    }, [id, backend_url, navigate, setError]);
+    
 
-    const navigate = useNavigate();
+    
 
     
 
@@ -77,7 +102,8 @@ const EditRecipe = () => {
     }
 
     return (
-        <form onSubmit={(event) => handleEditSubmit(axios, event, formData, ingredients, directions, navigate, backend_url, id)} className="max-w-3xl mx-auto p-6 bg-white rounded-lg shadow-md">
+        <form onSubmit={(event) => handleEditSubmit(axios, event, formData, ingredients, directions, navigate, backend_url, id, setError)} className="max-w-3xl mx-auto p-6 bg-white rounded-lg shadow-md">
+            <ErrorMessage message={error}/>
             <h2 className="text-2xl font-bold mb-6">Edit Recipe</h2>
             <FormInput
                 label="Title"

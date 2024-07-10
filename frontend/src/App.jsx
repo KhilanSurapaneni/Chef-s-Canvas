@@ -10,6 +10,7 @@ import EditRecipe from "./pages/EditRecipe";
 import Navbar from './components/Navbar/Navbar';
 import Register from './pages/Register';
 import Login from './pages/Login';
+import Error from './pages/Error';
 import './index.css';
 
 const App = () => {
@@ -31,6 +32,7 @@ const App = () => {
         <Route path='/recipes/:id/edit' element={<EditRecipe />} />
         <Route path='/register' element = {<Register />} />
         <Route path='/login' element = {<Login />} />
+        <Route path="*" element={<Error />} /> {/* Catch-all route for undefined routes */}
       </Routes>
     </>
 
