@@ -1,12 +1,12 @@
 import React, { useContext, useEffect } from 'react';
 import { AuthContext } from '../../AuthContext';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 
 const RecipeActions = ({ backend_url }) => {
     const { id } = useParams();
     const { isAuthenticated, isAuthor, checkAuthorStatus } = useContext(AuthContext);
-
+    const navigate = useNavigate();
     useEffect(() => {
         if (isAuthenticated) {
             checkAuthorStatus(id);

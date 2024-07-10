@@ -18,6 +18,7 @@ import IngredientList from '../components/CreateRecipe/IngredientList';
 import DirectionList from '../components/CreateRecipe/DirectionList';
 import FormButton from '../components/CreateRecipe/FormButton';
 import ErrorMessage from '../components/Authorization/ErrorMessage';
+import { toast } from "react-toastify";
 
 const CreateRecipe = () => {
   const [ingredients, setIngredients] = useState([{ ingredient: '', quantity: '' }]);
@@ -41,7 +42,7 @@ const CreateRecipe = () => {
 
   return (
     <form 
-      onSubmit={(event) => handleSubmit(axios, event, formData, ingredients, directions, navigate, backend_url, setError)} 
+      onSubmit={(event) => handleSubmit(axios, event, formData, ingredients, directions, navigate, backend_url, setError, toast)} 
       className="max-w-3xl mx-auto p-6 bg-white rounded-lg shadow-md"
     >
       <ErrorMessage message={error}/>

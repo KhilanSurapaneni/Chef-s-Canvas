@@ -6,7 +6,7 @@ export const register_user = async (req, res, next) => {
     const registeredUser = await User.register(user, password);  // Registering the user
     req.login(registeredUser, err => {
         if (err) { return next(err); }
-        res.status(201).send({message: "Succesfully Registerd", user: registeredUser});
+        res.status(201).send({message: "Succesfully Registered", user: registeredUser});
     })
     
 }

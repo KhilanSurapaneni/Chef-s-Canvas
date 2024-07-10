@@ -40,7 +40,7 @@ export const handleChange = (event, setFormData, formData) => {
     setDirections(newDirections);
   };
   
-  export const handleSubmit = async (axios, event, formData, ingredients, directions, navigate, backend_url, setError) => {
+  export const handleSubmit = async (axios, event, formData, ingredients, directions, navigate, backend_url, setError, toast) => {
     event.preventDefault();
     setError(null);
 
@@ -63,6 +63,7 @@ export const handleChange = (event, setFormData, formData) => {
             },
         });
         const new_recipe = response.data;
+        toast.success(`Succesfully created recipe!`);
         navigate(`/recipes/${new_recipe._id}/`);  // Ensure this path is correct
     } catch (error) {
         if (error.response) {
@@ -94,7 +95,7 @@ export const handleChange = (event, setFormData, formData) => {
     }
 };
 
-export const handleEditSubmit = async (axios, event, formData, ingredients, directions, navigate, backend_url, id, setError) => {
+export const handleEditSubmit = async (axios, event, formData, ingredients, directions, navigate, backend_url, id, setError, toast) => {
     event.preventDefault();
     setError(null);
 
@@ -117,6 +118,7 @@ export const handleEditSubmit = async (axios, event, formData, ingredients, dire
             },
         });
         const updated_recipe = response.data;
+        toast.success(`Succesfully updated recipe!`);
         navigate(`/recipes/${updated_recipe._id}/`);  // Ensure this path is correct
     } catch (error) {
         if (error.response) {

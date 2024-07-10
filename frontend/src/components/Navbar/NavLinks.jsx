@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { AuthContext } from '../../AuthContext';
+import { toast } from "react-toastify";
 
 const NavLinks = () => {
   const { isAuthenticated, setIsAuthenticated } = useContext(AuthContext); // Using AuthContext to get the authentication state
@@ -12,6 +13,7 @@ const NavLinks = () => {
     try {
       await axios.post(`${backend_url}/logout`, {}, { withCredentials: true });
       setIsAuthenticated(false);
+      toast.success("Succesfully logged out!")
       navigate('/');
     } catch (error) {
       const errorMessage = error.response?.data?.message || 'An error occurred during logout. Please try again later.';

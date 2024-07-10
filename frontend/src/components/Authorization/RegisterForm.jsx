@@ -5,6 +5,7 @@ import { handleSubmit } from './functions';
 import InputField from './InputField';
 import ErrorMessage from './ErrorMessage';
 import { AuthContext } from '../../AuthContext';
+import {toast} from "react-toastify";
 
 const RegisterForm = ({ backend_url }) => {
     const [username, setUsername] = useState('');
@@ -15,7 +16,7 @@ const RegisterForm = ({ backend_url }) => {
     const { setIsAuthenticated } = useContext(AuthContext); // Use AuthContext to get setIsAuthenticated
 
     return (
-        <form onSubmit={(event) => handleSubmit(event, username, email, password, axios, navigate, backend_url, setError, setIsAuthenticated)} className="space-y-4">
+        <form onSubmit={(event) => handleSubmit(event, username, email, password, axios, navigate, backend_url, setError, setIsAuthenticated, toast)} className="space-y-4">
             <ErrorMessage message={error} />
             <InputField
                 id="username"

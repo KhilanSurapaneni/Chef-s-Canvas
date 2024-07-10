@@ -19,6 +19,7 @@ import IngredientList from '../components/CreateRecipe/IngredientList';
 import DirectionList from '../components/CreateRecipe/DirectionList';
 import FormButton from '../components/CreateRecipe/FormButton';
 import ErrorMessage from '../components/Authorization/ErrorMessage';
+import { toast } from "react-toastify";
 
 const EditRecipe = () => {
     const { id } = useParams();
@@ -102,7 +103,7 @@ const EditRecipe = () => {
     }
 
     return (
-        <form onSubmit={(event) => handleEditSubmit(axios, event, formData, ingredients, directions, navigate, backend_url, id, setError)} className="max-w-3xl mx-auto p-6 bg-white rounded-lg shadow-md">
+        <form onSubmit={(event) => handleEditSubmit(axios, event, formData, ingredients, directions, navigate, backend_url, id, setError, toast)} className="max-w-3xl mx-auto p-6 bg-white rounded-lg shadow-md">
             <ErrorMessage message={error}/>
             <h2 className="text-2xl font-bold mb-6">Edit Recipe</h2>
             <FormInput

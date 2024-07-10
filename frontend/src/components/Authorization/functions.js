@@ -1,4 +1,4 @@
-export const handleSubmit = async (event, username, email, password, axios, navigate, backend_url, setError, setIsAuthenticated) => {
+export const handleSubmit = async (event, username, email, password, axios, navigate, backend_url, setError, setIsAuthenticated, toast) => {
     event.preventDefault();
     setError(null);
     try {
@@ -9,6 +9,7 @@ export const handleSubmit = async (event, username, email, password, axios, navi
             withCredentials: true
         });
         setIsAuthenticated(true); // Set authentication state to true
+        toast.success("Succesfully registered!");
         navigate("/recipes");
     } catch (error) {
         if (error.response) {
@@ -36,7 +37,7 @@ export const handleSubmit = async (event, username, email, password, axios, navi
 };
 
 
-export const handleSubmitLogin = async (event, username, password, axios, navigate, backend_url, setError, setIsAuthenticated) => {
+export const handleSubmitLogin = async (event, username, password, axios, navigate, backend_url, setError, setIsAuthenticated, toast) => {
     event.preventDefault();
     setError(null);
     try {
@@ -47,6 +48,7 @@ export const handleSubmitLogin = async (event, username, password, axios, naviga
             withCredentials: true
         });
         setIsAuthenticated(true); // Set authentication state to true
+        toast.success('Login successful!');
         navigate("/recipes");
     } catch (error) {
         if (error.response && error.response.status === 401) {

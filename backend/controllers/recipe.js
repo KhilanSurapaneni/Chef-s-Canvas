@@ -26,6 +26,7 @@ export const delete_recipe = async (req, res) => {
 
 export const add_recipe = async (req, res) => {
     const recipe = new Recipe(req.body.recipe);
+    recipe.created_by = req.user._id;
     await recipe.save();
     res.status(201).send(recipe);
 }
