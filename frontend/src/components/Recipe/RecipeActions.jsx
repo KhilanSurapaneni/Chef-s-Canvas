@@ -29,7 +29,7 @@ const RecipeActions = ({ backend_url }) => {
         <>
           <button
             onClick={handleDelete}
-            className="px-6 py-3 bg-red-600 text-white rounded-lg shadow hover:bg-red-700 transition duration-300"
+            className="flex items-center justify-center px-6 py-3 bg-red-600 text-white rounded-lg shadow hover:bg-red-700 transition duration-300 transform hover:scale-105"
           >
             Delete
           </button>
@@ -37,7 +37,7 @@ const RecipeActions = ({ backend_url }) => {
             onClick={() => {
               navigate(`/recipes/${id}/edit`);
             }}
-            className="px-6 py-3 bg-yellow-600 text-white rounded-lg shadow hover:bg-yellow-700 transition duration-300"
+            className="flex items-center justify-center px-6 py-3 bg-yellow-600 text-white rounded-lg shadow hover:bg-yellow-700 transition duration-300 transform hover:scale-105"
           >
             Edit
           </button>

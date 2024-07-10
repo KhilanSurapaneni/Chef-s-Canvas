@@ -14,7 +14,8 @@ const recipes = [
       servings: 4,
       nutrition: { calories: 500, fat: 20, protein: 25, carbs: 60 },
       tags: ['Italian', 'Pasta'],
-      difficulty: 'Medium'
+      difficulty: 'Medium',
+      created_by: "668ec06d8f7e6db3cbc219c1"
     },
     {
       title: 'Chicken Curry',
@@ -31,7 +32,8 @@ const recipes = [
       servings: 4,
       nutrition: { calories: 600, fat: 30, protein: 40, carbs: 50 },
       tags: ['Indian', 'Curry'],
-      difficulty: 'Medium'
+      difficulty: 'Medium',
+      created_by: "668ec06d8f7e6db3cbc219c1"
     },
     {
       title: 'Beef Stew',
@@ -49,7 +51,8 @@ const recipes = [
       servings: 6,
       nutrition: { calories: 700, fat: 25, protein: 50, carbs: 70 },
       tags: ['American', 'Stew'],
-      difficulty: 'Hard'
+      difficulty: 'Hard',
+      created_by: "668ec06d8f7e6db3cbc219c1"
     },
     {
       title: 'Vegetable Stir Fry',
@@ -67,7 +70,8 @@ const recipes = [
       servings: 4,
       nutrition: { calories: 200, fat: 5, protein: 10, carbs: 30 },
       tags: ['Chinese', 'Vegetarian'],
-      difficulty: 'Easy'
+      difficulty: 'Easy',
+      created_by: "668ec06d8f7e6db3cbc219c1"
     },
     {
       title: 'Chicken Alfredo',
@@ -84,7 +88,8 @@ const recipes = [
       servings: 4,
       nutrition: { calories: 600, fat: 25, protein: 35, carbs: 65 },
       tags: ['Italian', 'Pasta'],
-      difficulty: 'Medium'
+      difficulty: 'Medium',
+      created_by: "668ec06d8f7e6db3cbc219c1"
     },
     {
       title: 'Tacos',
@@ -102,7 +107,8 @@ const recipes = [
       servings: 4,
       nutrition: { calories: 450, fat: 20, protein: 20, carbs: 40 },
       tags: ['Mexican', 'Fast Food'],
-      difficulty: 'Easy'
+      difficulty: 'Easy',
+      created_by: "668ec06d8f7e6db3cbc219c1"
     },
     {
       title: 'Margarita Pizza',
@@ -120,7 +126,8 @@ const recipes = [
       servings: 2,
       nutrition: { calories: 800, fat: 35, protein: 30, carbs: 90 },
       tags: ['Italian', 'Pizza'],
-      difficulty: 'Medium'
+      difficulty: 'Medium',
+      created_by: "668ec06d8f7e6db3cbc219c1"
     },
     {
       title: 'Grilled Cheese Sandwich',
@@ -137,7 +144,8 @@ const recipes = [
       servings: 1,
       nutrition: { calories: 300, fat: 15, protein: 10, carbs: 35 },
       tags: ['American', 'Snack'],
-      difficulty: 'Easy'
+      difficulty: 'Easy',
+      created_by: "668ec06d8f7e6db3cbc219c1"
     },
     {
       title: 'Caesar Salad',
@@ -155,7 +163,8 @@ const recipes = [
       servings: 2,
       nutrition: { calories: 200, fat: 10, protein: 5, carbs: 15 },
       tags: ['Italian', 'Salad'],
-      difficulty: 'Easy'
+      difficulty: 'Easy',
+      created_by: "668ec06d8f7e6db3cbc219c1"
     },
     {
       title: 'Pancakes',
@@ -173,7 +182,8 @@ const recipes = [
       servings: 4,
       nutrition: { calories: 350, fat: 10, protein: 8, carbs: 60 },
       tags: ['American', 'Breakfast'],
-      difficulty: 'Easy'
+      difficulty: 'Easy',
+      created_by: "668ec06d8f7e6db3cbc219c1"
     }
   ];  
 

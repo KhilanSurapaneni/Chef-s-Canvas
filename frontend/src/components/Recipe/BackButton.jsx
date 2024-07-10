@@ -6,7 +6,7 @@ const BackButton = () => {
   return (
     <button
       onClick={() => navigate('/recipes')}
-      className="mb-6 px-6 py-3 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700 transition duration-300"
+      className="flex items-center justify-center px-4 py-2 bg-blue-600 text-white rounded-md shadow hover:bg-blue-700 transition duration-300 transform hover:scale-105"
     >
       Back to Recipes
     </button>

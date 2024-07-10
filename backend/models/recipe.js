@@ -67,7 +67,7 @@ const recipeSchema = new mongoose.Schema({
     required: false,
     enum: ['Easy', 'Medium', 'Hard']
   },
-  chef: {
+  created_by: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",
     required: true

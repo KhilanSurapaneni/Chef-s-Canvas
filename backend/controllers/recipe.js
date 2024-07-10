@@ -2,13 +2,13 @@ import Recipe from '../models/recipe.js';
 import ExpressError from '../utils/expressError.js';
 
 export const all_recipes = async (req, res) => {
-    const recipes = await Recipe.find({});
+    const recipes = await Recipe.find({}).populate("created_by");
     res.status(200).send(recipes);
 }
 
 export const find_recipe = async (req, res) => {
     const { id } = req.params;
-    const recipe = await Recipe.findById(id);
+    const recipe = await Recipe.findById(id).populate("created_by");
     if (!recipe) {
         throw new ExpressError('Recipe not found', 404);
     }
