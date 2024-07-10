@@ -14,7 +14,8 @@ const RecipeActions = ({ backend_url }) => {
       navigate('/recipes');
     } catch (error) {
       if (error.response && (error.response.status === 401 || error.response.status === 403)) {
-        navigate('/error', { state: { message: 'Authentication error. Please login again.' } });
+        const errorMessage = error.response?.data?.message || 'Authentication error. Please try again.';
+        navigate('/error', { state: { message: errorMessage } });
       } else {
         const errorMessage = error.response?.data?.message || 'An error occurred while deleting the recipe. Please try again later.';
         navigate('/error', { state: { message: errorMessage } });
