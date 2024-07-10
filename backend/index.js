@@ -18,7 +18,7 @@ import User from "./models/user.js"; // Import User model
 const app = express();
 
 // Get the port number from environment variables
-const port = process.env.PORT;
+const port = process.env.PORT || "3000";
 
 // Enable CORS for all routes to allow the backend server to be used as an API
 app.use(cors({
@@ -41,7 +41,7 @@ mongoose.connect(uri)
 
 // Express Session Setup
 const sessionConfig = {
-    secret: "secret", // Secret key to sign the session ID cookie
+    secret: process.env.SESSION_SECRET || 'secret', // Secret key to sign the session ID cookie
     resave: false, // Do not save session if unmodified
     saveUninitialized: false, // Save uninitialized sessions
     cookie: {
