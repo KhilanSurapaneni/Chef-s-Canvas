@@ -1,4 +1,4 @@
-export const handleSubmit = async (event, username, email, password, axios, navigate, backend_url, setError) => {
+export const handleSubmit = async (event, username, email, password, axios, navigate, backend_url, setError, setIsAuthenticated) => {
     event.preventDefault();
     setError(null);
     try {
@@ -6,9 +6,9 @@ export const handleSubmit = async (event, username, email, password, axios, navi
             headers: {
                 'Content-Type': 'application/json',
             },
+            withCredentials: true
         });
-        const user = response.data;
-        console.log(user);
+        setIsAuthenticated(true); // Set authentication state to true
         navigate("/recipes");
     } catch (error) {
         if (error.response) {
@@ -35,7 +35,8 @@ export const handleSubmit = async (event, username, email, password, axios, navi
     }
 };
 
-export const handleSubmitLogin = async (event, username, password, axios, navigate, backend_url, setError) => {
+
+export const handleSubmitLogin = async (event, username, password, axios, navigate, backend_url, setError, setIsAuthenticated) => {
     event.preventDefault();
     setError(null);
     try {
@@ -43,9 +44,9 @@ export const handleSubmitLogin = async (event, username, password, axios, naviga
             headers: {
                 'Content-Type': 'application/json',
             },
+            withCredentials: true
         });
-        const user = response.data.user;
-        console.log(user);
+        setIsAuthenticated(true); // Set authentication state to true
         navigate("/recipes");
     } catch (error) {
         if (error.response && error.response.status === 401) {
@@ -75,3 +76,4 @@ export const handleSubmitLogin = async (event, username, password, axios, naviga
         console.error('Error config:', error.config);
     }
 };
+

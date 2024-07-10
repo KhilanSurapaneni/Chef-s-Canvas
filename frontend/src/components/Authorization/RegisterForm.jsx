@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { handleSubmit } from './functions';
 import InputField from './InputField';
 import ErrorMessage from './ErrorMessage';
+import { AuthContext } from '../../AuthContext';
 
 const RegisterForm = ({ backend_url }) => {
     const [username, setUsername] = useState('');
@@ -11,9 +12,10 @@ const RegisterForm = ({ backend_url }) => {
     const [password, setPassword] = useState('');
     const [error, setError] = useState(null);
     const navigate = useNavigate();
+    const { setIsAuthenticated } = useContext(AuthContext); // Use AuthContext to get setIsAuthenticated
 
     return (
-        <form onSubmit={(event) => handleSubmit(event, username, email, password, axios, navigate, backend_url, setError)} className="space-y-4">
+        <form onSubmit={(event) => handleSubmit(event, username, email, password, axios, navigate, backend_url, setError, setIsAuthenticated)} className="space-y-4">
             <ErrorMessage message={error} />
             <InputField
                 id="username"

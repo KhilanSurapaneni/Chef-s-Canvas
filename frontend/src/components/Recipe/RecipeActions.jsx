@@ -1,14 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom';
+import { AuthContext } from '../../AuthContext';
 
 const RecipeActions = ({ backend_url }) => {
   const { id } = useParams();
   const navigate = useNavigate();
+  const { isAuthenticated } = useContext(AuthContext); // Use AuthContext to get the authentication state
 
   const handleDelete = async () => {
     try {
-      await axios.delete(`${backend_url}/recipes/${id}`);
+      await axios.delete(`${backend_url}/recipes/${id}`, { withCredentials: true });
       navigate('/recipes');
     } catch (error) {
       if (error.response && (error.response.status === 401 || error.response.status === 403)) {
@@ -23,20 +25,24 @@ const RecipeActions = ({ backend_url }) => {
 
   return (
     <div className="flex justify-between mt-6 space-x-4">
-      <button
-        onClick={handleDelete}
-        className="px-6 py-3 bg-red-600 text-white rounded-lg shadow hover:bg-red-700 transition duration-300"
-      >
-        Delete
-      </button>
-      <button
-        onClick={() => {
-          navigate(`/recipes/${id}/edit`);
-        }}
-        className="px-6 py-3 bg-yellow-600 text-white rounded-lg shadow hover:bg-yellow-700 transition duration-300"
-      >
-        Edit
-      </button>
+      {isAuthenticated && (
+        <>
+          <button
+            onClick={handleDelete}
+            className="px-6 py-3 bg-red-600 text-white rounded-lg shadow hover:bg-red-700 transition duration-300"
+          >
+            Delete
+          </button>
+          <button
+            onClick={() => {
+              navigate(`/recipes/${id}/edit`);
+            }}
+            className="px-6 py-3 bg-yellow-600 text-white rounded-lg shadow hover:bg-yellow-700 transition duration-300"
+          >
+            Edit
+          </button>
+        </>
+      )}
     </div>
   );
 };

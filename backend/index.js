@@ -21,7 +21,10 @@ const app = express();
 const port = process.env.PORT;
 
 // Enable CORS for all routes to allow the backend server to be used as an API
-app.use(cors());
+app.use(cors({
+    origin: "http://localhost:5173",
+    credentials: true
+}));
 
 // MongoDB and Mongoose Setup
 const uri = process.env.LOCAL_URI; // Get the MongoDB URI from environment variables
@@ -40,7 +43,7 @@ mongoose.connect(uri)
 const sessionConfig = {
     secret: "secret", // Secret key to sign the session ID cookie
     resave: false, // Do not save session if unmodified
-    saveUninitialized: true, // Save uninitialized sessions
+    saveUninitialized: false, // Save uninitialized sessions
     cookie: {
         expires: Date.now() + 1000 * 60 * 60 * 24 * 7, // Set cookie expiration to one week
         maxAge: 1000 * 60 * 60 * 24 * 7, // Set cookie max age to one week
@@ -60,12 +63,6 @@ passport.deserializeUser(User.deserializeUser());
 
 // Middleware to parse JSON requests
 app.use(express.json());
-
-app.get("/", async(req,res) => {
-    const user = new User({email: "k@gmail.com", username: "khilan"});
-    const newUser = await User.register(user, "12312412");
-    res.send(newUser);
-})
 
 // Recipe Routes
 app.use("/recipes", recipe_routes);

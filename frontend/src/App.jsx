@@ -1,7 +1,7 @@
 //In order to style this we used tailwind, which is similar to bootstraom that is why we have classes in the components
 
-import React from 'react';  // Importing React library
-import { Routes, Route } from 'react-router-dom';  // Importing Routes and Route components from react-router-dom
+import React, { useContext } from 'react';  // Importing React and useContext from React library
+import { Routes, Route, Navigate } from 'react-router-dom';  // Importing Routes, Route, and Navigate components from react-router-dom
 import RecipeList from "./pages/RecipeList";  // Importing the RecipeList component from the pages directory
 import Recipe from './pages/Recipe';
 import HomePage from './pages/HomePage';
@@ -12,8 +12,11 @@ import Register from './pages/Register';
 import Login from './pages/Login';
 import Error from './pages/Error';
 import './index.css';
+import { AuthContext } from './AuthContext';  // Importing AuthContext for authentication state
 
 const App = () => {
+  const { isAuthenticated } = useContext(AuthContext);  // Using AuthContext to get the authentication state
+
   return (
     <>
       <Navbar />
@@ -27,15 +30,14 @@ const App = () => {
       */}
         <Route path='/' element={<HomePage />} />
         <Route path='/recipes' element={<RecipeList />} />
-        <Route path='/recipes/create' element={<CreateRecipe />} />
+        <Route path='/recipes/create' element={isAuthenticated ? <CreateRecipe /> : <Navigate to="/login" />} />
         <Route path='/recipes/:id' element={<Recipe />} />
-        <Route path='/recipes/:id/edit' element={<EditRecipe />} />
-        <Route path='/register' element = {<Register />} />
-        <Route path='/login' element = {<Login />} />
+        <Route path='/recipes/:id/edit' element={isAuthenticated ? <EditRecipe /> : <Navigate to="/login" />} />
+        <Route path='/register' element={<Register />} />
+        <Route path='/login' element={<Login />} />
         <Route path="*" element={<Error />} /> {/* Catch-all route for undefined routes */}
       </Routes>
     </>
-
   );
 }
 

@@ -1,5 +1,5 @@
 import express from 'express';
-import { logout_user, register_user } from '../controllers/user.js';
+import { logged_in, logout_user, register_user } from '../controllers/user.js';
 import passport from 'passport';
 import catchAsync from '../utils/catchAsync.js';
 import { isLoggedIn } from '../middleware.js';
@@ -35,4 +35,6 @@ router.route('/login')
 router.route("/logout")
     .post(isLoggedIn, logout_user);
 
+router.route("/loggedIn")
+    .get(logged_in);
 export default router;

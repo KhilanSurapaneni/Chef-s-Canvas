@@ -1,18 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { handleSubmitLogin } from './functions';
 import InputField from './InputField';
 import ErrorMessage from './ErrorMessage';
+import { AuthContext } from '../../AuthContext';
 
-const LoginForm = ({backend_url}) => {
+const LoginForm = ({ backend_url }) => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState(null);
     const navigate = useNavigate();
+    const { setIsAuthenticated } = useContext(AuthContext); // Use AuthContext to get setIsAuthenticated
 
     return (
-        <form onSubmit={(event) => handleSubmitLogin(event, username, password, axios, navigate, backend_url, setError)} className="space-y-4">
+        <form onSubmit={(event) => handleSubmitLogin(event, username, password, axios, navigate, backend_url, setError, setIsAuthenticated)} className="space-y-4">
             <ErrorMessage message={error} />
             <InputField
                 id="username"
