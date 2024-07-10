@@ -1,6 +1,5 @@
 import express from 'express';
-import { logged_in, logout_user, register_user } from '../controllers/user.js';
-import passport from 'passport';
+import { logged_in, login, logout_user, register_user } from '../controllers/user.js';
 import catchAsync from '../utils/catchAsync.js';
 import { isLoggedIn } from '../middleware.js';
 
@@ -12,25 +11,7 @@ router.route('/register')
 
 // Login route with custom authentication handling
 router.route('/login')
-    .post((req, res, next) => {
-        passport.authenticate('local', (err, user, info) => {
-            if (err) {
-                return next(err); // Pass error to the next middleware
-            }
-            if (!user) {
-                // Authentication failed, send a 401 response
-                return res.status(401).send({ message: 'Invalid username or password' });
-            }
-            // Log in the user
-            req.logIn(user, (err) => {
-                if (err) {
-                    return next(err); // Pass error to the next middleware
-                }
-                // Authentication and login successful, send a 200 response with user data
-                return res.status(200).send({ message: 'Login successful', user });
-            });
-        })(req, res, next); // Invoke the function returned by passport.authenticate with req, res, next
-    });
+    .post(login);
 
 router.route("/logout")
     .post(isLoggedIn, logout_user);
