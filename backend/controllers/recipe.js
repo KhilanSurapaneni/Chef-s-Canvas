@@ -38,3 +38,20 @@ export const update_recipe = async (req, res) => {
     }
     res.status(200).send(updated_recipe);
 }
+
+export const is_author = async (req,res) => {
+    const { id } = req.params;
+    try {
+        const recipe = await Recipe.findById(id);
+        if (!recipe) {
+            return res.status(404).json({ isAuthor: false });
+        }
+        if (req.user && recipe.created_by.equals(req.user._id)) {
+            return res.status(200).json({ isAuthor: true });
+        } else {
+            return res.status(200).json({ isAuthor: false });
+        }
+    } catch (error) {
+        return res.status(500).json({ isAuthor: false });
+    }
+}
