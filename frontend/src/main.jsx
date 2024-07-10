@@ -8,7 +8,7 @@ import { AuthProvider } from './AuthContext'; // Import AuthProvider for context
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-// Configure Axios to include credentials globally
+// Configure Axios to include credentials globally, allows us to use cookies
 axios.defaults.withCredentials = true;
 
 ReactDOM.createRoot(document.getElementById('root')).render(
@@ -27,15 +27,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           draggable
           pauseOnHover
           theme="colored"
-          style={{ 
-            color: '#ffffff', // White text
-            fontSize: '12px', // Smaller font size
-            borderRadius: '8px', // Rounded corners
-            boxShadow: 'none', // Remove shadow
-            padding: '8px 16px', // Smaller padding
-            maxWidth: '300px', // Max width
-            marginTop: '10px', // Margin from the top
-          }}
         />
       </BrowserRouter>
     </AuthProvider>

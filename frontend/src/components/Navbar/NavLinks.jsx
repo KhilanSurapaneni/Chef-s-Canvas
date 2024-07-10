@@ -11,16 +11,29 @@ const NavLinks = () => {
 
   const handleLogout = async () => {
     try {
-      await axios.post(`${backend_url}/logout`, {}, { withCredentials: true });
-      setIsAuthenticated(false);
-      toast.success("Succesfully logged out!")
-      navigate('/');
+        // Send a POST request to the backend to log out the user
+        await axios.post(`${backend_url}/logout`, {}, { withCredentials: true });
+
+        // Set the authentication state to false
+        setIsAuthenticated(false);
+
+        // Show a success toast message
+        toast.success("Succesfully logged out!");
+
+        // Navigate to the home page
+        navigate('/');
     } catch (error) {
-      const errorMessage = error.response?.data?.message || 'An error occurred during logout. Please try again later.';
-      navigate('/error', { state: { message: errorMessage } });
-      console.error('Error logging out:', error);
+        // Extract error message from the response or use a default message
+        const errorMessage = error.response?.data?.message || 'An error occurred during logout. Please try again later.';
+
+        // Navigate to the error page with the error message
+        navigate('/error', { state: { message: errorMessage } });
+
+        // Log the error details to the console
+        console.error('Error logging out:', error);
     }
   };
+
 
   return (
     <div className="flex space-x-4">

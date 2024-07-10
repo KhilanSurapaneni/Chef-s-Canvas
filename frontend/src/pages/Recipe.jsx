@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Spinner from '../components/Spinner';
-import BackButton from '../components/Recipe/BackButton';
 import RecipeDetails from '../components/Recipe/RecipeDetails';
 import RecipeActions from '../components/Recipe/RecipeActions';
 
