@@ -23,7 +23,7 @@ export const logout_user = (req, res, next) => {
     });
 }
 
-export const login = (req, res, next) => {
+export const login_user = (req, res, next) => {
     passport.authenticate('local', (err, user, info) => {
         if (err) {
             return next(err); // Pass error to the next middleware
