@@ -45,14 +45,14 @@ export const is_author = async (req,res) => {
     try {
         const recipe = await Recipe.findById(id);
         if (!recipe) {
-            return res.status(404).json({ isAuthor: false });
+            return res.status(404).send({ isAuthor: false });
         }
         if (req.user && recipe.created_by.equals(req.user._id)) {
-            return res.status(200).json({ isAuthor: true });
+            return res.status(200).send({ isAuthor: true });
         } else {
-            return res.status(200).json({ isAuthor: false });
+            return res.status(200).send({ isAuthor: false });
         }
     } catch (error) {
-        return res.status(500).json({ isAuthor: false });
+        return res.status(500).send({ isAuthor: false });
     }
 }
