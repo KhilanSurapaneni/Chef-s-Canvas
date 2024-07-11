@@ -1,5 +1,7 @@
 import mongoose from 'mongoose';
+import Review from './review';
 
+// Define the Recipe schema
 const recipeSchema = new mongoose.Schema({
   title: {
     type: String,
@@ -29,10 +31,6 @@ const recipeSchema = new mongoose.Schema({
       },
       message: 'At least one direction is required.'
     }
-  },
-  created_at: {
-    type: Date,
-    default: Date.now
   },
   image: {
     type: String,
@@ -71,9 +69,23 @@ const recipeSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",
     required: true
+  },
+  reviews: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Review"
+  }]
+}, { timestamps: true });
+
+// Middleware to delete associated reviews when a recipe is deleted
+recipeSchema.post("findOneAndDelete", async function (doc) {
+  if (doc && doc.reviews && doc.reviews.length > 0) {
+    await Review.deleteMany({
+      _id: { $in: doc.reviews }
+    });
   }
 });
 
+// Create the Recipe model
 const Recipe = mongoose.model('Recipe', recipeSchema);
 
 export default Recipe;

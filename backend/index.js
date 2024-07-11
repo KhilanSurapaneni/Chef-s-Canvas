@@ -11,6 +11,7 @@ import passport from 'passport'; // Import Passport for authentication
 import LocalStrategy from "passport-local"; // Import Passport's Local Strategy
 import recipe_routes from "./routes/recipe.js"; // Import routes for recipe-related operations
 import user_routes from "./routes/user.js"; // Import routes for user-related operations
+import review_routes from "./routes/review.js"; // Import routes for review-related operations
 import ExpressError from "./utils/expressError.js"; // Import custom error handling class
 import User from "./models/user.js"; // Import User model
 
@@ -68,6 +69,8 @@ app.use(express.json());
 app.use("/recipes", recipe_routes);
 // User Routes
 app.use("/", user_routes);
+// Review Routes
+app.use("/recipes/:id/reviews", review_routes);
 
 // 404 Error Routes - Handle undefined routes
 app.all("*", (req, res, next) => {

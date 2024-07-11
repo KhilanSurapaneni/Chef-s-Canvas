@@ -8,7 +8,14 @@ export const all_recipes = async (req, res) => {
 
 export const find_recipe = async (req, res) => {
     const { id } = req.params;
-    const recipe = await Recipe.findById(id).populate("created_by");
+    
+    const recipe = await Recipe.findById(id)
+    .populate('created_by') // Populate the created_by field
+    .populate({
+        path: 'reviews', // Populate the reviews field
+        populate: { path: 'created_by' } // Populate the created_by field of each review
+    });
+
     if (!recipe) {
         throw new ExpressError('Recipe not found', 404);
     }

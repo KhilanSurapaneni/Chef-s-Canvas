@@ -7,7 +7,6 @@ const recipes = [
         { ingredient: 'Tomato Sauce', quantity: 150 }
       ],
       directions: ['Boil spaghetti', 'Cook beef', 'Add sauce to beef', 'Mix spaghetti with sauce'],
-      created_at: new Date(),
       image: 'https://www.eatright.org/-/media/images/eatright-landing-pages/foodgroupslp_804x482.jpg?as=0&w=967&rev=d0d1ce321d944bbe82024fff81c938e7&hash=E6474C8EFC5BE5F0DA9C32D4A797D10D',
       prep_time: 15,
       cook_time: 30,
@@ -25,7 +24,7 @@ const recipes = [
         { ingredient: 'Coconut Milk', quantity: 200 }
       ],
       directions: ['Cut chicken into pieces', 'Cook chicken with curry powder', 'Add coconut milk', 'Simmer until cooked'],
-      created_at: new Date(),
+
       image: 'https://www.eatright.org/-/media/images/eatright-landing-pages/foodgroupslp_804x482.jpg?as=0&w=967&rev=d0d1ce321d944bbe82024fff81c938e7&hash=E6474C8EFC5BE5F0DA9C32D4A797D10D',
       prep_time: 20,
       cook_time: 40,
@@ -44,7 +43,7 @@ const recipes = [
         { ingredient: 'Onions', quantity: 100 }
       ],
       directions: ['Brown beef', 'Add vegetables', 'Simmer until tender'],
-      created_at: new Date(),
+
       image: 'https://www.eatright.org/-/media/images/eatright-landing-pages/foodgroupslp_804x482.jpg?as=0&w=967&rev=d0d1ce321d944bbe82024fff81c938e7&hash=E6474C8EFC5BE5F0DA9C32D4A797D10D',
       prep_time: 30,
       cook_time: 120,
@@ -63,7 +62,6 @@ const recipes = [
         { ingredient: 'Soy Sauce', quantity: 50 }
       ],
       directions: ['Chop vegetables', 'Stir fry with soy sauce'],
-      created_at: new Date(),
       image: 'https://www.eatright.org/-/media/images/eatright-landing-pages/foodgroupslp_804x482.jpg?as=0&w=967&rev=d0d1ce321d944bbe82024fff81c938e7&hash=E6474C8EFC5BE5F0DA9C32D4A797D10D',
       prep_time: 10,
       cook_time: 15,
@@ -81,7 +79,6 @@ const recipes = [
         { ingredient: 'Alfredo Sauce', quantity: 150 }
       ],
       directions: ['Cook pasta', 'Cook chicken', 'Mix with Alfredo sauce'],
-      created_at: new Date(),
       image: 'https://www.eatright.org/-/media/images/eatright-landing-pages/foodgroupslp_804x482.jpg?as=0&w=967&rev=d0d1ce321d944bbe82024fff81c938e7&hash=E6474C8EFC5BE5F0DA9C32D4A797D10D',
       prep_time: 15,
       cook_time: 20,
@@ -100,7 +97,6 @@ const recipes = [
         { ingredient: 'Cheese', quantity: 50 }
       ],
       directions: ['Cook beef', 'Assemble tacos with ingredients'],
-      created_at: new Date(),
       image: 'https://www.eatright.org/-/media/images/eatright-landing-pages/foodgroupslp_804x482.jpg?as=0&w=967&rev=d0d1ce321d944bbe82024fff81c938e7&hash=E6474C8EFC5BE5F0DA9C32D4A797D10D',
       prep_time: 10,
       cook_time: 15,
@@ -119,7 +115,6 @@ const recipes = [
         { ingredient: 'Basil', quantity: 10 }
       ],
       directions: ['Prepare dough', 'Add sauce and toppings', 'Bake in oven'],
-      created_at: new Date(),
       image: 'https://www.eatright.org/-/media/images/eatright-landing-pages/foodgroupslp_804x482.jpg?as=0&w=967&rev=d0d1ce321d944bbe82024fff81c938e7&hash=E6474C8EFC5BE5F0DA9C32D4A797D10D',
       prep_time: 20,
       cook_time: 25,
@@ -137,7 +132,6 @@ const recipes = [
         { ingredient: 'Butter', quantity: 10 }
       ],
       directions: ['Butter bread', 'Add cheese', 'Grill until golden'],
-      created_at: new Date(),
       image: 'https://www.eatright.org/-/media/images/eatright-landing-pages/foodgroupslp_804x482.jpg?as=0&w=967&rev=d0d1ce321d944bbe82024fff81c938e7&hash=E6474C8EFC5BE5F0DA9C32D4A797D10D',
       prep_time: 5,
       cook_time: 10,
@@ -156,7 +150,6 @@ const recipes = [
         { ingredient: 'Parmesan Cheese', quantity: 20 }
       ],
       directions: ['Chop lettuce', 'Add dressing and toppings'],
-      created_at: new Date(),
       image: 'https://www.eatright.org/-/media/images/eatright-landing-pages/foodgroupslp_804x482.jpg?as=0&w=967&rev=d0d1ce321d944bbe82024fff81c938e7&hash=E6474C8EFC5BE5F0DA9C32D4A797D10D',
       prep_time: 10,
       cook_time: 0,
@@ -175,7 +168,6 @@ const recipes = [
         { ingredient: 'Maple Syrup', quantity: 50 }
       ],
       directions: ['Mix ingredients', 'Cook on griddle', 'Serve with syrup'],
-      created_at: new Date(),
       image: 'https://www.eatright.org/-/media/images/eatright-landing-pages/foodgroupslp_804x482.jpg?as=0&w=967&rev=d0d1ce321d944bbe82024fff81c938e7&hash=E6474C8EFC5BE5F0DA9C32D4A797D10D',
       prep_time: 10,
       cook_time: 15,
