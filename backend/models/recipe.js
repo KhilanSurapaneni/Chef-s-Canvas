@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import Review from './review';
+import Review from './review.js';
 
 // Define the Recipe schema
 const recipeSchema = new mongoose.Schema({
