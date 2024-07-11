@@ -1,32 +1,47 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Card, CardActionArea, CardContent, CardMedia, Typography, Box, Divider } from '@mui/material';
 import RecipeTags from './RecipeTags';
 
 const RecipeItem = ({ recipe }) => {
   return (
-    <Link to={`/recipes/${recipe._id}`} className="transform hover:scale-105 transition-transform duration-300">
-      <div className="p-4 border rounded-lg shadow-md bg-white hover:shadow-lg transition-shadow duration-300">
-        <img
-          src={recipe.image}
+    <Card
+      component={Link}
+      to={`/recipes/${recipe._id}`}
+      sx={{
+        transform: 'scale(1)',
+        transition: 'transform 0.3s',
+        '&:hover': {
+          transform: 'scale(1.05)',
+        },
+      }}
+    >
+      <CardActionArea>
+        <CardMedia
+          component="img"
+          height="180"
+          image={recipe.image}
           alt={recipe.title}
-          className="w-full h-48 object-cover rounded-lg"
         />
-        <div className="mt-4">
-          <h2 className="text-2xl font-semibold text-gray-800">{recipe.title}</h2>
-          <div className="mt-2 text-gray-600">
-            <p>Prep Time: {recipe.prep_time} mins</p>
-            <p>Cook Time: {recipe.cook_time} mins</p>
-            <p>Servings: {recipe.servings}</p>
-            <p>Difficulty: {recipe.difficulty}</p>
-            <p>Calories: {recipe.nutrition.calories}</p>
-          </div>
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="div" color="textPrimary">
+            {recipe.title}
+          </Typography>
+          <Box sx={{ mt: 2, color: 'text.secondary' }}>
+            <Typography>Prep Time: {recipe.prep_time} mins</Typography>
+            <Typography>Cook Time: {recipe.cook_time} mins</Typography>
+            <Typography>Servings: {recipe.servings}</Typography>
+            <Typography>Difficulty: {recipe.difficulty}</Typography>
+            <Typography>Calories: {recipe.nutrition.calories}</Typography>
+          </Box>
           <RecipeTags tags={recipe.tags} />
-        </div>
-        <footer className="mt-4 text-sm text-center text-indigo-600 font-medium border-t pt-2">
-          Created by: {recipe.created_by?.username}
-        </footer>
-      </div>
-    </Link>
+          <Divider sx={{ my: 2 }} />
+          <Typography variant="body2" color="textSecondary" align="center">
+            Created by: {recipe.created_by?.username}
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+    </Card>
   );
 };
 

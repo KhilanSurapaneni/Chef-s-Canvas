@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import Spinner from '../components/Spinner';
+import { Container, Box, CircularProgress } from '@mui/material';
 import RecipeDetails from '../components/Recipe/RecipeDetails';
 import RecipeActions from '../components/Recipe/RecipeActions';
 import ReviewForm from '../components/Recipe/Reviews/ReviewForm';
@@ -34,16 +34,24 @@ const Recipe = () => {
     getData();
   }, [id, backend_url, navigate]);
 
-  if (loading) return <Spinner />;
+  if (loading) {
+    return (
+      <Container>
+        <Box display="flex" justifyContent="center" alignItems="center" height="100vh">
+          <CircularProgress />
+        </Box>
+      </Container>
+    );
+  }
 
   return (
-    <div className="container mx-auto my-8 p-4">
+    <Container sx={{ mt: 4 }}>
       <RecipeActions backend_url={backend_url} />
-      <article className="p-6 bg-white">
-        <RecipeDetails recipe={recipe}/>
-      </article>
+      <Box component="article" sx={{ p: 3, bgcolor: 'background.paper', borderRadius: 1 }}>
+        <RecipeDetails recipe={recipe} />
+      </Box>
       <ReviewForm backend_url={backend_url} />
-    </div>
+    </Container>
   );
 };
 

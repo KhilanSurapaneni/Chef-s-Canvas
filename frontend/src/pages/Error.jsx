@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
+import { Container, Box, Typography, Button, Paper } from '@mui/material';
 
 const Error = () => {
     const navigate = useNavigate();
@@ -12,18 +13,24 @@ const Error = () => {
     };
 
     return (
-        <div className="flex items-center justify-center min-h-screen bg-gray-100">
-            <div className="bg-white p-8 rounded shadow-md w-full max-w-md text-center">
-                <h2 className="text-2xl font-bold mb-6">Error</h2>
-                <p className="text-red-600 mb-4">{errorMessage}</p>
-                <button
+        <Container sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '100vh' }}>
+            <Paper elevation={3} sx={{ p: 4, maxWidth: 400, textAlign: 'center' }}>
+                <Typography variant="h4" component="h2" gutterBottom>
+                    Error
+                </Typography>
+                <Typography variant="body1" color="error" gutterBottom>
+                    {errorMessage}
+                </Typography>
+                <Button
                     onClick={handleBack}
-                    className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                    variant="contained"
+                    color="primary"
+                    sx={{ mt: 2 }}
                 >
                     Go Back to Home
-                </button>
-            </div>
-        </div>
+                </Button>
+            </Paper>
+        </Container>
     );
 };
 

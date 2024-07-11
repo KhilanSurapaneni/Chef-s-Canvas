@@ -1,18 +1,20 @@
 import React from 'react';
-import RecipeActions from '../Recipe/RecipeActions';
+import { Chip, Box } from '@mui/material';
 
 const RecipeTags = ({ tags }) => {
   return (
-    <div className="flex flex-wrap mt-2">
+    <Box sx={{ mt: 2, display: 'flex', flexWrap: 'wrap', gap: 1 }}>
       {tags.map((tag, index) => (
-        <span
+        <Chip
           key={index}
-          className="bg-blue-200 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded"
-        >
-          {tag}
-        </span>
+          label={tag}
+          color="primary"
+          variant="outlined"
+          size="small"
+          sx={{ fontWeight: 'bold' }}
+        />
       ))}
-    </div>
+    </Box>
   );
 };
 

@@ -1,11 +1,14 @@
 import React from 'react';
+import { Typography, Box } from '@mui/material';
 
 const RecipeSection = ({ title, children }) => {
   return (
-    <div className="mb-6">
-      <h2 className="text-2xl font-bold mb-4">{title}</h2>
+    <Box mb={6}>
+      <Typography variant="h5" component="h2" fontWeight="bold" mb={4}>
+        {title}
+      </Typography>
       {children}
-    </div>
+    </Box>
   );
 };
 

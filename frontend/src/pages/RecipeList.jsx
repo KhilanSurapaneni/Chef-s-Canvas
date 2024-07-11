@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import Spinner from '../components/Spinner';
+import { Container, Grid, CircularProgress, Typography, Box } from '@mui/material';
 import RecipeItem from '../components/RecipeList/RecipeItem';
 
 const RecipeList = () => {
@@ -28,18 +28,33 @@ const RecipeList = () => {
   }, [backend_url, navigate]);
 
   if (loading) {
-    return <Spinner />;
+    return (
+      <Container>
+        <Grid container justifyContent="center" alignItems="center" style={{ height: '100vh' }}>
+          <CircularProgress />
+        </Grid>
+      </Container>
+    );
   }
 
   return (
-    <div className="container mx-auto p-4">
-      <h1 className="text-2xl font-bold text-center mb-4">Recipes</h1>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+    <Container sx={{ mt: 4 }}>
+      <Box sx={{ textAlign: 'center', mb: 4 }}>
+        <Typography variant="h4" component="h1" gutterBottom>
+          Recipe List
+        </Typography>
+        <Typography variant="subtitle1" color="textSecondary">
+          Explore a variety of delicious recipes.
+        </Typography>
+      </Box>
+      <Grid container spacing={4}>
         {recipes.map((recipe) => (
-          <RecipeItem key={recipe._id} recipe={recipe} />
+          <Grid item key={recipe._id} xs={12} sm={6} md={4} lg={3}>
+            <RecipeItem recipe={recipe} />
+          </Grid>
         ))}
-      </div>
-    </div>
+      </Grid>
+    </Container>
   );
 };
 

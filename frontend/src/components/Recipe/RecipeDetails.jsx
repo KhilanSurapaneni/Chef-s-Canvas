@@ -1,4 +1,5 @@
 import React from 'react';
+import { Box, Typography, Grid, List, ListItem, ListItemText, Divider } from '@mui/material';
 import RecipeTags from '../RecipeList/RecipeTags';
 import RecipeTitle from './Details/RecipeTitle';
 import RecipeImage from './Details/RecipeImage';
@@ -6,51 +7,55 @@ import RecipeSection from './Details/RecipeSection';
 
 const RecipeDetails = ({ recipe }) => {
   return (
-    <>      
-      <div className="p-8 flex flex-col items-center">
+    <Box sx={{ padding: 2 }}>
+      <Box sx={{ padding: 2, marginBottom: 2 }}>
         <RecipeImage image={recipe.image} title={recipe.title} />
         <RecipeTitle title={recipe.title} created_by={recipe.created_by.username} />
-        <div className="mt-4 w-full lg:w-2/3">
+        <Box sx={{ marginTop: 2, width: '100%', lg: { width: '67%' } }}>
           <RecipeSection title="Ingredients">
-            <ul className="list-disc list-inside mb-6 text-md text-gray-700">
+            <List sx={{ listStyleType: 'disc', pl: 2 }}>
               {recipe.ingredients.map((ingredient) => (
-                <li key={ingredient._id} className="py-1">
-                  <span className="font-medium">{ingredient.quantity}g</span> {ingredient.ingredient}
-                </li>
+                <ListItem key={ingredient._id} sx={{ display: 'list-item' }}>
+                  <ListItemText primary={`${ingredient.quantity}g ${ingredient.ingredient}`} />
+                </ListItem>
               ))}
-            </ul>
+            </List>
           </RecipeSection>
+          <Divider sx={{ marginY: 2 }} />
           <RecipeSection title="Directions">
-            <ol className="list-decimal list-inside mb-6 text-md text-gray-700">
+            <List sx={{ listStyleType: 'decimal', pl: 2 }}>
               {recipe.directions.map((direction, index) => (
-                <li key={index} className="mb-2">
-                  {direction}
-                </li>
+                <ListItem key={index} sx={{ display: 'list-item' }}>
+                  <ListItemText primary={direction} />
+                </ListItem>
               ))}
-            </ol>
+            </List>
           </RecipeSection>
+          <Divider sx={{ marginY: 2 }} />
           <RecipeSection title="Nutrition">
-            <div className="grid grid-cols-2 gap-4 text-md text-gray-700">
-              <p><span className="font-medium">Calories:</span> {recipe.nutrition.calories}</p>
-              <p><span className="font-medium">Fat:</span> {recipe.nutrition.fat}g</p>
-              <p><span className="font-medium">Protein:</span> {recipe.nutrition.protein}g</p>
-              <p><span className="font-medium">Carbs:</span> {recipe.nutrition.carbs}g</p>
-            </div>
+            <Grid container spacing={2}>
+              <Grid item xs={6}><Typography>Calories: {recipe.nutrition.calories}</Typography></Grid>
+              <Grid item xs={6}><Typography>Fat: {recipe.nutrition.fat}g</Typography></Grid>
+              <Grid item xs={6}><Typography>Protein: {recipe.nutrition.protein}g</Typography></Grid>
+              <Grid item xs={6}><Typography>Carbs: {recipe.nutrition.carbs}g</Typography></Grid>
+            </Grid>
           </RecipeSection>
+          <Divider sx={{ marginY: 2 }} />
           <RecipeSection title="Details">
-            <div className="grid grid-cols-2 gap-4 text-md text-gray-700">
-              <p><span className="font-medium">Prep Time:</span> {recipe.prep_time} mins</p>
-              <p><span className="font-medium">Cook Time:</span> {recipe.cook_time} mins</p>
-              <p><span className="font-medium">Servings:</span> {recipe.servings}</p>
-              <p><span className="font-medium">Difficulty:</span> {recipe.difficulty}</p>
-            </div>
+            <Grid container spacing={2}>
+              <Grid item xs={6}><Typography>Prep Time: {recipe.prep_time} mins</Typography></Grid>
+              <Grid item xs={6}><Typography>Cook Time: {recipe.cook_time} mins</Typography></Grid>
+              <Grid item xs={6}><Typography>Servings: {recipe.servings}</Typography></Grid>
+              <Grid item xs={6}><Typography>Difficulty: {recipe.difficulty}</Typography></Grid>
+            </Grid>
           </RecipeSection>
+          <Divider sx={{ marginY: 2 }} />
           <RecipeSection title="Tags">
             <RecipeTags tags={recipe.tags} />
           </RecipeSection>
-        </div>
-      </div>
-    </>
+        </Box>
+      </Box>
+    </Box>
   );
 };
 

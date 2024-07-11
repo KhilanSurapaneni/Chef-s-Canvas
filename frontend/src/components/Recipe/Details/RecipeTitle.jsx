@@ -1,11 +1,16 @@
 import React from 'react';
+import { Typography, Box } from '@mui/material';
 
 const RecipeTitle = ({ title, created_by }) => {
   return (
-    <>
-      <h1 className="text-4xl font-bold mb-2">{title}</h1>
-      <h3 className="text-lg text-gray-600 mb-6">by {created_by}</h3>
-    </>
+    <Box textAlign="center" mb={4}>
+      <Typography variant="h3" component="h1" fontWeight="bold" mb={2}>
+        {title}
+      </Typography>
+      <Typography variant="subtitle1" color="textSecondary">
+        by {created_by}
+      </Typography>
+    </Box>
   );
 };
 
