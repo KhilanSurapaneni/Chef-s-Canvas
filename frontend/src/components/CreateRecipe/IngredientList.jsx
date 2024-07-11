@@ -1,21 +1,27 @@
 import React from 'react';
+import { TextField, IconButton, Button, Box, Typography } from '@mui/material';
+import RemoveCircleIcon from '@mui/icons-material/RemoveCircle';
+import AddCircleIcon from '@mui/icons-material/AddCircle';
 
 const IngredientList = ({ ingredients, handleIngredientChange, addIngredient, removeIngredient }) => (
-  <div className="mb-4">
-    <label className="block text-lg font-medium mb-2">Ingredients</label>
-    <ol>
+  <Box mb={4}>
+    <Typography variant="h6">Ingredients</Typography>
+    <ol style={{ paddingLeft: 0 }}>
       {ingredients.map((ingredient, index) => (
-        <li key={index} className="mb-3 flex items-center space-x-2">
-          <input
+        <Box key={index} mb={3} display="flex" alignItems="center">
+          <TextField
             type="text"
             name="ingredient"
             placeholder="Ingredient"
             value={ingredient.ingredient}
             onChange={(e) => handleIngredientChange(index, e)}
             required
-            className="border border-gray-300 rounded px-4 py-2 w-full"
+            variant="outlined"
+            label="Ingredient"
+            fullWidth
+            margin="normal"
           />
-          <input
+          <TextField
             type="number"
             name="quantity"
             placeholder="Quantity"
@@ -24,26 +30,34 @@ const IngredientList = ({ ingredients, handleIngredientChange, addIngredient, re
             min="0.01"
             step="any"
             required
-            className="border border-gray-300 rounded px-4 py-2 w-full"
+            variant="outlined"
+            label="Quantity"
+            fullWidth
+            margin="normal"
+            sx={{ ml: 2 }}
           />
-          <button
-            type="button"
-            className="bg-red-500 text-white rounded px-4 py-2"
+          <IconButton
             onClick={() => removeIngredient(index)}
+            color="error"
+            sx={{ ml: 2 }}
           >
-            Remove
-          </button>
-        </li>
+            <RemoveCircleIcon />
+          </IconButton>
+        </Box>
       ))}
     </ol>
-    <button
-      type="button"
-      className="bg-blue-500 text-white rounded px-4 py-2 mb-3"
-      onClick={addIngredient}
-    >
-      Add Ingredient
-    </button>
-  </div>
+    <Box display="flex" justifyContent="center">
+      <Button
+        type="button"
+        color="primary"
+        variant="contained"
+        startIcon={<AddCircleIcon />}
+        onClick={addIngredient}
+      >
+        Add Ingredient
+      </Button>
+    </Box>
+  </Box>
 );
 
 export default IngredientList;

@@ -1,20 +1,21 @@
 import React from 'react';
+import { FormControl, InputLabel, Select, MenuItem } from '@mui/material';
 
 const FormSelect = ({ label, id, name, value, onChange, options }) => (
-  <div className="mb-4">
-    <label htmlFor={id} className="block text-lg font-medium mb-2">{label}</label>
-    <select
+  <FormControl fullWidth margin="normal" variant="outlined">
+    <InputLabel htmlFor={id}>{label}</InputLabel>
+    <Select
+      label={label}
       id={id}
       name={name}
       value={value}
       onChange={onChange}
-      className="border border-gray-300 rounded px-4 py-2 w-full"
     >
       {options.map((option) => (
-        <option key={option.value} value={option.value}>{option.label}</option>
+        <MenuItem key={option.value} value={option.value}>{option.label}</MenuItem>
       ))}
-    </select>
-  </div>
+    </Select>
+  </FormControl>
 );
 
 export default FormSelect;

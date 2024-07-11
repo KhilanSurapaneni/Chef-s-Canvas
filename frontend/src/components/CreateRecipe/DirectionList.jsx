@@ -1,42 +1,50 @@
 // src/components/CreateRecipe/DirectionList.js
 
 import React from 'react';
+import { Box, Button, IconButton, List, ListItem, ListItemText, ListItemSecondaryAction, Typography, Divider } from '@mui/material';
+import { Add as AddIcon, Delete as DeleteIcon } from '@mui/icons-material';
 import FormTextArea from './FormTextArea';
 
 const DirectionList = ({ directions, handleDirectionChange, addDirection, removeDirection }) => (
-  <div className="mb-4">
-    <label className="block text-lg font-medium mb-2">Directions</label>
-    <ol>
+  <Box mb={4}>
+    <Typography variant="h6" component="label" gutterBottom>
+      Directions
+    </Typography>
+    <List>
       {directions.map((direction, index) => (
-        <li key={index} className="mb-3 flex items-center space-x-2">
-          <div className="flex-grow">
-            <FormTextArea
-              label=""
-              id={`direction-${index}`}
-              name="direction"
-              value={direction}
-              onChange={(e) => handleDirectionChange(index, e)}
-              required
-            />
-          </div>
-          <button
-            type="button"
-            className="bg-red-500 text-white rounded px-4 py-2"
-            onClick={() => removeDirection(index)}
-          >
-            Remove
-          </button>
-        </li>
+        <div key={index}>
+          <ListItem>
+            <Box flexGrow={1} pr={2}>
+              <FormTextArea
+                label=""
+                id={`direction-${index}`}
+                name="direction"
+                value={direction}
+                onChange={(e) => handleDirectionChange(index, e)}
+                required
+                fullWidth
+              />
+            </Box>
+            <ListItemSecondaryAction>
+              <IconButton edge="end" aria-label="remove" color="secondary" onClick={() => removeDirection(index)}>
+                <DeleteIcon />
+              </IconButton>
+            </ListItemSecondaryAction>
+          </ListItem>
+          {index < directions.length - 1 && <Divider />}
+        </div>
       ))}
-    </ol>
-    <button
-      type="button"
-      className="bg-blue-500 text-white rounded px-4 py-2 mb-3"
+    </List>
+    <Button
+      variant="contained"
+      color="primary"
+      startIcon={<AddIcon />}
       onClick={addDirection}
+      sx={{ mt: 2 }}
     >
       Add Direction
-    </button>
-  </div>
+    </Button>
+  </Box>
 );
 
 export default DirectionList;

@@ -1,20 +1,22 @@
 import React from 'react';
+import { TextField, FormControl, InputLabel } from '@mui/material';
 
 const FormTextArea = ({ label, id, name, value, onChange, required }) => (
-  <div className="mb-4">
-    <label htmlFor={id} className="block text-lg font-medium mb-2">{label}</label>
-    <textarea
+  <FormControl fullWidth margin="normal" variant="outlined">
+    <InputLabel htmlFor={id} shrink>
+      {label}
+    </InputLabel>
+    <TextField
       id={id}
       name={name}
       value={value}
       onChange={onChange}
       required={required}
-      className="border border-gray-300 rounded px-4 py-2 w-full"
-    ></textarea>
-  </div>
+      multiline
+      rows={4}
+      variant="outlined"
+    />
+  </FormControl>
 );
 
 export default FormTextArea;
-
-
-

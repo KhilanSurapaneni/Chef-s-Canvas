@@ -1,19 +1,22 @@
 import React from 'react';
+import { TextField } from '@mui/material';
 
-const FormInput = ({ label, id, name, type, value, onChange, required, placeholder }) => (
-  <div className="mb-4">
-    <label htmlFor={id} className="block text-lg font-medium mb-2">{label}</label>
-    <input
-      type={type}
-      id={id}
-      name={name}
-      value={value}
-      onChange={onChange}
-      required={required}
-      placeholder={placeholder}
-      className="border border-gray-300 rounded px-4 py-2 w-full"
-    />
-  </div>
+const FormInput = ({ label, id, name, type, value, onChange, required = true, placeholder }) => (
+  <TextField
+    label={label}
+    id={id}
+    name={name}
+    type={type}
+    value={value}
+    onChange={onChange}
+    required={required}
+    placeholder={placeholder}
+    fullWidth
+    margin="normal"
+    variant="outlined"
+    error={required && value === ''}
+    helperText={required && value === '' ? 'This field is required' : ''}
+  />
 );
 
 export default FormInput;
