@@ -4,6 +4,7 @@ import axios from 'axios';
 import Spinner from '../components/Spinner';
 import RecipeDetails from '../components/Recipe/RecipeDetails';
 import RecipeActions from '../components/Recipe/RecipeActions';
+import ReviewForm from '../components/Recipe/Reviews/ReviewForm';
 
 const Recipe = () => {
   const { id } = useParams();
@@ -41,6 +42,7 @@ const Recipe = () => {
       <article className="p-6 bg-white">
         <RecipeDetails recipe={recipe}/>
       </article>
+      <ReviewForm backend_url={backend_url} />
     </div>
   );
 };

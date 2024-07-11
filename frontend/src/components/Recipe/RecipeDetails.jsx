@@ -6,8 +6,7 @@ import RecipeSection from './Details/RecipeSection';
 
 const RecipeDetails = ({ recipe }) => {
   return (
-    <>
-\      
+    <>      
       <div className="p-8 flex flex-col items-center">
         <RecipeImage image={recipe.image} title={recipe.title} />
         <RecipeTitle title={recipe.title} created_by={recipe.created_by.username} />
