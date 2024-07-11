@@ -8,6 +8,7 @@ const RecipeActions = ({ backend_url }) => {
     const { id } = useParams();
     const { isAuthenticated, isAuthor, checkAuthorStatus } = useContext(AuthContext);
     const navigate = useNavigate();
+
     useEffect(() => {
         if (isAuthenticated) {
             checkAuthorStatus(id);
@@ -18,10 +19,10 @@ const RecipeActions = ({ backend_url }) => {
         try {
             // Send a DELETE request to the backend to delete the recipe
             await axios.delete(`${backend_url}/recipes/${id}`, { withCredentials: true });
-    
+
             // Show a success toast message
             toast.success("Successfully deleted recipe!");
-    
+
             // Navigate to the recipes list page
             navigate('/recipes');
         } catch (error) {
@@ -32,24 +33,23 @@ const RecipeActions = ({ backend_url }) => {
             } else {
                 // Extract error message from the response or use a default message
                 const errorMessage = error.response?.data?.message || 'An error occurred while deleting the recipe. Please try again later.';
-    
+
                 // Navigate to the error page with the error message
                 navigate('/error', { state: { message: errorMessage } });
             }
-    
+
             // Log the error details to the console
             console.error('Error deleting recipe:', error);
         }
     };
-    
 
     return (
-        <div className="flex justify-between mt-6 space-x-4">
+        <div className="flex justify-end mt-6 space-x-2">
             {isAuthor && (
                 <>
                     <button
                         onClick={handleDelete}
-                        className="px-6 py-3 bg-red-600 text-white rounded-lg shadow hover:bg-red-700 transition duration-300"
+                        className="px-3 py-1 bg-red-300 text-gray-700 rounded-lg shadow-sm hover:bg-red-400 transition duration-300"
                     >
                         Delete
                     </button>
@@ -57,7 +57,7 @@ const RecipeActions = ({ backend_url }) => {
                         onClick={() => {
                             navigate(`/recipes/${id}/edit`);
                         }}
-                        className="px-6 py-3 bg-yellow-600 text-white rounded-lg shadow hover:bg-yellow-700 transition duration-300"
+                        className="px-3 py-1 bg-yellow-300 text-gray-700 rounded-lg shadow-sm hover:bg-yellow-400 transition duration-300"
                     >
                         Edit
                     </button>

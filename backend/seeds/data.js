@@ -1,182 +1,2003 @@
 const recipes = [
-    {
-      title: 'Spaghetti Bolognese',
-      ingredients: [
-        { ingredient: 'Spaghetti', quantity: 200 },
-        { ingredient: 'Ground Beef', quantity: 300 },
-        { ingredient: 'Tomato Sauce', quantity: 150 }
-      ],
-      directions: ['Boil spaghetti', 'Cook beef', 'Add sauce to beef', 'Mix spaghetti with sauce'],
-      image: 'https://www.eatright.org/-/media/images/eatright-landing-pages/foodgroupslp_804x482.jpg?as=0&w=967&rev=d0d1ce321d944bbe82024fff81c938e7&hash=E6474C8EFC5BE5F0DA9C32D4A797D10D',
-      prep_time: 15,
-      cook_time: 30,
-      servings: 4,
-      nutrition: { calories: 500, fat: 20, protein: 25, carbs: 60 },
-      tags: ['Italian', 'Pasta'],
-      difficulty: 'Medium',
-      created_by: "668ec06d8f7e6db3cbc219c1"
+  {
+    "title": "Authentic Chicken Curry",
+    "ingredients": [
+      {
+        "ingredient": "Chicken Breast",
+        "quantity": 500
+      },
+      {
+        "ingredient": "Curry Powder",
+        "quantity": 15
+      },
+      {
+        "ingredient": "Coconut Milk",
+        "quantity": 400
+      },
+      {
+        "ingredient": "Onion",
+        "quantity": 1
+      },
+      {
+        "ingredient": "Garlic",
+        "quantity": 4
+      },
+      {
+        "ingredient": "Ginger",
+        "quantity": 1
+      },
+      {
+        "ingredient": "Tomatoes",
+        "quantity": 2
+      },
+      {
+        "ingredient": "Vegetable Oil",
+        "quantity": 2
+      },
+      {
+        "ingredient": "Salt",
+        "quantity": 1
+      },
+      {
+        "ingredient": "Fresh Cilantro",
+        "quantity": 1
+      }
+    ],
+    "directions": [
+      "Finely chop the onion, mince the garlic, and grate the ginger.",
+      "Cut the chicken breasts into bite-sized pieces.",
+      "Heat the vegetable oil in a large pot over medium heat.",
+      "Add the chopped onion and cook until translucent, about 5 minutes.",
+      "Add the minced garlic and grated ginger and cook for another 2 minutes.",
+      "Stir in the curry powder and cook for 1 minute until fragrant.",
+      "Add the chicken pieces and cook until they are no longer pink, about 5-7 minutes.",
+      "Add the chopped tomatoes and cook until they soften, about 5 minutes.",
+      "Pour in the coconut milk and stir to combine.",
+      "Bring the mixture to a simmer, then reduce the heat to low and cook for 20-25 minutes, stirring occasionally.",
+      "Season with salt to taste.",
+      "Garnish with freshly chopped cilantro before serving."
+    ],
+    "image": "https://myfoodstory.com/wp-content/uploads/2020/10/Dhaba-Style-Chicken-Curry-2.jpg",
+    "prep_time": 20,
+    "cook_time": 40,
+    "servings": 4,
+    "nutrition": {
+      "calories": 600,
+      "fat": 30,
+      "protein": 40,
+      "carbs": 50
     },
-    {
-      title: 'Chicken Curry',
-      ingredients: [
-        { ingredient: 'Chicken Breast', quantity: 250 },
-        { ingredient: 'Curry Powder', quantity: 15 },
-        { ingredient: 'Coconut Milk', quantity: 200 }
-      ],
-      directions: ['Cut chicken into pieces', 'Cook chicken with curry powder', 'Add coconut milk', 'Simmer until cooked'],
-
-      image: 'https://www.eatright.org/-/media/images/eatright-landing-pages/foodgroupslp_804x482.jpg?as=0&w=967&rev=d0d1ce321d944bbe82024fff81c938e7&hash=E6474C8EFC5BE5F0DA9C32D4A797D10D',
-      prep_time: 20,
-      cook_time: 40,
-      servings: 4,
-      nutrition: { calories: 600, fat: 30, protein: 40, carbs: 50 },
-      tags: ['Indian', 'Curry'],
-      difficulty: 'Medium',
-      created_by: "668ec06d8f7e6db3cbc219c1"
+    "tags": [
+      "Indian",
+      "Curry"
+    ],
+    "difficulty": "Medium",
+    "created_by": "668ec06d8f7e6db3cbc219c1"
+  }, {
+    "title": "Authentic Chicken Curry",
+    "ingredients": [
+      {
+        "ingredient": "Chicken Breast",
+        "quantity": 500
+      },
+      {
+        "ingredient": "Curry Powder",
+        "quantity": 15
+      },
+      {
+        "ingredient": "Coconut Milk",
+        "quantity": 400
+      },
+      {
+        "ingredient": "Onion",
+        "quantity": 1
+      },
+      {
+        "ingredient": "Garlic",
+        "quantity": 4
+      },
+      {
+        "ingredient": "Ginger",
+        "quantity": 1
+      },
+      {
+        "ingredient": "Tomatoes",
+        "quantity": 2
+      },
+      {
+        "ingredient": "Vegetable Oil",
+        "quantity": 2
+      },
+      {
+        "ingredient": "Salt",
+        "quantity": 1
+      },
+      {
+        "ingredient": "Fresh Cilantro",
+        "quantity": 1
+      }
+    ],
+    "directions": [
+      "Finely chop the onion, mince the garlic, and grate the ginger.",
+      "Cut the chicken breasts into bite-sized pieces.",
+      "Heat the vegetable oil in a large pot over medium heat.",
+      "Add the chopped onion and cook until translucent, about 5 minutes.",
+      "Add the minced garlic and grated ginger and cook for another 2 minutes.",
+      "Stir in the curry powder and cook for 1 minute until fragrant.",
+      "Add the chicken pieces and cook until they are no longer pink, about 5-7 minutes.",
+      "Add the chopped tomatoes and cook until they soften, about 5 minutes.",
+      "Pour in the coconut milk and stir to combine.",
+      "Bring the mixture to a simmer, then reduce the heat to low and cook for 20-25 minutes, stirring occasionally.",
+      "Season with salt to taste.",
+      "Garnish with freshly chopped cilantro before serving."
+    ],
+    "image": "https://myfoodstory.com/wp-content/uploads/2020/10/Dhaba-Style-Chicken-Curry-2.jpg",
+    "prep_time": 20,
+    "cook_time": 40,
+    "servings": 4,
+    "nutrition": {
+      "calories": 600,
+      "fat": 30,
+      "protein": 40,
+      "carbs": 50
     },
-    {
-      title: 'Beef Stew',
-      ingredients: [
-        { ingredient: 'Beef', quantity: 500 },
-        { ingredient: 'Potatoes', quantity: 300 },
-        { ingredient: 'Carrots', quantity: 200 },
-        { ingredient: 'Onions', quantity: 100 }
-      ],
-      directions: ['Brown beef', 'Add vegetables', 'Simmer until tender'],
-
-      image: 'https://www.eatright.org/-/media/images/eatright-landing-pages/foodgroupslp_804x482.jpg?as=0&w=967&rev=d0d1ce321d944bbe82024fff81c938e7&hash=E6474C8EFC5BE5F0DA9C32D4A797D10D',
-      prep_time: 30,
-      cook_time: 120,
-      servings: 6,
-      nutrition: { calories: 700, fat: 25, protein: 50, carbs: 70 },
-      tags: ['American', 'Stew'],
-      difficulty: 'Hard',
-      created_by: "668ec06d8f7e6db3cbc219c1"
+    "tags": [
+      "Indian",
+      "Curry"
+    ],
+    "difficulty": "Medium",
+    "created_by": "668ec06d8f7e6db3cbc219c1"
+  }, {
+    "title": "Authentic Chicken Curry",
+    "ingredients": [
+      {
+        "ingredient": "Chicken Breast",
+        "quantity": 500
+      },
+      {
+        "ingredient": "Curry Powder",
+        "quantity": 15
+      },
+      {
+        "ingredient": "Coconut Milk",
+        "quantity": 400
+      },
+      {
+        "ingredient": "Onion",
+        "quantity": 1
+      },
+      {
+        "ingredient": "Garlic",
+        "quantity": 4
+      },
+      {
+        "ingredient": "Ginger",
+        "quantity": 1
+      },
+      {
+        "ingredient": "Tomatoes",
+        "quantity": 2
+      },
+      {
+        "ingredient": "Vegetable Oil",
+        "quantity": 2
+      },
+      {
+        "ingredient": "Salt",
+        "quantity": 1
+      },
+      {
+        "ingredient": "Fresh Cilantro",
+        "quantity": 1
+      }
+    ],
+    "directions": [
+      "Finely chop the onion, mince the garlic, and grate the ginger.",
+      "Cut the chicken breasts into bite-sized pieces.",
+      "Heat the vegetable oil in a large pot over medium heat.",
+      "Add the chopped onion and cook until translucent, about 5 minutes.",
+      "Add the minced garlic and grated ginger and cook for another 2 minutes.",
+      "Stir in the curry powder and cook for 1 minute until fragrant.",
+      "Add the chicken pieces and cook until they are no longer pink, about 5-7 minutes.",
+      "Add the chopped tomatoes and cook until they soften, about 5 minutes.",
+      "Pour in the coconut milk and stir to combine.",
+      "Bring the mixture to a simmer, then reduce the heat to low and cook for 20-25 minutes, stirring occasionally.",
+      "Season with salt to taste.",
+      "Garnish with freshly chopped cilantro before serving."
+    ],
+    "image": "https://myfoodstory.com/wp-content/uploads/2020/10/Dhaba-Style-Chicken-Curry-2.jpg",
+    "prep_time": 20,
+    "cook_time": 40,
+    "servings": 4,
+    "nutrition": {
+      "calories": 600,
+      "fat": 30,
+      "protein": 40,
+      "carbs": 50
     },
-    {
-      title: 'Vegetable Stir Fry',
-      ingredients: [
-        { ingredient: 'Broccoli', quantity: 200 },
-        { ingredient: 'Bell Pepper', quantity: 150 },
-        { ingredient: 'Carrots', quantity: 100 },
-        { ingredient: 'Soy Sauce', quantity: 50 }
-      ],
-      directions: ['Chop vegetables', 'Stir fry with soy sauce'],
-      image: 'https://www.eatright.org/-/media/images/eatright-landing-pages/foodgroupslp_804x482.jpg?as=0&w=967&rev=d0d1ce321d944bbe82024fff81c938e7&hash=E6474C8EFC5BE5F0DA9C32D4A797D10D',
-      prep_time: 10,
-      cook_time: 15,
-      servings: 4,
-      nutrition: { calories: 200, fat: 5, protein: 10, carbs: 30 },
-      tags: ['Chinese', 'Vegetarian'],
-      difficulty: 'Easy',
-      created_by: "668ec06d8f7e6db3cbc219c1"
+    "tags": [
+      "Indian",
+      "Curry"
+    ],
+    "difficulty": "Medium",
+    "created_by": "668ec06d8f7e6db3cbc219c1"
+  }, {
+    "title": "Authentic Chicken Curry",
+    "ingredients": [
+      {
+        "ingredient": "Chicken Breast",
+        "quantity": 500
+      },
+      {
+        "ingredient": "Curry Powder",
+        "quantity": 15
+      },
+      {
+        "ingredient": "Coconut Milk",
+        "quantity": 400
+      },
+      {
+        "ingredient": "Onion",
+        "quantity": 1
+      },
+      {
+        "ingredient": "Garlic",
+        "quantity": 4
+      },
+      {
+        "ingredient": "Ginger",
+        "quantity": 1
+      },
+      {
+        "ingredient": "Tomatoes",
+        "quantity": 2
+      },
+      {
+        "ingredient": "Vegetable Oil",
+        "quantity": 2
+      },
+      {
+        "ingredient": "Salt",
+        "quantity": 1
+      },
+      {
+        "ingredient": "Fresh Cilantro",
+        "quantity": 1
+      }
+    ],
+    "directions": [
+      "Finely chop the onion, mince the garlic, and grate the ginger.",
+      "Cut the chicken breasts into bite-sized pieces.",
+      "Heat the vegetable oil in a large pot over medium heat.",
+      "Add the chopped onion and cook until translucent, about 5 minutes.",
+      "Add the minced garlic and grated ginger and cook for another 2 minutes.",
+      "Stir in the curry powder and cook for 1 minute until fragrant.",
+      "Add the chicken pieces and cook until they are no longer pink, about 5-7 minutes.",
+      "Add the chopped tomatoes and cook until they soften, about 5 minutes.",
+      "Pour in the coconut milk and stir to combine.",
+      "Bring the mixture to a simmer, then reduce the heat to low and cook for 20-25 minutes, stirring occasionally.",
+      "Season with salt to taste.",
+      "Garnish with freshly chopped cilantro before serving."
+    ],
+    "image": "https://myfoodstory.com/wp-content/uploads/2020/10/Dhaba-Style-Chicken-Curry-2.jpg",
+    "prep_time": 20,
+    "cook_time": 40,
+    "servings": 4,
+    "nutrition": {
+      "calories": 600,
+      "fat": 30,
+      "protein": 40,
+      "carbs": 50
     },
-    {
-      title: 'Chicken Alfredo',
-      ingredients: [
-        { ingredient: 'Pasta', quantity: 200 },
-        { ingredient: 'Chicken Breast', quantity: 250 },
-        { ingredient: 'Alfredo Sauce', quantity: 150 }
-      ],
-      directions: ['Cook pasta', 'Cook chicken', 'Mix with Alfredo sauce'],
-      image: 'https://www.eatright.org/-/media/images/eatright-landing-pages/foodgroupslp_804x482.jpg?as=0&w=967&rev=d0d1ce321d944bbe82024fff81c938e7&hash=E6474C8EFC5BE5F0DA9C32D4A797D10D',
-      prep_time: 15,
-      cook_time: 20,
-      servings: 4,
-      nutrition: { calories: 600, fat: 25, protein: 35, carbs: 65 },
-      tags: ['Italian', 'Pasta'],
-      difficulty: 'Medium',
-      created_by: "668ec06d8f7e6db3cbc219c1"
+    "tags": [
+      "Indian",
+      "Curry"
+    ],
+    "difficulty": "Medium",
+    "created_by": "668ec06d8f7e6db3cbc219c1"
+  }, {
+    "title": "Authentic Chicken Curry",
+    "ingredients": [
+      {
+        "ingredient": "Chicken Breast",
+        "quantity": 500
+      },
+      {
+        "ingredient": "Curry Powder",
+        "quantity": 15
+      },
+      {
+        "ingredient": "Coconut Milk",
+        "quantity": 400
+      },
+      {
+        "ingredient": "Onion",
+        "quantity": 1
+      },
+      {
+        "ingredient": "Garlic",
+        "quantity": 4
+      },
+      {
+        "ingredient": "Ginger",
+        "quantity": 1
+      },
+      {
+        "ingredient": "Tomatoes",
+        "quantity": 2
+      },
+      {
+        "ingredient": "Vegetable Oil",
+        "quantity": 2
+      },
+      {
+        "ingredient": "Salt",
+        "quantity": 1
+      },
+      {
+        "ingredient": "Fresh Cilantro",
+        "quantity": 1
+      }
+    ],
+    "directions": [
+      "Finely chop the onion, mince the garlic, and grate the ginger.",
+      "Cut the chicken breasts into bite-sized pieces.",
+      "Heat the vegetable oil in a large pot over medium heat.",
+      "Add the chopped onion and cook until translucent, about 5 minutes.",
+      "Add the minced garlic and grated ginger and cook for another 2 minutes.",
+      "Stir in the curry powder and cook for 1 minute until fragrant.",
+      "Add the chicken pieces and cook until they are no longer pink, about 5-7 minutes.",
+      "Add the chopped tomatoes and cook until they soften, about 5 minutes.",
+      "Pour in the coconut milk and stir to combine.",
+      "Bring the mixture to a simmer, then reduce the heat to low and cook for 20-25 minutes, stirring occasionally.",
+      "Season with salt to taste.",
+      "Garnish with freshly chopped cilantro before serving."
+    ],
+    "image": "https://myfoodstory.com/wp-content/uploads/2020/10/Dhaba-Style-Chicken-Curry-2.jpg",
+    "prep_time": 20,
+    "cook_time": 40,
+    "servings": 4,
+    "nutrition": {
+      "calories": 600,
+      "fat": 30,
+      "protein": 40,
+      "carbs": 50
     },
-    {
-      title: 'Tacos',
-      ingredients: [
-        { ingredient: 'Taco Shells', quantity: 10 },
-        { ingredient: 'Ground Beef', quantity: 300 },
-        { ingredient: 'Lettuce', quantity: 100 },
-        { ingredient: 'Cheese', quantity: 50 }
-      ],
-      directions: ['Cook beef', 'Assemble tacos with ingredients'],
-      image: 'https://www.eatright.org/-/media/images/eatright-landing-pages/foodgroupslp_804x482.jpg?as=0&w=967&rev=d0d1ce321d944bbe82024fff81c938e7&hash=E6474C8EFC5BE5F0DA9C32D4A797D10D',
-      prep_time: 10,
-      cook_time: 15,
-      servings: 4,
-      nutrition: { calories: 450, fat: 20, protein: 20, carbs: 40 },
-      tags: ['Mexican', 'Fast Food'],
-      difficulty: 'Easy',
-      created_by: "668ec06d8f7e6db3cbc219c1"
+    "tags": [
+      "Indian",
+      "Curry"
+    ],
+    "difficulty": "Medium",
+    "created_by": "668ec06d8f7e6db3cbc219c1"
+  }, {
+    "title": "Authentic Chicken Curry",
+    "ingredients": [
+      {
+        "ingredient": "Chicken Breast",
+        "quantity": 500
+      },
+      {
+        "ingredient": "Curry Powder",
+        "quantity": 15
+      },
+      {
+        "ingredient": "Coconut Milk",
+        "quantity": 400
+      },
+      {
+        "ingredient": "Onion",
+        "quantity": 1
+      },
+      {
+        "ingredient": "Garlic",
+        "quantity": 4
+      },
+      {
+        "ingredient": "Ginger",
+        "quantity": 1
+      },
+      {
+        "ingredient": "Tomatoes",
+        "quantity": 2
+      },
+      {
+        "ingredient": "Vegetable Oil",
+        "quantity": 2
+      },
+      {
+        "ingredient": "Salt",
+        "quantity": 1
+      },
+      {
+        "ingredient": "Fresh Cilantro",
+        "quantity": 1
+      }
+    ],
+    "directions": [
+      "Finely chop the onion, mince the garlic, and grate the ginger.",
+      "Cut the chicken breasts into bite-sized pieces.",
+      "Heat the vegetable oil in a large pot over medium heat.",
+      "Add the chopped onion and cook until translucent, about 5 minutes.",
+      "Add the minced garlic and grated ginger and cook for another 2 minutes.",
+      "Stir in the curry powder and cook for 1 minute until fragrant.",
+      "Add the chicken pieces and cook until they are no longer pink, about 5-7 minutes.",
+      "Add the chopped tomatoes and cook until they soften, about 5 minutes.",
+      "Pour in the coconut milk and stir to combine.",
+      "Bring the mixture to a simmer, then reduce the heat to low and cook for 20-25 minutes, stirring occasionally.",
+      "Season with salt to taste.",
+      "Garnish with freshly chopped cilantro before serving."
+    ],
+    "image": "https://myfoodstory.com/wp-content/uploads/2020/10/Dhaba-Style-Chicken-Curry-2.jpg",
+    "prep_time": 20,
+    "cook_time": 40,
+    "servings": 4,
+    "nutrition": {
+      "calories": 600,
+      "fat": 30,
+      "protein": 40,
+      "carbs": 50
     },
-    {
-      title: 'Margarita Pizza',
-      ingredients: [
-        { ingredient: 'Pizza Dough', quantity: 1 },
-        { ingredient: 'Tomato Sauce', quantity: 100 },
-        { ingredient: 'Mozzarella Cheese', quantity: 150 },
-        { ingredient: 'Basil', quantity: 10 }
-      ],
-      directions: ['Prepare dough', 'Add sauce and toppings', 'Bake in oven'],
-      image: 'https://www.eatright.org/-/media/images/eatright-landing-pages/foodgroupslp_804x482.jpg?as=0&w=967&rev=d0d1ce321d944bbe82024fff81c938e7&hash=E6474C8EFC5BE5F0DA9C32D4A797D10D',
-      prep_time: 20,
-      cook_time: 25,
-      servings: 2,
-      nutrition: { calories: 800, fat: 35, protein: 30, carbs: 90 },
-      tags: ['Italian', 'Pizza'],
-      difficulty: 'Medium',
-      created_by: "668ec06d8f7e6db3cbc219c1"
+    "tags": [
+      "Indian",
+      "Curry"
+    ],
+    "difficulty": "Medium",
+    "created_by": "668ec06d8f7e6db3cbc219c1"
+  }, {
+    "title": "Authentic Chicken Curry",
+    "ingredients": [
+      {
+        "ingredient": "Chicken Breast",
+        "quantity": 500
+      },
+      {
+        "ingredient": "Curry Powder",
+        "quantity": 15
+      },
+      {
+        "ingredient": "Coconut Milk",
+        "quantity": 400
+      },
+      {
+        "ingredient": "Onion",
+        "quantity": 1
+      },
+      {
+        "ingredient": "Garlic",
+        "quantity": 4
+      },
+      {
+        "ingredient": "Ginger",
+        "quantity": 1
+      },
+      {
+        "ingredient": "Tomatoes",
+        "quantity": 2
+      },
+      {
+        "ingredient": "Vegetable Oil",
+        "quantity": 2
+      },
+      {
+        "ingredient": "Salt",
+        "quantity": 1
+      },
+      {
+        "ingredient": "Fresh Cilantro",
+        "quantity": 1
+      }
+    ],
+    "directions": [
+      "Finely chop the onion, mince the garlic, and grate the ginger.",
+      "Cut the chicken breasts into bite-sized pieces.",
+      "Heat the vegetable oil in a large pot over medium heat.",
+      "Add the chopped onion and cook until translucent, about 5 minutes.",
+      "Add the minced garlic and grated ginger and cook for another 2 minutes.",
+      "Stir in the curry powder and cook for 1 minute until fragrant.",
+      "Add the chicken pieces and cook until they are no longer pink, about 5-7 minutes.",
+      "Add the chopped tomatoes and cook until they soften, about 5 minutes.",
+      "Pour in the coconut milk and stir to combine.",
+      "Bring the mixture to a simmer, then reduce the heat to low and cook for 20-25 minutes, stirring occasionally.",
+      "Season with salt to taste.",
+      "Garnish with freshly chopped cilantro before serving."
+    ],
+    "image": "https://myfoodstory.com/wp-content/uploads/2020/10/Dhaba-Style-Chicken-Curry-2.jpg",
+    "prep_time": 20,
+    "cook_time": 40,
+    "servings": 4,
+    "nutrition": {
+      "calories": 600,
+      "fat": 30,
+      "protein": 40,
+      "carbs": 50
     },
-    {
-      title: 'Grilled Cheese Sandwich',
-      ingredients: [
-        { ingredient: 'Bread', quantity: 2 },
-        { ingredient: 'Cheese', quantity: 50 },
-        { ingredient: 'Butter', quantity: 10 }
-      ],
-      directions: ['Butter bread', 'Add cheese', 'Grill until golden'],
-      image: 'https://www.eatright.org/-/media/images/eatright-landing-pages/foodgroupslp_804x482.jpg?as=0&w=967&rev=d0d1ce321d944bbe82024fff81c938e7&hash=E6474C8EFC5BE5F0DA9C32D4A797D10D',
-      prep_time: 5,
-      cook_time: 10,
-      servings: 1,
-      nutrition: { calories: 300, fat: 15, protein: 10, carbs: 35 },
-      tags: ['American', 'Snack'],
-      difficulty: 'Easy',
-      created_by: "668ec06d8f7e6db3cbc219c1"
+    "tags": [
+      "Indian",
+      "Curry"
+    ],
+    "difficulty": "Medium",
+    "created_by": "668ec06d8f7e6db3cbc219c1"
+  }, {
+    "title": "Authentic Chicken Curry",
+    "ingredients": [
+      {
+        "ingredient": "Chicken Breast",
+        "quantity": 500
+      },
+      {
+        "ingredient": "Curry Powder",
+        "quantity": 15
+      },
+      {
+        "ingredient": "Coconut Milk",
+        "quantity": 400
+      },
+      {
+        "ingredient": "Onion",
+        "quantity": 1
+      },
+      {
+        "ingredient": "Garlic",
+        "quantity": 4
+      },
+      {
+        "ingredient": "Ginger",
+        "quantity": 1
+      },
+      {
+        "ingredient": "Tomatoes",
+        "quantity": 2
+      },
+      {
+        "ingredient": "Vegetable Oil",
+        "quantity": 2
+      },
+      {
+        "ingredient": "Salt",
+        "quantity": 1
+      },
+      {
+        "ingredient": "Fresh Cilantro",
+        "quantity": 1
+      }
+    ],
+    "directions": [
+      "Finely chop the onion, mince the garlic, and grate the ginger.",
+      "Cut the chicken breasts into bite-sized pieces.",
+      "Heat the vegetable oil in a large pot over medium heat.",
+      "Add the chopped onion and cook until translucent, about 5 minutes.",
+      "Add the minced garlic and grated ginger and cook for another 2 minutes.",
+      "Stir in the curry powder and cook for 1 minute until fragrant.",
+      "Add the chicken pieces and cook until they are no longer pink, about 5-7 minutes.",
+      "Add the chopped tomatoes and cook until they soften, about 5 minutes.",
+      "Pour in the coconut milk and stir to combine.",
+      "Bring the mixture to a simmer, then reduce the heat to low and cook for 20-25 minutes, stirring occasionally.",
+      "Season with salt to taste.",
+      "Garnish with freshly chopped cilantro before serving."
+    ],
+    "image": "https://myfoodstory.com/wp-content/uploads/2020/10/Dhaba-Style-Chicken-Curry-2.jpg",
+    "prep_time": 20,
+    "cook_time": 40,
+    "servings": 4,
+    "nutrition": {
+      "calories": 600,
+      "fat": 30,
+      "protein": 40,
+      "carbs": 50
     },
-    {
-      title: 'Caesar Salad',
-      ingredients: [
-        { ingredient: 'Romaine Lettuce', quantity: 200 },
-        { ingredient: 'Caesar Dressing', quantity: 50 },
-        { ingredient: 'Croutons', quantity: 30 },
-        { ingredient: 'Parmesan Cheese', quantity: 20 }
-      ],
-      directions: ['Chop lettuce', 'Add dressing and toppings'],
-      image: 'https://www.eatright.org/-/media/images/eatright-landing-pages/foodgroupslp_804x482.jpg?as=0&w=967&rev=d0d1ce321d944bbe82024fff81c938e7&hash=E6474C8EFC5BE5F0DA9C32D4A797D10D',
-      prep_time: 10,
-      cook_time: 0,
-      servings: 2,
-      nutrition: { calories: 200, fat: 10, protein: 5, carbs: 15 },
-      tags: ['Italian', 'Salad'],
-      difficulty: 'Easy',
-      created_by: "668ec06d8f7e6db3cbc219c1"
+    "tags": [
+      "Indian",
+      "Curry"
+    ],
+    "difficulty": "Medium",
+    "created_by": "668ec06d8f7e6db3cbc219c1"
+  }, {
+    "title": "Authentic Chicken Curry",
+    "ingredients": [
+      {
+        "ingredient": "Chicken Breast",
+        "quantity": 500
+      },
+      {
+        "ingredient": "Curry Powder",
+        "quantity": 15
+      },
+      {
+        "ingredient": "Coconut Milk",
+        "quantity": 400
+      },
+      {
+        "ingredient": "Onion",
+        "quantity": 1
+      },
+      {
+        "ingredient": "Garlic",
+        "quantity": 4
+      },
+      {
+        "ingredient": "Ginger",
+        "quantity": 1
+      },
+      {
+        "ingredient": "Tomatoes",
+        "quantity": 2
+      },
+      {
+        "ingredient": "Vegetable Oil",
+        "quantity": 2
+      },
+      {
+        "ingredient": "Salt",
+        "quantity": 1
+      },
+      {
+        "ingredient": "Fresh Cilantro",
+        "quantity": 1
+      }
+    ],
+    "directions": [
+      "Finely chop the onion, mince the garlic, and grate the ginger.",
+      "Cut the chicken breasts into bite-sized pieces.",
+      "Heat the vegetable oil in a large pot over medium heat.",
+      "Add the chopped onion and cook until translucent, about 5 minutes.",
+      "Add the minced garlic and grated ginger and cook for another 2 minutes.",
+      "Stir in the curry powder and cook for 1 minute until fragrant.",
+      "Add the chicken pieces and cook until they are no longer pink, about 5-7 minutes.",
+      "Add the chopped tomatoes and cook until they soften, about 5 minutes.",
+      "Pour in the coconut milk and stir to combine.",
+      "Bring the mixture to a simmer, then reduce the heat to low and cook for 20-25 minutes, stirring occasionally.",
+      "Season with salt to taste.",
+      "Garnish with freshly chopped cilantro before serving."
+    ],
+    "image": "https://myfoodstory.com/wp-content/uploads/2020/10/Dhaba-Style-Chicken-Curry-2.jpg",
+    "prep_time": 20,
+    "cook_time": 40,
+    "servings": 4,
+    "nutrition": {
+      "calories": 600,
+      "fat": 30,
+      "protein": 40,
+      "carbs": 50
     },
-    {
-      title: 'Pancakes',
-      ingredients: [
-        { ingredient: 'Flour', quantity: 200 },
-        { ingredient: 'Milk', quantity: 300 },
-        { ingredient: 'Eggs', quantity: 2 },
-        { ingredient: 'Maple Syrup', quantity: 50 }
-      ],
-      directions: ['Mix ingredients', 'Cook on griddle', 'Serve with syrup'],
-      image: 'https://www.eatright.org/-/media/images/eatright-landing-pages/foodgroupslp_804x482.jpg?as=0&w=967&rev=d0d1ce321d944bbe82024fff81c938e7&hash=E6474C8EFC5BE5F0DA9C32D4A797D10D',
-      prep_time: 10,
-      cook_time: 15,
-      servings: 4,
-      nutrition: { calories: 350, fat: 10, protein: 8, carbs: 60 },
-      tags: ['American', 'Breakfast'],
-      difficulty: 'Easy',
-      created_by: "668ec06d8f7e6db3cbc219c1"
-    }
-  ];  
+    "tags": [
+      "Indian",
+      "Curry"
+    ],
+    "difficulty": "Medium",
+    "created_by": "668ec06d8f7e6db3cbc219c1"
+  }, {
+    "title": "Authentic Chicken Curry",
+    "ingredients": [
+      {
+        "ingredient": "Chicken Breast",
+        "quantity": 500
+      },
+      {
+        "ingredient": "Curry Powder",
+        "quantity": 15
+      },
+      {
+        "ingredient": "Coconut Milk",
+        "quantity": 400
+      },
+      {
+        "ingredient": "Onion",
+        "quantity": 1
+      },
+      {
+        "ingredient": "Garlic",
+        "quantity": 4
+      },
+      {
+        "ingredient": "Ginger",
+        "quantity": 1
+      },
+      {
+        "ingredient": "Tomatoes",
+        "quantity": 2
+      },
+      {
+        "ingredient": "Vegetable Oil",
+        "quantity": 2
+      },
+      {
+        "ingredient": "Salt",
+        "quantity": 1
+      },
+      {
+        "ingredient": "Fresh Cilantro",
+        "quantity": 1
+      }
+    ],
+    "directions": [
+      "Finely chop the onion, mince the garlic, and grate the ginger.",
+      "Cut the chicken breasts into bite-sized pieces.",
+      "Heat the vegetable oil in a large pot over medium heat.",
+      "Add the chopped onion and cook until translucent, about 5 minutes.",
+      "Add the minced garlic and grated ginger and cook for another 2 minutes.",
+      "Stir in the curry powder and cook for 1 minute until fragrant.",
+      "Add the chicken pieces and cook until they are no longer pink, about 5-7 minutes.",
+      "Add the chopped tomatoes and cook until they soften, about 5 minutes.",
+      "Pour in the coconut milk and stir to combine.",
+      "Bring the mixture to a simmer, then reduce the heat to low and cook for 20-25 minutes, stirring occasionally.",
+      "Season with salt to taste.",
+      "Garnish with freshly chopped cilantro before serving."
+    ],
+    "image": "https://myfoodstory.com/wp-content/uploads/2020/10/Dhaba-Style-Chicken-Curry-2.jpg",
+    "prep_time": 20,
+    "cook_time": 40,
+    "servings": 4,
+    "nutrition": {
+      "calories": 600,
+      "fat": 30,
+      "protein": 40,
+      "carbs": 50
+    },
+    "tags": [
+      "Indian",
+      "Curry"
+    ],
+    "difficulty": "Medium",
+    "created_by": "668ec06d8f7e6db3cbc219c1"
+  }, {
+    "title": "Authentic Chicken Curry",
+    "ingredients": [
+      {
+        "ingredient": "Chicken Breast",
+        "quantity": 500
+      },
+      {
+        "ingredient": "Curry Powder",
+        "quantity": 15
+      },
+      {
+        "ingredient": "Coconut Milk",
+        "quantity": 400
+      },
+      {
+        "ingredient": "Onion",
+        "quantity": 1
+      },
+      {
+        "ingredient": "Garlic",
+        "quantity": 4
+      },
+      {
+        "ingredient": "Ginger",
+        "quantity": 1
+      },
+      {
+        "ingredient": "Tomatoes",
+        "quantity": 2
+      },
+      {
+        "ingredient": "Vegetable Oil",
+        "quantity": 2
+      },
+      {
+        "ingredient": "Salt",
+        "quantity": 1
+      },
+      {
+        "ingredient": "Fresh Cilantro",
+        "quantity": 1
+      }
+    ],
+    "directions": [
+      "Finely chop the onion, mince the garlic, and grate the ginger.",
+      "Cut the chicken breasts into bite-sized pieces.",
+      "Heat the vegetable oil in a large pot over medium heat.",
+      "Add the chopped onion and cook until translucent, about 5 minutes.",
+      "Add the minced garlic and grated ginger and cook for another 2 minutes.",
+      "Stir in the curry powder and cook for 1 minute until fragrant.",
+      "Add the chicken pieces and cook until they are no longer pink, about 5-7 minutes.",
+      "Add the chopped tomatoes and cook until they soften, about 5 minutes.",
+      "Pour in the coconut milk and stir to combine.",
+      "Bring the mixture to a simmer, then reduce the heat to low and cook for 20-25 minutes, stirring occasionally.",
+      "Season with salt to taste.",
+      "Garnish with freshly chopped cilantro before serving."
+    ],
+    "image": "https://myfoodstory.com/wp-content/uploads/2020/10/Dhaba-Style-Chicken-Curry-2.jpg",
+    "prep_time": 20,
+    "cook_time": 40,
+    "servings": 4,
+    "nutrition": {
+      "calories": 600,
+      "fat": 30,
+      "protein": 40,
+      "carbs": 50
+    },
+    "tags": [
+      "Indian",
+      "Curry"
+    ],
+    "difficulty": "Medium",
+    "created_by": "668ec06d8f7e6db3cbc219c1"
+  }, {
+    "title": "Authentic Chicken Curry",
+    "ingredients": [
+      {
+        "ingredient": "Chicken Breast",
+        "quantity": 500
+      },
+      {
+        "ingredient": "Curry Powder",
+        "quantity": 15
+      },
+      {
+        "ingredient": "Coconut Milk",
+        "quantity": 400
+      },
+      {
+        "ingredient": "Onion",
+        "quantity": 1
+      },
+      {
+        "ingredient": "Garlic",
+        "quantity": 4
+      },
+      {
+        "ingredient": "Ginger",
+        "quantity": 1
+      },
+      {
+        "ingredient": "Tomatoes",
+        "quantity": 2
+      },
+      {
+        "ingredient": "Vegetable Oil",
+        "quantity": 2
+      },
+      {
+        "ingredient": "Salt",
+        "quantity": 1
+      },
+      {
+        "ingredient": "Fresh Cilantro",
+        "quantity": 1
+      }
+    ],
+    "directions": [
+      "Finely chop the onion, mince the garlic, and grate the ginger.",
+      "Cut the chicken breasts into bite-sized pieces.",
+      "Heat the vegetable oil in a large pot over medium heat.",
+      "Add the chopped onion and cook until translucent, about 5 minutes.",
+      "Add the minced garlic and grated ginger and cook for another 2 minutes.",
+      "Stir in the curry powder and cook for 1 minute until fragrant.",
+      "Add the chicken pieces and cook until they are no longer pink, about 5-7 minutes.",
+      "Add the chopped tomatoes and cook until they soften, about 5 minutes.",
+      "Pour in the coconut milk and stir to combine.",
+      "Bring the mixture to a simmer, then reduce the heat to low and cook for 20-25 minutes, stirring occasionally.",
+      "Season with salt to taste.",
+      "Garnish with freshly chopped cilantro before serving."
+    ],
+    "image": "https://myfoodstory.com/wp-content/uploads/2020/10/Dhaba-Style-Chicken-Curry-2.jpg",
+    "prep_time": 20,
+    "cook_time": 40,
+    "servings": 4,
+    "nutrition": {
+      "calories": 600,
+      "fat": 30,
+      "protein": 40,
+      "carbs": 50
+    },
+    "tags": [
+      "Indian",
+      "Curry"
+    ],
+    "difficulty": "Medium",
+    "created_by": "668ec06d8f7e6db3cbc219c1"
+  }, {
+    "title": "Authentic Chicken Curry",
+    "ingredients": [
+      {
+        "ingredient": "Chicken Breast",
+        "quantity": 500
+      },
+      {
+        "ingredient": "Curry Powder",
+        "quantity": 15
+      },
+      {
+        "ingredient": "Coconut Milk",
+        "quantity": 400
+      },
+      {
+        "ingredient": "Onion",
+        "quantity": 1
+      },
+      {
+        "ingredient": "Garlic",
+        "quantity": 4
+      },
+      {
+        "ingredient": "Ginger",
+        "quantity": 1
+      },
+      {
+        "ingredient": "Tomatoes",
+        "quantity": 2
+      },
+      {
+        "ingredient": "Vegetable Oil",
+        "quantity": 2
+      },
+      {
+        "ingredient": "Salt",
+        "quantity": 1
+      },
+      {
+        "ingredient": "Fresh Cilantro",
+        "quantity": 1
+      }
+    ],
+    "directions": [
+      "Finely chop the onion, mince the garlic, and grate the ginger.",
+      "Cut the chicken breasts into bite-sized pieces.",
+      "Heat the vegetable oil in a large pot over medium heat.",
+      "Add the chopped onion and cook until translucent, about 5 minutes.",
+      "Add the minced garlic and grated ginger and cook for another 2 minutes.",
+      "Stir in the curry powder and cook for 1 minute until fragrant.",
+      "Add the chicken pieces and cook until they are no longer pink, about 5-7 minutes.",
+      "Add the chopped tomatoes and cook until they soften, about 5 minutes.",
+      "Pour in the coconut milk and stir to combine.",
+      "Bring the mixture to a simmer, then reduce the heat to low and cook for 20-25 minutes, stirring occasionally.",
+      "Season with salt to taste.",
+      "Garnish with freshly chopped cilantro before serving."
+    ],
+    "image": "https://myfoodstory.com/wp-content/uploads/2020/10/Dhaba-Style-Chicken-Curry-2.jpg",
+    "prep_time": 20,
+    "cook_time": 40,
+    "servings": 4,
+    "nutrition": {
+      "calories": 600,
+      "fat": 30,
+      "protein": 40,
+      "carbs": 50
+    },
+    "tags": [
+      "Indian",
+      "Curry"
+    ],
+    "difficulty": "Medium",
+    "created_by": "668ec06d8f7e6db3cbc219c1"
+  }, {
+    "title": "Authentic Chicken Curry",
+    "ingredients": [
+      {
+        "ingredient": "Chicken Breast",
+        "quantity": 500
+      },
+      {
+        "ingredient": "Curry Powder",
+        "quantity": 15
+      },
+      {
+        "ingredient": "Coconut Milk",
+        "quantity": 400
+      },
+      {
+        "ingredient": "Onion",
+        "quantity": 1
+      },
+      {
+        "ingredient": "Garlic",
+        "quantity": 4
+      },
+      {
+        "ingredient": "Ginger",
+        "quantity": 1
+      },
+      {
+        "ingredient": "Tomatoes",
+        "quantity": 2
+      },
+      {
+        "ingredient": "Vegetable Oil",
+        "quantity": 2
+      },
+      {
+        "ingredient": "Salt",
+        "quantity": 1
+      },
+      {
+        "ingredient": "Fresh Cilantro",
+        "quantity": 1
+      }
+    ],
+    "directions": [
+      "Finely chop the onion, mince the garlic, and grate the ginger.",
+      "Cut the chicken breasts into bite-sized pieces.",
+      "Heat the vegetable oil in a large pot over medium heat.",
+      "Add the chopped onion and cook until translucent, about 5 minutes.",
+      "Add the minced garlic and grated ginger and cook for another 2 minutes.",
+      "Stir in the curry powder and cook for 1 minute until fragrant.",
+      "Add the chicken pieces and cook until they are no longer pink, about 5-7 minutes.",
+      "Add the chopped tomatoes and cook until they soften, about 5 minutes.",
+      "Pour in the coconut milk and stir to combine.",
+      "Bring the mixture to a simmer, then reduce the heat to low and cook for 20-25 minutes, stirring occasionally.",
+      "Season with salt to taste.",
+      "Garnish with freshly chopped cilantro before serving."
+    ],
+    "image": "https://myfoodstory.com/wp-content/uploads/2020/10/Dhaba-Style-Chicken-Curry-2.jpg",
+    "prep_time": 20,
+    "cook_time": 40,
+    "servings": 4,
+    "nutrition": {
+      "calories": 600,
+      "fat": 30,
+      "protein": 40,
+      "carbs": 50
+    },
+    "tags": [
+      "Indian",
+      "Curry"
+    ],
+    "difficulty": "Medium",
+    "created_by": "668ec06d8f7e6db3cbc219c1"
+  }, {
+    "title": "Authentic Chicken Curry",
+    "ingredients": [
+      {
+        "ingredient": "Chicken Breast",
+        "quantity": 500
+      },
+      {
+        "ingredient": "Curry Powder",
+        "quantity": 15
+      },
+      {
+        "ingredient": "Coconut Milk",
+        "quantity": 400
+      },
+      {
+        "ingredient": "Onion",
+        "quantity": 1
+      },
+      {
+        "ingredient": "Garlic",
+        "quantity": 4
+      },
+      {
+        "ingredient": "Ginger",
+        "quantity": 1
+      },
+      {
+        "ingredient": "Tomatoes",
+        "quantity": 2
+      },
+      {
+        "ingredient": "Vegetable Oil",
+        "quantity": 2
+      },
+      {
+        "ingredient": "Salt",
+        "quantity": 1
+      },
+      {
+        "ingredient": "Fresh Cilantro",
+        "quantity": 1
+      }
+    ],
+    "directions": [
+      "Finely chop the onion, mince the garlic, and grate the ginger.",
+      "Cut the chicken breasts into bite-sized pieces.",
+      "Heat the vegetable oil in a large pot over medium heat.",
+      "Add the chopped onion and cook until translucent, about 5 minutes.",
+      "Add the minced garlic and grated ginger and cook for another 2 minutes.",
+      "Stir in the curry powder and cook for 1 minute until fragrant.",
+      "Add the chicken pieces and cook until they are no longer pink, about 5-7 minutes.",
+      "Add the chopped tomatoes and cook until they soften, about 5 minutes.",
+      "Pour in the coconut milk and stir to combine.",
+      "Bring the mixture to a simmer, then reduce the heat to low and cook for 20-25 minutes, stirring occasionally.",
+      "Season with salt to taste.",
+      "Garnish with freshly chopped cilantro before serving."
+    ],
+    "image": "https://myfoodstory.com/wp-content/uploads/2020/10/Dhaba-Style-Chicken-Curry-2.jpg",
+    "prep_time": 20,
+    "cook_time": 40,
+    "servings": 4,
+    "nutrition": {
+      "calories": 600,
+      "fat": 30,
+      "protein": 40,
+      "carbs": 50
+    },
+    "tags": [
+      "Indian",
+      "Curry"
+    ],
+    "difficulty": "Medium",
+    "created_by": "668ec06d8f7e6db3cbc219c1"
+  }, {
+    "title": "Authentic Chicken Curry",
+    "ingredients": [
+      {
+        "ingredient": "Chicken Breast",
+        "quantity": 500
+      },
+      {
+        "ingredient": "Curry Powder",
+        "quantity": 15
+      },
+      {
+        "ingredient": "Coconut Milk",
+        "quantity": 400
+      },
+      {
+        "ingredient": "Onion",
+        "quantity": 1
+      },
+      {
+        "ingredient": "Garlic",
+        "quantity": 4
+      },
+      {
+        "ingredient": "Ginger",
+        "quantity": 1
+      },
+      {
+        "ingredient": "Tomatoes",
+        "quantity": 2
+      },
+      {
+        "ingredient": "Vegetable Oil",
+        "quantity": 2
+      },
+      {
+        "ingredient": "Salt",
+        "quantity": 1
+      },
+      {
+        "ingredient": "Fresh Cilantro",
+        "quantity": 1
+      }
+    ],
+    "directions": [
+      "Finely chop the onion, mince the garlic, and grate the ginger.",
+      "Cut the chicken breasts into bite-sized pieces.",
+      "Heat the vegetable oil in a large pot over medium heat.",
+      "Add the chopped onion and cook until translucent, about 5 minutes.",
+      "Add the minced garlic and grated ginger and cook for another 2 minutes.",
+      "Stir in the curry powder and cook for 1 minute until fragrant.",
+      "Add the chicken pieces and cook until they are no longer pink, about 5-7 minutes.",
+      "Add the chopped tomatoes and cook until they soften, about 5 minutes.",
+      "Pour in the coconut milk and stir to combine.",
+      "Bring the mixture to a simmer, then reduce the heat to low and cook for 20-25 minutes, stirring occasionally.",
+      "Season with salt to taste.",
+      "Garnish with freshly chopped cilantro before serving."
+    ],
+    "image": "https://myfoodstory.com/wp-content/uploads/2020/10/Dhaba-Style-Chicken-Curry-2.jpg",
+    "prep_time": 20,
+    "cook_time": 40,
+    "servings": 4,
+    "nutrition": {
+      "calories": 600,
+      "fat": 30,
+      "protein": 40,
+      "carbs": 50
+    },
+    "tags": [
+      "Indian",
+      "Curry"
+    ],
+    "difficulty": "Medium",
+    "created_by": "668ec06d8f7e6db3cbc219c1"
+  }, {
+    "title": "Authentic Chicken Curry",
+    "ingredients": [
+      {
+        "ingredient": "Chicken Breast",
+        "quantity": 500
+      },
+      {
+        "ingredient": "Curry Powder",
+        "quantity": 15
+      },
+      {
+        "ingredient": "Coconut Milk",
+        "quantity": 400
+      },
+      {
+        "ingredient": "Onion",
+        "quantity": 1
+      },
+      {
+        "ingredient": "Garlic",
+        "quantity": 4
+      },
+      {
+        "ingredient": "Ginger",
+        "quantity": 1
+      },
+      {
+        "ingredient": "Tomatoes",
+        "quantity": 2
+      },
+      {
+        "ingredient": "Vegetable Oil",
+        "quantity": 2
+      },
+      {
+        "ingredient": "Salt",
+        "quantity": 1
+      },
+      {
+        "ingredient": "Fresh Cilantro",
+        "quantity": 1
+      }
+    ],
+    "directions": [
+      "Finely chop the onion, mince the garlic, and grate the ginger.",
+      "Cut the chicken breasts into bite-sized pieces.",
+      "Heat the vegetable oil in a large pot over medium heat.",
+      "Add the chopped onion and cook until translucent, about 5 minutes.",
+      "Add the minced garlic and grated ginger and cook for another 2 minutes.",
+      "Stir in the curry powder and cook for 1 minute until fragrant.",
+      "Add the chicken pieces and cook until they are no longer pink, about 5-7 minutes.",
+      "Add the chopped tomatoes and cook until they soften, about 5 minutes.",
+      "Pour in the coconut milk and stir to combine.",
+      "Bring the mixture to a simmer, then reduce the heat to low and cook for 20-25 minutes, stirring occasionally.",
+      "Season with salt to taste.",
+      "Garnish with freshly chopped cilantro before serving."
+    ],
+    "image": "https://myfoodstory.com/wp-content/uploads/2020/10/Dhaba-Style-Chicken-Curry-2.jpg",
+    "prep_time": 20,
+    "cook_time": 40,
+    "servings": 4,
+    "nutrition": {
+      "calories": 600,
+      "fat": 30,
+      "protein": 40,
+      "carbs": 50
+    },
+    "tags": [
+      "Indian",
+      "Curry"
+    ],
+    "difficulty": "Medium",
+    "created_by": "668ec06d8f7e6db3cbc219c1"
+  }, {
+    "title": "Authentic Chicken Curry",
+    "ingredients": [
+      {
+        "ingredient": "Chicken Breast",
+        "quantity": 500
+      },
+      {
+        "ingredient": "Curry Powder",
+        "quantity": 15
+      },
+      {
+        "ingredient": "Coconut Milk",
+        "quantity": 400
+      },
+      {
+        "ingredient": "Onion",
+        "quantity": 1
+      },
+      {
+        "ingredient": "Garlic",
+        "quantity": 4
+      },
+      {
+        "ingredient": "Ginger",
+        "quantity": 1
+      },
+      {
+        "ingredient": "Tomatoes",
+        "quantity": 2
+      },
+      {
+        "ingredient": "Vegetable Oil",
+        "quantity": 2
+      },
+      {
+        "ingredient": "Salt",
+        "quantity": 1
+      },
+      {
+        "ingredient": "Fresh Cilantro",
+        "quantity": 1
+      }
+    ],
+    "directions": [
+      "Finely chop the onion, mince the garlic, and grate the ginger.",
+      "Cut the chicken breasts into bite-sized pieces.",
+      "Heat the vegetable oil in a large pot over medium heat.",
+      "Add the chopped onion and cook until translucent, about 5 minutes.",
+      "Add the minced garlic and grated ginger and cook for another 2 minutes.",
+      "Stir in the curry powder and cook for 1 minute until fragrant.",
+      "Add the chicken pieces and cook until they are no longer pink, about 5-7 minutes.",
+      "Add the chopped tomatoes and cook until they soften, about 5 minutes.",
+      "Pour in the coconut milk and stir to combine.",
+      "Bring the mixture to a simmer, then reduce the heat to low and cook for 20-25 minutes, stirring occasionally.",
+      "Season with salt to taste.",
+      "Garnish with freshly chopped cilantro before serving."
+    ],
+    "image": "https://myfoodstory.com/wp-content/uploads/2020/10/Dhaba-Style-Chicken-Curry-2.jpg",
+    "prep_time": 20,
+    "cook_time": 40,
+    "servings": 4,
+    "nutrition": {
+      "calories": 600,
+      "fat": 30,
+      "protein": 40,
+      "carbs": 50
+    },
+    "tags": [
+      "Indian",
+      "Curry"
+    ],
+    "difficulty": "Medium",
+    "created_by": "668ec06d8f7e6db3cbc219c1"
+  }, {
+    "title": "Authentic Chicken Curry",
+    "ingredients": [
+      {
+        "ingredient": "Chicken Breast",
+        "quantity": 500
+      },
+      {
+        "ingredient": "Curry Powder",
+        "quantity": 15
+      },
+      {
+        "ingredient": "Coconut Milk",
+        "quantity": 400
+      },
+      {
+        "ingredient": "Onion",
+        "quantity": 1
+      },
+      {
+        "ingredient": "Garlic",
+        "quantity": 4
+      },
+      {
+        "ingredient": "Ginger",
+        "quantity": 1
+      },
+      {
+        "ingredient": "Tomatoes",
+        "quantity": 2
+      },
+      {
+        "ingredient": "Vegetable Oil",
+        "quantity": 2
+      },
+      {
+        "ingredient": "Salt",
+        "quantity": 1
+      },
+      {
+        "ingredient": "Fresh Cilantro",
+        "quantity": 1
+      }
+    ],
+    "directions": [
+      "Finely chop the onion, mince the garlic, and grate the ginger.",
+      "Cut the chicken breasts into bite-sized pieces.",
+      "Heat the vegetable oil in a large pot over medium heat.",
+      "Add the chopped onion and cook until translucent, about 5 minutes.",
+      "Add the minced garlic and grated ginger and cook for another 2 minutes.",
+      "Stir in the curry powder and cook for 1 minute until fragrant.",
+      "Add the chicken pieces and cook until they are no longer pink, about 5-7 minutes.",
+      "Add the chopped tomatoes and cook until they soften, about 5 minutes.",
+      "Pour in the coconut milk and stir to combine.",
+      "Bring the mixture to a simmer, then reduce the heat to low and cook for 20-25 minutes, stirring occasionally.",
+      "Season with salt to taste.",
+      "Garnish with freshly chopped cilantro before serving."
+    ],
+    "image": "https://myfoodstory.com/wp-content/uploads/2020/10/Dhaba-Style-Chicken-Curry-2.jpg",
+    "prep_time": 20,
+    "cook_time": 40,
+    "servings": 4,
+    "nutrition": {
+      "calories": 600,
+      "fat": 30,
+      "protein": 40,
+      "carbs": 50
+    },
+    "tags": [
+      "Indian",
+      "Curry"
+    ],
+    "difficulty": "Medium",
+    "created_by": "668ec06d8f7e6db3cbc219c1"
+  }, {
+    "title": "Authentic Chicken Curry",
+    "ingredients": [
+      {
+        "ingredient": "Chicken Breast",
+        "quantity": 500
+      },
+      {
+        "ingredient": "Curry Powder",
+        "quantity": 15
+      },
+      {
+        "ingredient": "Coconut Milk",
+        "quantity": 400
+      },
+      {
+        "ingredient": "Onion",
+        "quantity": 1
+      },
+      {
+        "ingredient": "Garlic",
+        "quantity": 4
+      },
+      {
+        "ingredient": "Ginger",
+        "quantity": 1
+      },
+      {
+        "ingredient": "Tomatoes",
+        "quantity": 2
+      },
+      {
+        "ingredient": "Vegetable Oil",
+        "quantity": 2
+      },
+      {
+        "ingredient": "Salt",
+        "quantity": 1
+      },
+      {
+        "ingredient": "Fresh Cilantro",
+        "quantity": 1
+      }
+    ],
+    "directions": [
+      "Finely chop the onion, mince the garlic, and grate the ginger.",
+      "Cut the chicken breasts into bite-sized pieces.",
+      "Heat the vegetable oil in a large pot over medium heat.",
+      "Add the chopped onion and cook until translucent, about 5 minutes.",
+      "Add the minced garlic and grated ginger and cook for another 2 minutes.",
+      "Stir in the curry powder and cook for 1 minute until fragrant.",
+      "Add the chicken pieces and cook until they are no longer pink, about 5-7 minutes.",
+      "Add the chopped tomatoes and cook until they soften, about 5 minutes.",
+      "Pour in the coconut milk and stir to combine.",
+      "Bring the mixture to a simmer, then reduce the heat to low and cook for 20-25 minutes, stirring occasionally.",
+      "Season with salt to taste.",
+      "Garnish with freshly chopped cilantro before serving."
+    ],
+    "image": "https://myfoodstory.com/wp-content/uploads/2020/10/Dhaba-Style-Chicken-Curry-2.jpg",
+    "prep_time": 20,
+    "cook_time": 40,
+    "servings": 4,
+    "nutrition": {
+      "calories": 600,
+      "fat": 30,
+      "protein": 40,
+      "carbs": 50
+    },
+    "tags": [
+      "Indian",
+      "Curry"
+    ],
+    "difficulty": "Medium",
+    "created_by": "668ec06d8f7e6db3cbc219c1"
+  }, {
+    "title": "Authentic Chicken Curry",
+    "ingredients": [
+      {
+        "ingredient": "Chicken Breast",
+        "quantity": 500
+      },
+      {
+        "ingredient": "Curry Powder",
+        "quantity": 15
+      },
+      {
+        "ingredient": "Coconut Milk",
+        "quantity": 400
+      },
+      {
+        "ingredient": "Onion",
+        "quantity": 1
+      },
+      {
+        "ingredient": "Garlic",
+        "quantity": 4
+      },
+      {
+        "ingredient": "Ginger",
+        "quantity": 1
+      },
+      {
+        "ingredient": "Tomatoes",
+        "quantity": 2
+      },
+      {
+        "ingredient": "Vegetable Oil",
+        "quantity": 2
+      },
+      {
+        "ingredient": "Salt",
+        "quantity": 1
+      },
+      {
+        "ingredient": "Fresh Cilantro",
+        "quantity": 1
+      }
+    ],
+    "directions": [
+      "Finely chop the onion, mince the garlic, and grate the ginger.",
+      "Cut the chicken breasts into bite-sized pieces.",
+      "Heat the vegetable oil in a large pot over medium heat.",
+      "Add the chopped onion and cook until translucent, about 5 minutes.",
+      "Add the minced garlic and grated ginger and cook for another 2 minutes.",
+      "Stir in the curry powder and cook for 1 minute until fragrant.",
+      "Add the chicken pieces and cook until they are no longer pink, about 5-7 minutes.",
+      "Add the chopped tomatoes and cook until they soften, about 5 minutes.",
+      "Pour in the coconut milk and stir to combine.",
+      "Bring the mixture to a simmer, then reduce the heat to low and cook for 20-25 minutes, stirring occasionally.",
+      "Season with salt to taste.",
+      "Garnish with freshly chopped cilantro before serving."
+    ],
+    "image": "https://myfoodstory.com/wp-content/uploads/2020/10/Dhaba-Style-Chicken-Curry-2.jpg",
+    "prep_time": 20,
+    "cook_time": 40,
+    "servings": 4,
+    "nutrition": {
+      "calories": 600,
+      "fat": 30,
+      "protein": 40,
+      "carbs": 50
+    },
+    "tags": [
+      "Indian",
+      "Curry"
+    ],
+    "difficulty": "Medium",
+    "created_by": "668ec06d8f7e6db3cbc219c1"
+  }, {
+    "title": "Authentic Chicken Curry",
+    "ingredients": [
+      {
+        "ingredient": "Chicken Breast",
+        "quantity": 500
+      },
+      {
+        "ingredient": "Curry Powder",
+        "quantity": 15
+      },
+      {
+        "ingredient": "Coconut Milk",
+        "quantity": 400
+      },
+      {
+        "ingredient": "Onion",
+        "quantity": 1
+      },
+      {
+        "ingredient": "Garlic",
+        "quantity": 4
+      },
+      {
+        "ingredient": "Ginger",
+        "quantity": 1
+      },
+      {
+        "ingredient": "Tomatoes",
+        "quantity": 2
+      },
+      {
+        "ingredient": "Vegetable Oil",
+        "quantity": 2
+      },
+      {
+        "ingredient": "Salt",
+        "quantity": 1
+      },
+      {
+        "ingredient": "Fresh Cilantro",
+        "quantity": 1
+      }
+    ],
+    "directions": [
+      "Finely chop the onion, mince the garlic, and grate the ginger.",
+      "Cut the chicken breasts into bite-sized pieces.",
+      "Heat the vegetable oil in a large pot over medium heat.",
+      "Add the chopped onion and cook until translucent, about 5 minutes.",
+      "Add the minced garlic and grated ginger and cook for another 2 minutes.",
+      "Stir in the curry powder and cook for 1 minute until fragrant.",
+      "Add the chicken pieces and cook until they are no longer pink, about 5-7 minutes.",
+      "Add the chopped tomatoes and cook until they soften, about 5 minutes.",
+      "Pour in the coconut milk and stir to combine.",
+      "Bring the mixture to a simmer, then reduce the heat to low and cook for 20-25 minutes, stirring occasionally.",
+      "Season with salt to taste.",
+      "Garnish with freshly chopped cilantro before serving."
+    ],
+    "image": "https://myfoodstory.com/wp-content/uploads/2020/10/Dhaba-Style-Chicken-Curry-2.jpg",
+    "prep_time": 20,
+    "cook_time": 40,
+    "servings": 4,
+    "nutrition": {
+      "calories": 600,
+      "fat": 30,
+      "protein": 40,
+      "carbs": 50
+    },
+    "tags": [
+      "Indian",
+      "Curry"
+    ],
+    "difficulty": "Medium",
+    "created_by": "668ec06d8f7e6db3cbc219c1"
+  }, {
+    "title": "Authentic Chicken Curry",
+    "ingredients": [
+      {
+        "ingredient": "Chicken Breast",
+        "quantity": 500
+      },
+      {
+        "ingredient": "Curry Powder",
+        "quantity": 15
+      },
+      {
+        "ingredient": "Coconut Milk",
+        "quantity": 400
+      },
+      {
+        "ingredient": "Onion",
+        "quantity": 1
+      },
+      {
+        "ingredient": "Garlic",
+        "quantity": 4
+      },
+      {
+        "ingredient": "Ginger",
+        "quantity": 1
+      },
+      {
+        "ingredient": "Tomatoes",
+        "quantity": 2
+      },
+      {
+        "ingredient": "Vegetable Oil",
+        "quantity": 2
+      },
+      {
+        "ingredient": "Salt",
+        "quantity": 1
+      },
+      {
+        "ingredient": "Fresh Cilantro",
+        "quantity": 1
+      }
+    ],
+    "directions": [
+      "Finely chop the onion, mince the garlic, and grate the ginger.",
+      "Cut the chicken breasts into bite-sized pieces.",
+      "Heat the vegetable oil in a large pot over medium heat.",
+      "Add the chopped onion and cook until translucent, about 5 minutes.",
+      "Add the minced garlic and grated ginger and cook for another 2 minutes.",
+      "Stir in the curry powder and cook for 1 minute until fragrant.",
+      "Add the chicken pieces and cook until they are no longer pink, about 5-7 minutes.",
+      "Add the chopped tomatoes and cook until they soften, about 5 minutes.",
+      "Pour in the coconut milk and stir to combine.",
+      "Bring the mixture to a simmer, then reduce the heat to low and cook for 20-25 minutes, stirring occasionally.",
+      "Season with salt to taste.",
+      "Garnish with freshly chopped cilantro before serving."
+    ],
+    "image": "https://myfoodstory.com/wp-content/uploads/2020/10/Dhaba-Style-Chicken-Curry-2.jpg",
+    "prep_time": 20,
+    "cook_time": 40,
+    "servings": 4,
+    "nutrition": {
+      "calories": 600,
+      "fat": 30,
+      "protein": 40,
+      "carbs": 50
+    },
+    "tags": [
+      "Indian",
+      "Curry"
+    ],
+    "difficulty": "Medium",
+    "created_by": "668ec06d8f7e6db3cbc219c1"
+  }, {
+    "title": "Authentic Chicken Curry",
+    "ingredients": [
+      {
+        "ingredient": "Chicken Breast",
+        "quantity": 500
+      },
+      {
+        "ingredient": "Curry Powder",
+        "quantity": 15
+      },
+      {
+        "ingredient": "Coconut Milk",
+        "quantity": 400
+      },
+      {
+        "ingredient": "Onion",
+        "quantity": 1
+      },
+      {
+        "ingredient": "Garlic",
+        "quantity": 4
+      },
+      {
+        "ingredient": "Ginger",
+        "quantity": 1
+      },
+      {
+        "ingredient": "Tomatoes",
+        "quantity": 2
+      },
+      {
+        "ingredient": "Vegetable Oil",
+        "quantity": 2
+      },
+      {
+        "ingredient": "Salt",
+        "quantity": 1
+      },
+      {
+        "ingredient": "Fresh Cilantro",
+        "quantity": 1
+      }
+    ],
+    "directions": [
+      "Finely chop the onion, mince the garlic, and grate the ginger.",
+      "Cut the chicken breasts into bite-sized pieces.",
+      "Heat the vegetable oil in a large pot over medium heat.",
+      "Add the chopped onion and cook until translucent, about 5 minutes.",
+      "Add the minced garlic and grated ginger and cook for another 2 minutes.",
+      "Stir in the curry powder and cook for 1 minute until fragrant.",
+      "Add the chicken pieces and cook until they are no longer pink, about 5-7 minutes.",
+      "Add the chopped tomatoes and cook until they soften, about 5 minutes.",
+      "Pour in the coconut milk and stir to combine.",
+      "Bring the mixture to a simmer, then reduce the heat to low and cook for 20-25 minutes, stirring occasionally.",
+      "Season with salt to taste.",
+      "Garnish with freshly chopped cilantro before serving."
+    ],
+    "image": "https://myfoodstory.com/wp-content/uploads/2020/10/Dhaba-Style-Chicken-Curry-2.jpg",
+    "prep_time": 20,
+    "cook_time": 40,
+    "servings": 4,
+    "nutrition": {
+      "calories": 600,
+      "fat": 30,
+      "protein": 40,
+      "carbs": 50
+    },
+    "tags": [
+      "Indian",
+      "Curry"
+    ],
+    "difficulty": "Medium",
+    "created_by": "668ec06d8f7e6db3cbc219c1"
+  }, {
+    "title": "Authentic Chicken Curry",
+    "ingredients": [
+      {
+        "ingredient": "Chicken Breast",
+        "quantity": 500
+      },
+      {
+        "ingredient": "Curry Powder",
+        "quantity": 15
+      },
+      {
+        "ingredient": "Coconut Milk",
+        "quantity": 400
+      },
+      {
+        "ingredient": "Onion",
+        "quantity": 1
+      },
+      {
+        "ingredient": "Garlic",
+        "quantity": 4
+      },
+      {
+        "ingredient": "Ginger",
+        "quantity": 1
+      },
+      {
+        "ingredient": "Tomatoes",
+        "quantity": 2
+      },
+      {
+        "ingredient": "Vegetable Oil",
+        "quantity": 2
+      },
+      {
+        "ingredient": "Salt",
+        "quantity": 1
+      },
+      {
+        "ingredient": "Fresh Cilantro",
+        "quantity": 1
+      }
+    ],
+    "directions": [
+      "Finely chop the onion, mince the garlic, and grate the ginger.",
+      "Cut the chicken breasts into bite-sized pieces.",
+      "Heat the vegetable oil in a large pot over medium heat.",
+      "Add the chopped onion and cook until translucent, about 5 minutes.",
+      "Add the minced garlic and grated ginger and cook for another 2 minutes.",
+      "Stir in the curry powder and cook for 1 minute until fragrant.",
+      "Add the chicken pieces and cook until they are no longer pink, about 5-7 minutes.",
+      "Add the chopped tomatoes and cook until they soften, about 5 minutes.",
+      "Pour in the coconut milk and stir to combine.",
+      "Bring the mixture to a simmer, then reduce the heat to low and cook for 20-25 minutes, stirring occasionally.",
+      "Season with salt to taste.",
+      "Garnish with freshly chopped cilantro before serving."
+    ],
+    "image": "https://myfoodstory.com/wp-content/uploads/2020/10/Dhaba-Style-Chicken-Curry-2.jpg",
+    "prep_time": 20,
+    "cook_time": 40,
+    "servings": 4,
+    "nutrition": {
+      "calories": 600,
+      "fat": 30,
+      "protein": 40,
+      "carbs": 50
+    },
+    "tags": [
+      "Indian",
+      "Curry"
+    ],
+    "difficulty": "Medium",
+    "created_by": "668ec06d8f7e6db3cbc219c1"
+  }, {
+    "title": "Authentic Chicken Curry",
+    "ingredients": [
+      {
+        "ingredient": "Chicken Breast",
+        "quantity": 500
+      },
+      {
+        "ingredient": "Curry Powder",
+        "quantity": 15
+      },
+      {
+        "ingredient": "Coconut Milk",
+        "quantity": 400
+      },
+      {
+        "ingredient": "Onion",
+        "quantity": 1
+      },
+      {
+        "ingredient": "Garlic",
+        "quantity": 4
+      },
+      {
+        "ingredient": "Ginger",
+        "quantity": 1
+      },
+      {
+        "ingredient": "Tomatoes",
+        "quantity": 2
+      },
+      {
+        "ingredient": "Vegetable Oil",
+        "quantity": 2
+      },
+      {
+        "ingredient": "Salt",
+        "quantity": 1
+      },
+      {
+        "ingredient": "Fresh Cilantro",
+        "quantity": 1
+      }
+    ],
+    "directions": [
+      "Finely chop the onion, mince the garlic, and grate the ginger.",
+      "Cut the chicken breasts into bite-sized pieces.",
+      "Heat the vegetable oil in a large pot over medium heat.",
+      "Add the chopped onion and cook until translucent, about 5 minutes.",
+      "Add the minced garlic and grated ginger and cook for another 2 minutes.",
+      "Stir in the curry powder and cook for 1 minute until fragrant.",
+      "Add the chicken pieces and cook until they are no longer pink, about 5-7 minutes.",
+      "Add the chopped tomatoes and cook until they soften, about 5 minutes.",
+      "Pour in the coconut milk and stir to combine.",
+      "Bring the mixture to a simmer, then reduce the heat to low and cook for 20-25 minutes, stirring occasionally.",
+      "Season with salt to taste.",
+      "Garnish with freshly chopped cilantro before serving."
+    ],
+    "image": "https://myfoodstory.com/wp-content/uploads/2020/10/Dhaba-Style-Chicken-Curry-2.jpg",
+    "prep_time": 20,
+    "cook_time": 40,
+    "servings": 4,
+    "nutrition": {
+      "calories": 600,
+      "fat": 30,
+      "protein": 40,
+      "carbs": 50
+    },
+    "tags": [
+      "Indian",
+      "Curry"
+    ],
+    "difficulty": "Medium",
+    "created_by": "668ec06d8f7e6db3cbc219c1"
+  }, {
+    "title": "Authentic Chicken Curry",
+    "ingredients": [
+      {
+        "ingredient": "Chicken Breast",
+        "quantity": 500
+      },
+      {
+        "ingredient": "Curry Powder",
+        "quantity": 15
+      },
+      {
+        "ingredient": "Coconut Milk",
+        "quantity": 400
+      },
+      {
+        "ingredient": "Onion",
+        "quantity": 1
+      },
+      {
+        "ingredient": "Garlic",
+        "quantity": 4
+      },
+      {
+        "ingredient": "Ginger",
+        "quantity": 1
+      },
+      {
+        "ingredient": "Tomatoes",
+        "quantity": 2
+      },
+      {
+        "ingredient": "Vegetable Oil",
+        "quantity": 2
+      },
+      {
+        "ingredient": "Salt",
+        "quantity": 1
+      },
+      {
+        "ingredient": "Fresh Cilantro",
+        "quantity": 1
+      }
+    ],
+    "directions": [
+      "Finely chop the onion, mince the garlic, and grate the ginger.",
+      "Cut the chicken breasts into bite-sized pieces.",
+      "Heat the vegetable oil in a large pot over medium heat.",
+      "Add the chopped onion and cook until translucent, about 5 minutes.",
+      "Add the minced garlic and grated ginger and cook for another 2 minutes.",
+      "Stir in the curry powder and cook for 1 minute until fragrant.",
+      "Add the chicken pieces and cook until they are no longer pink, about 5-7 minutes.",
+      "Add the chopped tomatoes and cook until they soften, about 5 minutes.",
+      "Pour in the coconut milk and stir to combine.",
+      "Bring the mixture to a simmer, then reduce the heat to low and cook for 20-25 minutes, stirring occasionally.",
+      "Season with salt to taste.",
+      "Garnish with freshly chopped cilantro before serving."
+    ],
+    "image": "https://myfoodstory.com/wp-content/uploads/2020/10/Dhaba-Style-Chicken-Curry-2.jpg",
+    "prep_time": 20,
+    "cook_time": 40,
+    "servings": 4,
+    "nutrition": {
+      "calories": 600,
+      "fat": 30,
+      "protein": 40,
+      "carbs": 50
+    },
+    "tags": [
+      "Indian",
+      "Curry"
+    ],
+    "difficulty": "Medium",
+    "created_by": "668ec06d8f7e6db3cbc219c1"
+  }
+];
 
 export default recipes;

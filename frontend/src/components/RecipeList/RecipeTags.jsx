@@ -1,4 +1,5 @@
 import React from 'react';
+import RecipeActions from '../Recipe/RecipeActions';
 
 const RecipeTags = ({ tags }) => {
   return (

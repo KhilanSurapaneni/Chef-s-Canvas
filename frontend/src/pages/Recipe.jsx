@@ -36,14 +36,11 @@ const Recipe = () => {
   if (loading) return <Spinner />;
 
   return (
-    <div className="absolute top-4 left-0 m-4 p-4 bg-gray-100 max-w-screen-md">
-      <div className="p-4 border rounded-lg shadow-md bg-white hover:shadow-lg transition-shadow duration-300">
-        <RecipeDetails recipe={recipe} />
-        <RecipeActions backend_url={backend_url} />
-        <footer className="mt-4 text-sm text-center text-indigo-600 font-medium border-t pt-2">
-          Created by: {recipe.created_by?.username}
-        </footer>
-      </div>
+    <div className="container mx-auto my-8 p-4">
+      <RecipeActions backend_url={backend_url} />
+      <article className="p-6 bg-white">
+        <RecipeDetails recipe={recipe}/>
+      </article>
     </div>
   );
 };
