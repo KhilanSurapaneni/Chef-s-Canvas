@@ -1,19 +1,21 @@
 import React from 'react';
-import { handleChange } from './functions';
+import { TextField } from '@mui/material';
 
 const CommentInput = ({ review, setReview }) => {
+  const handleChange = (e) => {
+    setReview({ ...review, comment: e.target.value });
+  };
+
   return (
-    <div className="mb-6">
-      <textarea
-        id="comment"
-        name="comment"
-        value={review.comment}
-        onChange={(e) => handleChange(e, setReview, review)}
-        className="block w-full p-3 border border-gray-300 rounded-md focus:ring focus:ring-blue-200"
-        rows="5"
-        required
-      ></textarea>
-    </div>
+    <TextField
+      fullWidth
+      margin="normal"
+      label="Comment"
+      multiline
+      rows={4}
+      value={review.comment}
+      onChange={handleChange}
+    />
   );
 };
 

@@ -2,20 +2,19 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import { handleSubmit } from './functions';
+import { Container, Typography, Button, Box } from '@mui/material';
 import RatingSelect from './RatingSelect';
 import CommentInput from './CommentInput';
-import ErrorMessage from './ErrorMessage';
 
 const ReviewForm = ({ backend_url }) => {
   const { id } = useParams();
-  const [review, setReview] = useState({ rating: 1, comment: '' });
+  const [review, setReview] = useState({ rating: 0, comment: '' });
   const [error, setError] = useState(null);
   const navigate = useNavigate();
 
   const validateForm = () => {
     if (!review.rating || review.rating < 1 || review.rating > 5) {
-      setError('Please provide a rating');
+      setError('Please provide a rating between 1 and 5 stars.');
       return false;
     }
     if (!review.comment || review.comment.trim().length === 0) {
@@ -24,25 +23,39 @@ const ReviewForm = ({ backend_url }) => {
     }
     return true;
   };
-  
+
+  const handleSubmitForm = async (event) => {
+    event.preventDefault();
+    if (!validateForm()) {
+      return;
+    }
+
+    try {
+      await axios.post(`${backend_url}/reviews/${id}`, review);
+      toast.success('Review submitted successfully!');
+      navigate(`/reviews/${id}`);
+    } catch (error) {
+      setError(error.response?.data?.message || 'An error occurred. Please try again.');
+      toast.error('Failed to submit the review.');
+    }
+  };
+
   return (
-    <form 
-      onSubmit={(event) => handleSubmit(event, setError, backend_url, axios, id, review, setReview, toast, navigate)} 
-      className="bg-white p-8 rounded-lg shadow-md mt-6 max-w-lg mx-auto"
-    >
-      <h2 className="text-3xl font-bold mb-6 text-center text-gray-800">Submit a Review</h2>
-      {error && <ErrorMessage error={error} />}
-      <RatingSelect review={review} setReview={setReview} />
-      <CommentInput review={review} setReview={setReview} />
-      <div className="flex justify-center">
-        <button
-          type="submit"
-          className="px-5 py-2 bg-blue-500 text-white rounded-lg shadow hover:bg-blue-600 transition duration-300"
-        >
-          Submit Review
-        </button>
-      </div>
-    </form>
+    <Container maxWidth="sm">
+      <Box component="form" onSubmit={handleSubmitForm} sx={{ mt: 6, p: 4, bgcolor: 'white', boxShadow: 1, borderRadius: 1 }}>
+        <Typography variant="h4" gutterBottom textAlign="center">
+          Submit a Review
+        </Typography>
+        {error && <Typography color="error" textAlign="center" mb={2}>{error}</Typography>}
+        <RatingSelect review={review} setReview={setReview} />
+        <CommentInput review={review} setReview={setReview} />
+        <Box textAlign="center" mt={4}>
+          <Button type="submit" variant="contained" color="primary">
+            Submit Review
+          </Button>
+        </Box>
+      </Box>
+    </Container>
   );
 };
 
