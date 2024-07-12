@@ -27,7 +27,7 @@ import {
   InputLabel,
   Select,
   Divider,
-  Paper
+  useTheme
 } from '@mui/material';
 
 const CreateRecipe = () => {
@@ -49,6 +49,7 @@ const CreateRecipe = () => {
   const [errors, setErrors] = useState({});
   const [error, setError] = useState(null);
   const navigate = useNavigate();
+  const theme = useTheme();
   const backend_url = import.meta.env.VITE_BACKEND_URL; // Accessing the VITE_BACKEND_URL environment variable
 
   const validateForm = () => {
@@ -78,10 +79,10 @@ const CreateRecipe = () => {
   };
 
   return (
-    <Container maxWidth="md">
+    <Container maxWidth="md" sx={{ mt: 4, mb: 4 }}>
       {error && (
         <Box mb={2}>
-          <Typography color="error">{error}</Typography>
+          <Typography sx={{ color: theme.palette.error.main }}>{error}</Typography>
         </Box>
       )}
       <Typography variant="h4" gutterBottom>
@@ -173,16 +174,12 @@ const CreateRecipe = () => {
           handleIngredientChange={(index, event) => handleIngredientChange(index, event, ingredients, setIngredients)}
           addIngredient={() => addIngredient(ingredients, setIngredients)}
           removeIngredient={(index) => removeIngredient(index, ingredients, setIngredients)}
-          error={!!errors.ingredients}
-          helperText={errors.ingredients}
         />
         <DirectionList
           directions={directions}
           handleDirectionChange={(index, event) => handleDirectionChange(index, event, directions, setDirections)}
           addDirection={() => addDirection(directions, setDirections)}
           removeDirection={(index) => removeDirection(index, directions, setDirections)}
-          error={!!errors.directions}
-          helperText={errors.directions}
         />
         <Divider sx={{ my: 2 }} />
         <Typography variant="h6" gutterBottom>
@@ -258,10 +255,10 @@ const CreateRecipe = () => {
           margin="normal"
         />
         <Box display="flex" justifyContent="space-between" mt={2}>
-          <Button type="submit" variant="contained" color="primary">
+          <Button type="submit" variant="contained" sx={{ backgroundColor: theme.palette.primary.main }}>
             Create Recipe
           </Button>
-          <Button component={Link} to="/recipes" variant="contained" color="secondary">
+          <Button component={Link} to="/recipes" variant="contained" sx={{ backgroundColor: theme.palette.secondary.main }}>
             Back to All Recipes
           </Button>
         </Box>

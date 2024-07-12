@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { Container, Box, CircularProgress, Grid } from '@mui/material';
+import { Container, Box, CircularProgress, Grid, useTheme } from '@mui/material';
 import RecipeDetails from '../components/Recipe/RecipeDetails';
 import RecipeActions from '../components/Recipe/RecipeActions';
 import ReviewForm from '../components/Recipe/Reviews/Form/ReviewForm';
@@ -18,6 +18,7 @@ const Recipe = () => {
     reviews: []
   });
   const navigate = useNavigate();
+  const theme = useTheme();
   const backend_url = import.meta.env.VITE_BACKEND_URL;
 
   useEffect(() => {
@@ -40,7 +41,7 @@ const Recipe = () => {
     return (
       <Container>
         <Box display="flex" justifyContent="center" alignItems="center" height="100vh">
-          <CircularProgress />
+          <CircularProgress sx={{ color: theme.palette.primary.main }} />
         </Box>
       </Container>
     );

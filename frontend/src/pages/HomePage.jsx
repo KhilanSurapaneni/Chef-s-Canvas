@@ -1,8 +1,10 @@
 import React from 'react';
-import { Container, Typography, Box, Button, Grid } from '@mui/material';
+import { Container, Typography, Box, Button, Grid, useTheme } from '@mui/material';
 import { Link } from 'react-router-dom';
 
 const HomePage = () => {
+  const theme = useTheme();
+
   return (
     <Container maxWidth="md" sx={{ mt: 8 }}>
       <Box textAlign="center" mb={4}>
@@ -16,12 +18,22 @@ const HomePage = () => {
 
       <Grid container spacing={4} justifyContent="center">
         <Grid item>
-          <Button component={Link} to="/recipes" variant="contained" color="primary">
+          <Button
+            component={Link}
+            to="/recipes"
+            variant="contained"
+            sx={{ backgroundColor: theme.palette.primary.main }}
+          >
             Browse Recipes
           </Button>
         </Grid>
         <Grid item>
-          <Button component={Link} to="/recipes/create" variant="contained" color="secondary">
+          <Button
+            component={Link}
+            to="/recipes/create"
+            variant="contained"
+            sx={{ backgroundColor: theme.palette.secondary.main }}
+          >
             Create a Recipe
           </Button>
         </Grid>

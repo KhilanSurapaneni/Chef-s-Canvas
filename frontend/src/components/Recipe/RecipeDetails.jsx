@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Typography, Grid, List, ListItem, ListItemText, Divider } from '@mui/material';
+import { Box, Typography, Grid, List, ListItem, ListItemText, Divider, useTheme } from '@mui/material';
 import RecipeTags from '../RecipeList/RecipeTags';
 import RecipeTitle from './Details/RecipeTitle';
 import RecipeImage from './Details/RecipeImage';
@@ -7,8 +7,10 @@ import RecipeSection from './Details/RecipeSection';
 import Rating from '../RecipeList/Rating';
 
 const RecipeDetails = ({ recipe }) => {
+  const theme = useTheme();
+
   return (
-    <Box sx={{ padding: 2 }}>
+    <Box sx={{ padding: 2, backgroundColor: theme.palette.background.paper }}>
       <Box sx={{ padding: 2, marginBottom: 2 }}>
         <RecipeImage image={recipe.image} title={recipe.title} />
         <RecipeTitle title={recipe.title} created_by={recipe.created_by.username} />
@@ -26,7 +28,7 @@ const RecipeDetails = ({ recipe }) => {
               ))}
             </List>
           </RecipeSection>
-          <Divider sx={{ marginY: 2 }} />
+          <Divider sx={{ marginY: 2, backgroundColor: theme.palette.divider }} />
           <RecipeSection title="Directions">
             <List sx={{ listStyleType: 'decimal', pl: 2 }}>
               {recipe.directions.map((direction, index) => (
@@ -36,7 +38,7 @@ const RecipeDetails = ({ recipe }) => {
               ))}
             </List>
           </RecipeSection>
-          <Divider sx={{ marginY: 2 }} />
+          <Divider sx={{ marginY: 2, backgroundColor: theme.palette.divider }} />
           <RecipeSection title="Nutrition">
             <Grid container spacing={2}>
               <Grid item xs={6}><Typography>Calories: {recipe.nutrition.calories}</Typography></Grid>
@@ -45,7 +47,7 @@ const RecipeDetails = ({ recipe }) => {
               <Grid item xs={6}><Typography>Carbs: {recipe.nutrition.carbs}g</Typography></Grid>
             </Grid>
           </RecipeSection>
-          <Divider sx={{ marginY: 2 }} />
+          <Divider sx={{ marginY: 2, backgroundColor: theme.palette.divider }} />
           <RecipeSection title="Details">
             <Grid container spacing={2}>
               <Grid item xs={6}><Typography>Prep Time: {recipe.prep_time} mins</Typography></Grid>

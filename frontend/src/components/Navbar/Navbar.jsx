@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { AppBar, Toolbar, Button, Menu, MenuItem, Box, Typography, IconButton } from '@mui/material';
+import { AppBar, Toolbar, Button, Menu, MenuItem, Box, Typography, IconButton, useTheme } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
@@ -11,6 +11,7 @@ const Navbar = () => {
   const { isAuthenticated, setIsAuthenticated } = useContext(AuthContext);
   const backend_url = import.meta.env.VITE_BACKEND_URL;
   const navigate = useNavigate();
+  const theme = useTheme();
 
   const handleMenu = (event) => {
     setAnchorEl(event.currentTarget);
@@ -35,43 +36,92 @@ const Navbar = () => {
   };
 
   return (
-    <AppBar position="static">
+    <AppBar position="static" sx={{ backgroundColor: theme.palette.background.default, boxShadow: 'none' }}>
       <Toolbar>
         <Typography
           variant="h6"
           component={Link}
           to="/"
-          sx={{ textDecoration: 'none', color: 'inherit', flexGrow: 1 }}
+          sx={{ textDecoration: 'none', color: theme.palette.text.primary, flexGrow: 1 }}
         >
           Chef's Canvas
         </Typography>
         <Box sx={{ display: { xs: 'none', md: 'flex' }, flexGrow: 1 }}>
-          <Button component={Link} to="/recipes" sx={{ color: 'inherit' }}>
+          <Button
+            component={Link}
+            to="/recipes"
+            sx={{
+              color: theme.palette.text.primary,
+              '&:hover': {
+                backgroundColor: theme.palette.primary.main,
+                color: theme.palette.primary.contrastText,
+              },
+            }}
+          >
             Browse Recipes
           </Button>
-          <Button component={Link} to="/recipes/create" sx={{ color: 'inherit' }}>
+          <Button
+            component={Link}
+            to="/recipes/create"
+            sx={{
+              color: theme.palette.text.primary,
+              '&:hover': {
+                backgroundColor: theme.palette.primary.main,
+                color: theme.palette.primary.contrastText,
+              },
+            }}
+          >
             Create a Recipe
           </Button>
         </Box>
         <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
           {!isAuthenticated ? (
             <>
-              <Button component={Link} to="/register" sx={{ color: 'inherit' }}>
+              <Button
+                component={Link}
+                to="/register"
+                sx={{
+                  color: theme.palette.text.primary,
+                  '&:hover': {
+                    backgroundColor: theme.palette.primary.main,
+                    color: theme.palette.primary.contrastText,
+                  },
+                }}
+              >
                 Register
               </Button>
-              <Button component={Link} to="/login" sx={{ color: 'inherit' }}>
+              <Button
+                component={Link}
+                to="/login"
+                sx={{
+                  color: theme.palette.text.primary,
+                  '&:hover': {
+                    backgroundColor: theme.palette.primary.main,
+                    color: theme.palette.primary.contrastText,
+                  },
+                }}
+              >
                 Login
               </Button>
             </>
           ) : (
-            <Button onClick={handleLogout} sx={{ color: 'inherit' }}>
+            <Button
+              onClick={handleLogout}
+              sx={{
+                color: theme.palette.text.primary,
+                '&:hover': {
+                  backgroundColor: theme.palette.primary.main,
+                  color: theme.palette.primary.contrastText,
+                },
+              }}
+            >
               Logout
             </Button>
           )}
         </Box>
         <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
           <IconButton
-            sx={{ color: 'inherit' }}
+            sx={{ color: theme.palette.text.primary }}
             aria-controls="menu-appbar"
             aria-haspopup="true"
             onClick={handleMenu}

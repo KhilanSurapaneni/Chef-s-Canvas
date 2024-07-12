@@ -3,12 +3,13 @@ import { AuthContext } from '../../AuthContext';
 import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 import { toast } from "react-toastify";
-import { Box, Button, Grid } from '@mui/material';
+import { Box, Button, Grid, useTheme } from '@mui/material';
 
 const RecipeActions = ({ backend_url }) => {
   const { id } = useParams();
   const { isAuthenticated, isAuthor, checkAuthorStatus } = useContext(AuthContext);
   const navigate = useNavigate();
+  const theme = useTheme();
 
   useEffect(() => {
     if (isAuthenticated) {
@@ -39,7 +40,7 @@ const RecipeActions = ({ backend_url }) => {
           <Grid item>
             <Button
               variant="contained"
-              color="error"
+              sx={{ backgroundColor: theme.palette.error.main, '&:hover': { backgroundColor: theme.palette.error.dark } }}
               onClick={handleDelete}
             >
               Delete
@@ -48,7 +49,7 @@ const RecipeActions = ({ backend_url }) => {
           <Grid item>
             <Button
               variant="contained"
-              color="warning"
+              sx={{ backgroundColor: theme.palette.warning.main, '&:hover': { backgroundColor: theme.palette.warning.dark } }}
               onClick={() => navigate(`/recipes/${id}/edit`)}
             >
               Edit

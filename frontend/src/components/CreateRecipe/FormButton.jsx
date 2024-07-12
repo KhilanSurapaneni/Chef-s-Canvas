@@ -1,17 +1,26 @@
 import React from 'react';
-import { Button } from '@mui/material';
+import { Button, useTheme } from '@mui/material';
 
-const FormButton = ({ type, label, onClick, color, variant }) => (
-  <Button
-    type={type}
-    onClick={onClick}
-    color={color || 'primary'}
-    variant={variant || 'contained'}
-    fullWidth
-    sx={{ mt: 2 }}
-  >
-    {label}
-  </Button>
-);
+const FormButton = ({ type = 'button', label, onClick, variant = 'contained' }) => {
+  const theme = useTheme();
+
+  return (
+    <Button
+      type={type}
+      onClick={onClick}
+      variant={variant}
+      fullWidth
+      sx={{
+        mt: 2,
+        backgroundColor: theme.palette.primary.main,
+        '&:hover': {
+          backgroundColor: theme.palette.primary.dark,
+        },
+      }}
+    >
+      {label}
+    </Button>
+  );
+};
 
 export default FormButton;

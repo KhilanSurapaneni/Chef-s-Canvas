@@ -1,18 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate, useParams, Link } from 'react-router-dom';
-import { 
-  Container, 
-  Typography, 
-  TextField, 
-  Grid, 
-  Button, 
-  Box, 
-  MenuItem, 
-  FormControl, 
-  InputLabel, 
-  Select, 
-  Divider 
+import {
+  Container,
+  Typography,
+  TextField,
+  Grid,
+  Button,
+  Box,
+  MenuItem,
+  FormControl,
+  InputLabel,
+  Select,
+  Divider,
+  useTheme
 } from '@mui/material';
 import Spinner from '../components/Spinner';
 import {
@@ -51,6 +52,7 @@ const EditRecipe = () => {
   const [errors, setErrors] = useState({});
   const [error, setError] = useState(null);
   const navigate = useNavigate();
+  const theme = useTheme();
 
   useEffect(() => {
     const getData = async () => {
@@ -133,10 +135,10 @@ const EditRecipe = () => {
   }
 
   return (
-    <Container maxWidth="md">
+    <Container maxWidth="md" sx={{ mt: 4, mb: 4 }}>
       {error && (
         <Box mb={2}>
-          <Typography color="error">{error}</Typography>
+          <Typography sx={{ color: theme.palette.error.main }}>{error}</Typography>
         </Box>
       )}
       <Typography variant="h4" gutterBottom>
@@ -228,16 +230,12 @@ const EditRecipe = () => {
           handleIngredientChange={(index, event) => handleIngredientChange(index, event, ingredients, setIngredients)}
           addIngredient={() => addIngredient(ingredients, setIngredients)}
           removeIngredient={(index) => removeIngredient(index, ingredients, setIngredients)}
-          error={!!errors.ingredients}
-          helperText={errors.ingredients}
         />
         <DirectionList
           directions={directions}
           handleDirectionChange={(index, event) => handleDirectionChange(index, event, directions, setDirections)}
           addDirection={() => addDirection(directions, setDirections)}
           removeDirection={(index) => removeDirection(index, directions, setDirections)}
-          error={!!errors.directions}
-          helperText={errors.directions}
         />
         <Divider sx={{ my: 2 }} />
         <Typography variant="h6" gutterBottom>
@@ -313,10 +311,10 @@ const EditRecipe = () => {
           margin="normal"
         />
         <Box display="flex" justifyContent="space-between" mt={2}>
-          <Button type="submit" variant="contained" color="primary">
+          <Button type="submit" variant="contained" sx={{ backgroundColor: theme.palette.primary.main }}>
             Update Recipe
           </Button>
-          <Button component={Link} to="/recipes" variant="contained" color="secondary">
+          <Button component={Link} to="/recipes" variant="contained" sx={{ backgroundColor: theme.palette.secondary.main }}>
             Back to All Recipes
           </Button>
         </Box>

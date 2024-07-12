@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Button, TextField, Box, Typography } from '@mui/material';
+import { Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Button, TextField, Box, Typography, useTheme } from '@mui/material';
 import RatingSelectList from './RatingSelectList';
 
 const ReviewEditDialog = ({ open, onClose, editedComment, setEditedComment, editedRating, setEditedRating, handleEdit }) => {
     const [validationErrors, setValidationErrors] = useState({});
+    const theme = useTheme();
 
     const validateForm = () => {
         const errors = {};
@@ -41,6 +42,22 @@ const ReviewEditDialog = ({ open, onClose, editedComment, setEditedComment, edit
                     fullWidth
                     value={editedComment}
                     onChange={(e) => setEditedComment(e.target.value)}
+                    sx={{
+                        '& .MuiOutlinedInput-root': {
+                            '& fieldset': {
+                                borderColor: theme.palette.primary.main,
+                            },
+                            '&:hover fieldset': {
+                                borderColor: theme.palette.primary.dark,
+                            },
+                            '&.Mui-focused fieldset': {
+                                borderColor: theme.palette.primary.dark,
+                            },
+                        },
+                        '& .MuiInputLabel-root.Mui-focused': {
+                            color: theme.palette.primary.dark,
+                        },
+                    }}
                 />
                 {validationErrors.comment && <Typography color="error">{validationErrors.comment}</Typography>}
                 <Box sx={{ mt: 2 }}>
@@ -49,10 +66,10 @@ const ReviewEditDialog = ({ open, onClose, editedComment, setEditedComment, edit
                 {validationErrors.rating && <Typography color="error">{validationErrors.rating}</Typography>}
             </DialogContent>
             <DialogActions>
-                <Button onClick={onClose} color="primary">
+                <Button onClick={onClose} sx={{ color: theme.palette.primary.main }}>
                     Cancel
                 </Button>
-                <Button onClick={handleSubmit} color="primary">
+                <Button onClick={handleSubmit} sx={{ color: theme.palette.primary.main }}>
                     Save
                 </Button>
             </DialogActions>

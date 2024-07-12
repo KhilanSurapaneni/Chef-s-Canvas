@@ -1,10 +1,24 @@
 import React from 'react';
+import { Box, CircularProgress, useTheme } from '@mui/material';
 
 const Spinner = () => {
+  const theme = useTheme();
+
   return (
-    <div className="flex justify-center items-center min-h-screen">
-      <div className="animate-spin w-16 h-16 border-4 border-blue-500 border-t-transparent rounded-full"></div>
-    </div>
+    <Box
+      display="flex"
+      justifyContent="center"
+      alignItems="center"
+      minHeight="100vh"
+    >
+      <CircularProgress
+        size={64}
+        thickness={4}
+        sx={{
+          color: theme.palette.primary.main,
+        }}
+      />
+    </Box>
   );
 };
 

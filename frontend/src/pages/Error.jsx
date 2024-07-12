@@ -1,12 +1,13 @@
 import React from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { Container, Box, Typography, Button, Paper } from '@mui/material';
+import { Container, Box, Typography, Button, Paper, useTheme } from '@mui/material';
 
 const Error = () => {
     const navigate = useNavigate();
     const location = useLocation();
     const { state } = location;
     const errorMessage = state?.message || 'Something went wrong.';
+    const theme = useTheme();
 
     const handleBack = () => {
         navigate('/');
@@ -24,8 +25,7 @@ const Error = () => {
                 <Button
                     onClick={handleBack}
                     variant="contained"
-                    color="primary"
-                    sx={{ mt: 2 }}
+                    sx={{ mt: 2, backgroundColor: theme.palette.primary.main }}
                 >
                     Go Back to Home
                 </Button>

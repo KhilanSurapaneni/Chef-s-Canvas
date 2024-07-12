@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import { Container, Grid, CircularProgress, Typography, Box } from '@mui/material';
+import { Container, Grid, CircularProgress, Typography, Box, useTheme } from '@mui/material';
 import RecipeItem from '../components/RecipeList/RecipeItem';
 
 const RecipeList = () => {
   const [recipes, setRecipes] = useState([]);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
+  const theme = useTheme();
   const backend_url = import.meta.env.VITE_BACKEND_URL; // Accessing the VITE_BACKEND_URL environment variable
 
   useEffect(() => {
@@ -31,7 +32,7 @@ const RecipeList = () => {
     return (
       <Container>
         <Grid container justifyContent="center" alignItems="center" style={{ height: '100vh' }}>
-          <CircularProgress />
+          <CircularProgress sx={{ color: theme.palette.primary.main }} />
         </Grid>
       </Container>
     );

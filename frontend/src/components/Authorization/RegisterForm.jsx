@@ -4,7 +4,7 @@ import axios from 'axios';
 import { handleSubmit } from './functions';
 import { AuthContext } from '../../AuthContext';
 import { toast } from 'react-toastify';
-import { TextField, Button, Container, Typography, Box } from '@mui/material';
+import { TextField, Button, Container, Typography, Box, useTheme } from '@mui/material';
 
 const RegisterForm = ({ backend_url }) => {
     const [username, setUsername] = useState('');
@@ -13,6 +13,7 @@ const RegisterForm = ({ backend_url }) => {
     const [error, setError] = useState(null);
     const navigate = useNavigate();
     const { setIsAuthenticated } = useContext(AuthContext);
+    const theme = useTheme();
 
     return (
         <Container maxWidth="sm">
@@ -24,7 +25,8 @@ const RegisterForm = ({ backend_url }) => {
                     p: 2,
                     borderRadius: 1,
                     boxShadow: 3,
-                    backgroundColor: 'background.paper'
+                    backgroundColor: theme.palette.background.paper,
+                    color: theme.palette.text.primary
                 }}
             >
                 <Typography variant="h4" align="center" gutterBottom>
@@ -40,6 +42,19 @@ const RegisterForm = ({ backend_url }) => {
                     onChange={(e) => setUsername(e.target.value)}
                     margin="normal"
                     variant="outlined"
+                    sx={{
+                        '& .MuiOutlinedInput-root': {
+                            '& fieldset': {
+                                borderColor: theme.palette.primary.main,
+                            },
+                            '&:hover fieldset': {
+                                borderColor: theme.palette.primary.dark,
+                            },
+                            '&.Mui-focused fieldset': {
+                                borderColor: theme.palette.primary.dark,
+                            },
+                        },
+                    }}
                 />
                 <TextField
                     fullWidth
@@ -50,6 +65,19 @@ const RegisterForm = ({ backend_url }) => {
                     onChange={(e) => setEmail(e.target.value)}
                     margin="normal"
                     variant="outlined"
+                    sx={{
+                        '& .MuiOutlinedInput-root': {
+                            '& fieldset': {
+                                borderColor: theme.palette.primary.main,
+                            },
+                            '&:hover fieldset': {
+                                borderColor: theme.palette.primary.dark,
+                            },
+                            '&.Mui-focused fieldset': {
+                                borderColor: theme.palette.primary.dark,
+                            },
+                        },
+                    }}
                 />
                 <TextField
                     fullWidth
@@ -60,12 +88,25 @@ const RegisterForm = ({ backend_url }) => {
                     onChange={(e) => setPassword(e.target.value)}
                     margin="normal"
                     variant="outlined"
+                    sx={{
+                        '& .MuiOutlinedInput-root': {
+                            '& fieldset': {
+                                borderColor: theme.palette.primary.main,
+                            },
+                            '&:hover fieldset': {
+                                borderColor: theme.palette.primary.dark,
+                            },
+                            '&.Mui-focused fieldset': {
+                                borderColor: theme.palette.primary.dark,
+                            },
+                        },
+                    }}
                 />
                 <Button
                     type="submit"
                     fullWidth
                     variant="contained"
-                    sx={{ mt: 2 }}
+                    sx={{ mt: 2, backgroundColor: theme.palette.primary.main, '&:hover': { backgroundColor: theme.palette.primary.dark } }}
                 >
                     Register
                 </Button>

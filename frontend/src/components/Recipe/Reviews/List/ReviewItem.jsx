@@ -1,11 +1,12 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { ListItem, ListItemText, Typography, Box, Button, Divider } from '@mui/material';
+import { ListItem, ListItemText, Typography, Box, Button, Divider, useTheme } from '@mui/material';
 import StarIcon from '@mui/icons-material/Star';
 import { AuthContext } from '../../../../AuthContext';
 
 const ReviewItem = ({ review, openEditDialog, handleDelete }) => {
     const { isAuthenticated, checkReviewAuthorStatus } = useContext(AuthContext);
     const [isReviewAuthor, setIsReviewAuthor] = useState(false);
+    const theme = useTheme();
 
     useEffect(() => {
         const checkAuthor = async () => {
@@ -24,12 +25,12 @@ const ReviewItem = ({ review, openEditDialog, handleDelete }) => {
                     primary={
                         <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                             <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                                <Typography variant="h6" component="span">
+                                <Typography variant="h6" component="span" color={theme.palette.text.primary}>
                                     {review.created_by.username}
                                 </Typography>
                                 <Box sx={{ ml: 1, display: 'flex', alignItems: 'center' }}>
                                     {[...Array(review.rating)].map((_, i) => (
-                                        <StarIcon key={i} sx={{ color: '#FFD700' }} />
+                                        <StarIcon key={i} sx={{ color: "gold" }} />
                                     ))}
                                 </Box>
                             </Box>
@@ -61,7 +62,7 @@ const ReviewItem = ({ review, openEditDialog, handleDelete }) => {
                             sx={{ display: 'inline' }}
                             component="span"
                             variant="body2"
-                            color="text.primary"
+                            color={theme.palette.text.primary}
                         >
                             {review.comment}
                         </Typography>

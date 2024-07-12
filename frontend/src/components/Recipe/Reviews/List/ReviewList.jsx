@@ -1,7 +1,6 @@
-// ReviewList.js
 import React, { useState } from 'react';
 import axios from 'axios';
-import { List, Typography, Box } from '@mui/material';
+import { List, Typography, Box, useTheme } from '@mui/material';
 import { toast } from 'react-toastify';
 import ReviewItem from './ReviewItem';
 import ReviewEditDialog from './ReviewEditDialog';
@@ -11,6 +10,7 @@ const ReviewList = ({ reviews, backend_url }) => {
     const [currentReview, setCurrentReview] = useState(null);
     const [editedComment, setEditedComment] = useState('');
     const [editedRating, setEditedRating] = useState(1);
+    const theme = useTheme();
 
     const handleDelete = async (reviewId, recipeId) => {
         try {
@@ -59,12 +59,12 @@ const ReviewList = ({ reviews, backend_url }) => {
     };
 
     return (
-        <Box sx={{ p: 4, bgcolor: 'white', boxShadow: 1, borderRadius: 1 }}>
-            <Typography variant="h5" gutterBottom>
+        <Box sx={{ p: 4, bgcolor: theme.palette.background.paper, boxShadow: 1, borderRadius: 1 }}>
+            <Typography variant="h4" textAlign="center" fontWeight="bold" gutterBottom color={theme.palette.text.primary}>
                 Reviews
             </Typography>
             <List>
-                {reviews.map((review, index) => (
+                {reviews.map((review) => (
                     <ReviewItem
                         key={review._id}
                         review={review}

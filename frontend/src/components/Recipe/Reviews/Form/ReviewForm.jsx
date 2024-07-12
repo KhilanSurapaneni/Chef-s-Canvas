@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import { Container, Typography, Button, Box } from '@mui/material';
+import { Container, Typography, Button, Box, useTheme } from '@mui/material';
 import RatingSelect from './RatingSelect';
 import CommentInput from './CommentInput';
 
@@ -12,6 +12,7 @@ const ReviewForm = ({ backend_url }) => {
   const [error, setError] = useState(null);
   const [validationErrors, setValidationErrors] = useState({});
   const navigate = useNavigate();
+  const theme = useTheme();
 
   const validateForm = () => {
     const errors = {};
@@ -55,9 +56,18 @@ const ReviewForm = ({ backend_url }) => {
   };
 
   return (
-    <Container maxWidth="sm">
-      <Box component="form" onSubmit={handleSubmitForm} sx={{ mt: 6, p: 4, bgcolor: 'white', boxShadow: 1, borderRadius: 1 }}>
-        <Typography variant="h4" gutterBottom textAlign="center">
+    <Container maxWidth="sm" sx={{ mt: 4, mb: 4 }}>
+      <Box
+        component="form"
+        onSubmit={handleSubmitForm}
+        sx={{
+          p: 4,
+          bgcolor: theme.palette.background.paper,
+          boxShadow: 1,
+          borderRadius: 1
+        }}
+      >
+        <Typography variant="h4" textAlign="center" fontWeight="bold" gutterBottom color={theme.palette.text.primary}>
           Submit a Review
         </Typography>
         {error && <Typography color="error" textAlign="center" mb={2}>{error}</Typography>}
@@ -66,7 +76,7 @@ const ReviewForm = ({ backend_url }) => {
         <CommentInput review={review} setReview={setReview} />
         {validationErrors.comment && <Typography color="error" textAlign="center">{validationErrors.comment}</Typography>}
         <Box textAlign="center" mt={4}>
-          <Button type="submit" variant="contained" color="primary">
+          <Button type="submit" variant="contained" sx={{ backgroundColor: theme.palette.primary.main, '&:hover': { backgroundColor: theme.palette.primary.dark } }}>
             Submit Review
           </Button>
         </Box>
