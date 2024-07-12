@@ -27,7 +27,6 @@ import {
 } from '../components/CreateRecipe/functions';
 import IngredientList from '../components/CreateRecipe/IngredientList';
 import DirectionList from '../components/CreateRecipe/DirectionList';
-import ErrorMessage from '../components/Authorization/ErrorMessage';
 import { toast } from "react-toastify";
 
 const EditRecipe = () => {
@@ -49,6 +48,7 @@ const EditRecipe = () => {
     carbs: '',
     tags: ''
   });
+  const [errors, setErrors] = useState({});
   const [error, setError] = useState(null);
   const navigate = useNavigate();
 
@@ -102,6 +102,32 @@ const EditRecipe = () => {
     getData();
   }, [id, backend_url, navigate, setError]);
 
+  const validateForm = () => {
+    let formErrors = {};
+    if (!formData.title) formErrors.title = 'Title is required';
+    if (!formData.image) formErrors.image = 'Image URL is required';
+    if (!formData.prep_time) formErrors.prep_time = 'Preparation time is required';
+    if (!formData.cook_time) formErrors.cook_time = 'Cooking time is required';
+    if (!formData.servings) formErrors.servings = 'Servings is required';
+    if (!formData.calories) formErrors.calories = 'Calories are required';
+    if (!formData.fat) formErrors.fat = 'Fat content is required';
+    if (!formData.protein) formErrors.protein = 'Protein content is required';
+    if (!formData.carbs) formErrors.carbs = 'Carbs content is required';
+    if (!ingredients.every(ing => ing.ingredient && ing.quantity)) formErrors.ingredients = 'All ingredients must be filled';
+    if (!directions.every(dir => dir)) formErrors.directions = 'All directions must be filled';
+    setErrors(formErrors);
+    return Object.keys(formErrors).length === 0;
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    if (validateForm()) {
+      handleEditSubmit(axios, event, formData, ingredients, directions, navigate, backend_url, id, setError, toast);
+    } else {
+      toast.error('Please fill in all required fields');
+    }
+  };
+
   if (loading) {
     return <Spinner />;
   }
@@ -116,9 +142,7 @@ const EditRecipe = () => {
       <Typography variant="h4" gutterBottom>
         Edit Recipe
       </Typography>
-      <form 
-        onSubmit={(event) => handleEditSubmit(axios, event, formData, ingredients, directions, navigate, backend_url, id, setError, toast)} 
-      >
+      <form onSubmit={handleSubmit}>
         <TextField
           fullWidth
           label="Title"
@@ -128,6 +152,8 @@ const EditRecipe = () => {
           onChange={(event) => handleChange(event, setFormData, formData)}
           required
           margin="normal"
+          error={!!errors.title}
+          helperText={errors.title}
         />
         <TextField
           fullWidth
@@ -138,6 +164,8 @@ const EditRecipe = () => {
           value={formData.image}
           onChange={(event) => handleChange(event, setFormData, formData)}
           margin="normal"
+          error={!!errors.image}
+          helperText={errors.image}
         />
         <Grid container spacing={2}>
           <Grid item xs={6}>
@@ -150,6 +178,8 @@ const EditRecipe = () => {
               value={formData.prep_time}
               onChange={(event) => handleChange(event, setFormData, formData)}
               margin="normal"
+              error={!!errors.prep_time}
+              helperText={errors.prep_time}
             />
           </Grid>
           <Grid item xs={6}>
@@ -162,6 +192,8 @@ const EditRecipe = () => {
               value={formData.cook_time}
               onChange={(event) => handleChange(event, setFormData, formData)}
               margin="normal"
+              error={!!errors.cook_time}
+              helperText={errors.cook_time}
             />
           </Grid>
         </Grid>
@@ -174,8 +206,10 @@ const EditRecipe = () => {
           value={formData.servings}
           onChange={(event) => handleChange(event, setFormData, formData)}
           margin="normal"
+          error={!!errors.servings}
+          helperText={errors.servings}
         />
-        <FormControl fullWidth margin="normal">
+        <FormControl fullWidth margin="normal" error={!!errors.difficulty}>
           <InputLabel id="difficulty-label">Difficulty</InputLabel>
           <Select
             labelId="difficulty-label"
@@ -194,12 +228,16 @@ const EditRecipe = () => {
           handleIngredientChange={(index, event) => handleIngredientChange(index, event, ingredients, setIngredients)}
           addIngredient={() => addIngredient(ingredients, setIngredients)}
           removeIngredient={(index) => removeIngredient(index, ingredients, setIngredients)}
+          error={!!errors.ingredients}
+          helperText={errors.ingredients}
         />
         <DirectionList
           directions={directions}
           handleDirectionChange={(index, event) => handleDirectionChange(index, event, directions, setDirections)}
           addDirection={() => addDirection(directions, setDirections)}
           removeDirection={(index) => removeDirection(index, directions, setDirections)}
+          error={!!errors.directions}
+          helperText={errors.directions}
         />
         <Divider sx={{ my: 2 }} />
         <Typography variant="h6" gutterBottom>
@@ -216,6 +254,8 @@ const EditRecipe = () => {
               value={formData.calories}
               onChange={(event) => handleChange(event, setFormData, formData)}
               margin="normal"
+              error={!!errors.calories}
+              helperText={errors.calories}
             />
           </Grid>
           <Grid item xs={6}>
@@ -228,6 +268,8 @@ const EditRecipe = () => {
               value={formData.fat}
               onChange={(event) => handleChange(event, setFormData, formData)}
               margin="normal"
+              error={!!errors.fat}
+              helperText={errors.fat}
             />
           </Grid>
           <Grid item xs={6}>
@@ -240,6 +282,8 @@ const EditRecipe = () => {
               value={formData.protein}
               onChange={(event) => handleChange(event, setFormData, formData)}
               margin="normal"
+              error={!!errors.protein}
+              helperText={errors.protein}
             />
           </Grid>
           <Grid item xs={6}>
@@ -252,6 +296,8 @@ const EditRecipe = () => {
               value={formData.carbs}
               onChange={(event) => handleChange(event, setFormData, formData)}
               margin="normal"
+              error={!!errors.carbs}
+              helperText={errors.carbs}
             />
           </Grid>
         </Grid>
