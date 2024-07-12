@@ -32,11 +32,13 @@ export const AuthProvider = ({ children }) => {
     const checkReviewAuthorStatus = async (recipeId, reviewId) => {
         try {
             const response = await axios.get(`${backend_url}/recipes/${recipeId}/reviews/${reviewId}/isAuthor`, { withCredentials: true });
-            setIsReviewAuthor(response.data.isAuthor);
+            return response.data; // Return the result of the API call
         } catch (error) {
             console.error('Error checking review author status:', error);
+            return { isAuthor: false };
         }
     };
+    
 
     useEffect(() => {
         checkAuthStatus().finally(() => setLoading(false));

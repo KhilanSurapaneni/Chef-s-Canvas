@@ -1,15 +1,20 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { ListItem, ListItemText, Typography, Box, Button, Divider } from '@mui/material';
 import StarIcon from '@mui/icons-material/Star';
 import { AuthContext } from '../../../../AuthContext';
 
 const ReviewItem = ({ review, openEditDialog, handleDelete }) => {
-    const { isAuthenticated, isReviewAuthor, checkReviewAuthorStatus } = useContext(AuthContext);
+    const { isAuthenticated, checkReviewAuthorStatus } = useContext(AuthContext);
+    const [isReviewAuthor, setIsReviewAuthor] = useState(false);
 
     useEffect(() => {
-        if (isAuthenticated) {
-            checkReviewAuthorStatus(review.recipe, review._id);
-        }
+        const checkAuthor = async () => {
+            if (isAuthenticated) {
+                const result = await checkReviewAuthorStatus(review.recipe, review._id);
+                setIsReviewAuthor(result.isAuthor);
+            }
+        };
+        checkAuthor();
     }, [isAuthenticated, review.recipe, review._id, checkReviewAuthorStatus]);
 
     return (
