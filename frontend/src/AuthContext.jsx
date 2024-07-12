@@ -8,6 +8,7 @@ const backend_url = import.meta.env.VITE_BACKEND_URL;
 export const AuthProvider = ({ children }) => {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [isAuthor, setIsAuthor] = useState(false);
+    const [isReviewAuthor, setIsReviewAuthor] = useState(false);
     const [loading, setLoading] = useState(true);
 
     const checkAuthStatus = async () => {
@@ -28,12 +29,21 @@ export const AuthProvider = ({ children }) => {
         }
     };
 
+    const checkReviewAuthorStatus = async (recipeId, reviewId) => {
+        try {
+            const response = await axios.get(`${backend_url}/recipes/${recipeId}/reviews/${reviewId}/isAuthor`, { withCredentials: true });
+            setIsReviewAuthor(response.data.isAuthor);
+        } catch (error) {
+            console.error('Error checking review author status:', error);
+        }
+    };
+
     useEffect(() => {
         checkAuthStatus().finally(() => setLoading(false));
     }, []);
 
     return (
-        <AuthContext.Provider value={{ isAuthenticated, setIsAuthenticated, isAuthor, setIsAuthor, checkAuthorStatus, loading }}>
+        <AuthContext.Provider value={{ isAuthenticated, setIsAuthenticated, isAuthor, setIsAuthor, isReviewAuthor, setIsReviewAuthor, checkAuthorStatus, checkReviewAuthorStatus, loading }}>
             {!loading && children}
         </AuthContext.Provider>
     );
