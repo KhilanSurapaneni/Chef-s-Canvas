@@ -34,7 +34,7 @@ const RecipeActions = ({ backend_url }) => {
 
   return (
     <Box display="flex" justifyContent="flex-end" mt={2}>
-      {isAuthor && (
+      {isAuthenticated && isAuthor && (
         <Grid container spacing={2} justifyContent="flex-end">
           <Grid item>
             <Button
