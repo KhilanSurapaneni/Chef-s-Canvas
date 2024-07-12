@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { Container, Box, CircularProgress } from '@mui/material';
+import { Container, Box, CircularProgress, Grid } from '@mui/material';
 import RecipeDetails from '../components/Recipe/RecipeDetails';
 import RecipeActions from '../components/Recipe/RecipeActions';
-import ReviewForm from '../components/Recipe/Reviews/ReviewForm';
+import ReviewForm from '../components/Recipe/Reviews/Form/ReviewForm';
+import ReviewList from '../components/Recipe/Reviews/List/ReviewList';
 
 const Recipe = () => {
   const { id } = useParams();
@@ -14,6 +15,7 @@ const Recipe = () => {
     ingredients: [],
     directions: [],
     tags: [],
+    reviews: []
   });
   const navigate = useNavigate();
   const backend_url = import.meta.env.VITE_BACKEND_URL;
@@ -50,7 +52,14 @@ const Recipe = () => {
       <Box component="article" sx={{ p: 3, bgcolor: 'background.paper', borderRadius: 1 }}>
         <RecipeDetails recipe={recipe} />
       </Box>
-      <ReviewForm backend_url={backend_url} />
+      <Grid container spacing={3} sx={{ mt: 4 }}>
+        <Grid item xs={12} md={6}>
+          <ReviewForm backend_url={backend_url} />
+        </Grid>
+        <Grid item xs={12} md={6}>
+          <ReviewList reviews={recipe.reviews} backend_url={backend_url} />
+        </Grid>
+      </Grid>
     </Container>
   );
 };
