@@ -1,28 +1,38 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Card, CardActionArea, CardContent, CardMedia, Typography, Box, Divider } from '@mui/material';
 import RecipeTags from './RecipeTags';
-import Rating from './Rating'; // Import the Rating component
+import Rating from './Rating';
 
 const RecipeItem = ({ recipe }) => {
+  const navigate = useNavigate();
+
+  const handleCardClick = () => {
+    navigate(`/recipes/${recipe._id}`);
+  };
+
   return (
     <Card
-      component={Link}
-      to={`/recipes/${recipe._id}`}
       sx={{
         transform: 'scale(1)',
         transition: 'transform 0.3s',
         '&:hover': {
           transform: 'scale(1.05)',
+          boxShadow: 6,
         },
+        borderRadius: 3,
+        maxWidth: 600, // Increased maxWidth
+        margin: 'auto',
       }}
+      onClick={handleCardClick}
     >
       <CardActionArea>
         <CardMedia
           component="img"
-          height="180"
+          height="220"
           image={recipe.image}
           alt={recipe.title}
+          sx={{ borderTopLeftRadius: 12, borderTopRightRadius: 12 }}
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div" color="textPrimary">
@@ -35,9 +45,9 @@ const RecipeItem = ({ recipe }) => {
             <Typography>Difficulty: {recipe.difficulty}</Typography>
             <Typography>Calories: {recipe.nutrition.calories}</Typography>
           </Box>
-          <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+          <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', mt: 2 }}>
             <RecipeTags tags={recipe.tags} />
-            <Rating recipe={recipe} sx={{ ml: 'auto' }} /> {/* Pass the showNumRatings prop and add margin-left auto */}
+            <Rating recipe={recipe} />
           </Box>
           <Divider sx={{ my: 2 }} />
           <Typography variant="body2" color="textSecondary" align="center">

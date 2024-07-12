@@ -1,5 +1,6 @@
 import React, { useState, useContext } from 'react';
-import { AppBar, Toolbar, Button, Menu, MenuItem, Box, Typography } from '@mui/material';
+import { AppBar, Toolbar, Button, Menu, MenuItem, Box, Typography, IconButton } from '@mui/material';
+import MenuIcon from '@mui/icons-material/Menu';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { AuthContext } from '../../AuthContext';
@@ -34,7 +35,7 @@ const Navbar = () => {
   };
 
   return (
-    <AppBar position="static" sx={{ backgroundColor: 'rgba(0, 0, 0, 0.5)', color: 'white', boxShadow: 'none' }}>
+    <AppBar position="static">
       <Toolbar>
         <Typography
           variant="h6"
@@ -69,14 +70,14 @@ const Navbar = () => {
           )}
         </Box>
         <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
-          <Button
+          <IconButton
             sx={{ color: 'inherit' }}
             aria-controls="menu-appbar"
             aria-haspopup="true"
             onClick={handleMenu}
           >
-            Menu
-          </Button>
+            <MenuIcon />
+          </IconButton>
           <Menu
             id="menu-appbar"
             anchorEl={anchorEl}

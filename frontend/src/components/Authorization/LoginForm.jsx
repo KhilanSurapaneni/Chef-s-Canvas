@@ -11,11 +11,21 @@ const LoginForm = ({ backend_url }) => {
     const [password, setPassword] = useState('');
     const [error, setError] = useState(null);
     const navigate = useNavigate();
-    const { setIsAuthenticated } = useContext(AuthContext); // Use AuthContext to get setIsAuthenticated
+    const { setIsAuthenticated } = useContext(AuthContext);
 
     return (
         <Container maxWidth="sm">
-            <Box component="form" onSubmit={(event) => handleSubmitLogin(event, username, password, axios, navigate, backend_url, setError, setIsAuthenticated, toast)} sx={{ mt: 4, p: 2, borderRadius: 1, boxShadow: 3 }}>
+            <Box
+                component="form"
+                onSubmit={(event) => handleSubmitLogin(event, username, password, axios, navigate, backend_url, setError, setIsAuthenticated, toast)}
+                sx={{
+                    mt: 4,
+                    p: 2,
+                    borderRadius: 1,
+                    boxShadow: 3,
+                    backgroundColor: 'background.paper'
+                }}
+            >
                 <Typography variant="h4" align="center" gutterBottom>
                     Login
                 </Typography>
@@ -44,7 +54,6 @@ const LoginForm = ({ backend_url }) => {
                     type="submit"
                     fullWidth
                     variant="contained"
-                    color="primary"
                     sx={{ mt: 2 }}
                 >
                     Login

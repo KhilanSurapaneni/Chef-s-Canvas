@@ -38,7 +38,7 @@ const RecipeList = () => {
   }
 
   return (
-    <Container sx={{ mt: 4 }}>
+    <Container sx={{ mt: 4, mb: 4 }}> {/* Added mb: 4 for bottom spacing */}
       <Box sx={{ textAlign: 'center', mb: 4 }}>
         <Typography variant="h4" component="h1" gutterBottom>
           Recipe List
@@ -49,11 +49,12 @@ const RecipeList = () => {
       </Box>
       <Grid container spacing={4}>
         {recipes.map((recipe) => (
-          <Grid item key={recipe._id} xs={12} sm={6} md={4} lg={3}>
+          <Grid item key={recipe._id} xs={12} sm={6} md={6} lg={4}>
             <RecipeItem recipe={recipe} />
           </Grid>
         ))}
       </Grid>
+      <Box sx={{ mb: 4 }} /> {/* Added an empty Box for extra bottom spacing */}
     </Container>
   );
 };
