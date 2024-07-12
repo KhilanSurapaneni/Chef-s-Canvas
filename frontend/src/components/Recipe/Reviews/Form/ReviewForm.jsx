@@ -10,33 +10,47 @@ const ReviewForm = ({ backend_url }) => {
   const { id } = useParams();
   const [review, setReview] = useState({ rating: 0, comment: '' });
   const [error, setError] = useState(null);
+  const [validationErrors, setValidationErrors] = useState({});
   const navigate = useNavigate();
 
   const validateForm = () => {
-    if (!review.rating || review.rating < 1 || review.rating > 5) {
-      setError('Please provide a rating between 1 and 5 stars.');
-      return false;
+    const errors = {};
+    if (review.rating <= 0) {
+      errors.rating = 'Rating must be greater than 0';
     }
-    if (!review.comment || review.comment.trim().length === 0) {
-      setError('Please provide a comment.');
-      return false;
+    if (!review.comment.trim()) {
+      errors.comment = 'Comment cannot be empty';
     }
-    return true;
+    return errors;
   };
 
   const handleSubmitForm = async (event) => {
     event.preventDefault();
-    if (!validateForm()) {
+    setError(null);
+    const errors = validateForm();
+    if (Object.keys(errors).length > 0) {
+      setValidationErrors(errors);
       return;
     }
-
+    setValidationErrors({});
     try {
-      await axios.post(`${backend_url}/reviews/${id}`, review);
+      await axios.post(`${backend_url}/recipes/${id}/reviews`, {
+        review
+      }, { withCredentials: true });
       toast.success('Review submitted successfully!');
-      navigate(`/reviews/${id}`);
+      setReview({ rating: '', comment: '' }); // Clear the form
+      window.location.reload();
+      navigate(`/recipes/${id}`);
     } catch (error) {
-      setError(error.response?.data?.message || 'An error occurred. Please try again.');
-      toast.error('Failed to submit the review.');
+      if (error.response && (error.response.status === 401 || error.response.status === 403)) {
+        // Navigate to the login page if the error is related to authorization
+        navigate('/login');
+      } else {
+        const errorMessage = error.response?.data?.message || 'An error occurred. Please try again.';
+        setError(errorMessage);
+        toast.error(errorMessage);
+      }
+      console.error('Error submitting review:', error);
     }
   };
 
@@ -48,7 +62,9 @@ const ReviewForm = ({ backend_url }) => {
         </Typography>
         {error && <Typography color="error" textAlign="center" mb={2}>{error}</Typography>}
         <RatingSelect review={review} setReview={setReview} />
+        {validationErrors.rating && <Typography color="error" textAlign="center">{validationErrors.rating}</Typography>}
         <CommentInput review={review} setReview={setReview} />
+        {validationErrors.comment && <Typography color="error" textAlign="center">{validationErrors.comment}</Typography>}
         <Box textAlign="center" mt={4}>
           <Button type="submit" variant="contained" color="primary">
             Submit Review
