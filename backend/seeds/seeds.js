@@ -48,7 +48,7 @@ async function seedDB() {
         // Create and insert reviews for each recipe
         for (let recipe of insertedRecipes) {
             const reviewPromises = reviews.map(review => {
-                const reviewCopies = copyObjectInArray([review], 15);
+                const reviewCopies = copyObjectInArray([review], 6);
                 return reviewCopies.map(async reviewCopy => {
                     const newReview = new Review({ ...reviewCopy, recipe: recipe._id });
                     await newReview.save();
