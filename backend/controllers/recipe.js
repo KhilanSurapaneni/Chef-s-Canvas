@@ -2,7 +2,9 @@ import Recipe from '../models/recipe.js';
 import ExpressError from '../utils/expressError.js';
 
 export const all_recipes = async (req, res) => {
-    const recipes = await Recipe.find({}).populate("created_by");
+    const recipes = await Recipe.find({}).populate("created_by").populate({
+        path: 'reviews' // Populate the reviews field
+    });
     res.status(200).send(recipes);
 }
 

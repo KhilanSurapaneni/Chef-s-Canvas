@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Card, CardActionArea, CardContent, CardMedia, Typography, Box, Divider } from '@mui/material';
 import RecipeTags from './RecipeTags';
+import Rating from './Rating'; // Import the Rating component
 
 const RecipeItem = ({ recipe }) => {
   return (
@@ -34,7 +35,10 @@ const RecipeItem = ({ recipe }) => {
             <Typography>Difficulty: {recipe.difficulty}</Typography>
             <Typography>Calories: {recipe.nutrition.calories}</Typography>
           </Box>
-          <RecipeTags tags={recipe.tags} />
+          <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+            <RecipeTags tags={recipe.tags} />
+            <Rating recipe={recipe} sx={{ ml: 'auto' }} /> {/* Pass the showNumRatings prop and add margin-left auto */}
+          </Box>
           <Divider sx={{ my: 2 }} />
           <Typography variant="body2" color="textSecondary" align="center">
             Created by: {recipe.created_by?.username}
