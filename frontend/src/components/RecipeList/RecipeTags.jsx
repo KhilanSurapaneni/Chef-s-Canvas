@@ -9,7 +9,7 @@ const RecipeTags = ({ tags }) => {
 
   const handleTagClick = (event, tag) => {
     event.stopPropagation();
-    navigate(`/tags/${tag}`);
+    navigate(`/`);
   };
 
   return (
