@@ -4,6 +4,7 @@ import RecipeTags from '../RecipeList/RecipeTags';
 import RecipeTitle from './Details/RecipeTitle';
 import RecipeImage from './Details/RecipeImage';
 import RecipeSection from './Details/RecipeSection';
+import Rating from '../RecipeList/Rating';
 
 const RecipeDetails = ({ recipe }) => {
   return (
@@ -11,6 +12,10 @@ const RecipeDetails = ({ recipe }) => {
       <Box sx={{ padding: 2, marginBottom: 2 }}>
         <RecipeImage image={recipe.image} title={recipe.title} />
         <RecipeTitle title={recipe.title} created_by={recipe.created_by.username} />
+        <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', mt: 1 }}>
+          <RecipeTags tags={recipe.tags} />
+          <Rating recipe={recipe} showNumRatings={true} />
+        </Box>
         <Box sx={{ marginTop: 2, width: '100%', lg: { width: '67%' } }}>
           <RecipeSection title="Ingredients">
             <List sx={{ listStyleType: 'disc', pl: 2 }}>
@@ -48,10 +53,6 @@ const RecipeDetails = ({ recipe }) => {
               <Grid item xs={6}><Typography>Servings: {recipe.servings}</Typography></Grid>
               <Grid item xs={6}><Typography>Difficulty: {recipe.difficulty}</Typography></Grid>
             </Grid>
-          </RecipeSection>
-          <Divider sx={{ marginY: 2 }} />
-          <RecipeSection title="Tags">
-            <RecipeTags tags={recipe.tags} />
           </RecipeSection>
         </Box>
       </Box>
