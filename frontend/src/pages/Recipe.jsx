@@ -49,7 +49,7 @@ const Recipe = () => {
 
   return (
     <Container sx={{ mt: 4 }}>
-      <Box component="article" sx={{ p: 3, bgcolor: 'background.paper', borderRadius: 1 }}>
+      <Box component="article" sx={{ p: 3, bgcolor: theme.palette.primary.paper, borderRadius: 1 }}>
         <RecipeActions backend_url={backend_url} />
         <RecipeDetails recipe={recipe} />
       </Box>
