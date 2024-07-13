@@ -1,98 +1,141 @@
-export const recipes = [
-  {
-    "title": "Authentic Chicken Curry",
-    "ingredients": [
-      {
-        "ingredient": "Chicken Breast",
-        "quantity": 500
-      },
-      {
-        "ingredient": "Curry Powder",
-        "quantity": 15
-      },
-      {
-        "ingredient": "Coconut Milk",
-        "quantity": 400
-      },
-      {
-        "ingredient": "Onion",
-        "quantity": 1
-      },
-      {
-        "ingredient": "Garlic",
-        "quantity": 4
-      },
-      {
-        "ingredient": "Ginger",
-        "quantity": 1
-      },
-      {
-        "ingredient": "Tomatoes",
-        "quantity": 2
-      },
-      {
-        "ingredient": "Vegetable Oil",
-        "quantity": 2
-      },
-      {
-        "ingredient": "Salt",
-        "quantity": 1
-      },
-      {
-        "ingredient": "Fresh Cilantro",
-        "quantity": 1
-      }
-    ],
-    "directions": [
-      "Finely chop the onion, mince the garlic, and grate the ginger.",
-      "Cut the chicken breasts into bite-sized pieces.",
-      "Heat the vegetable oil in a large pot over medium heat.",
-      "Add the chopped onion and cook until translucent, about 5 minutes.",
-      "Add the minced garlic and grated ginger and cook for another 2 minutes.",
-      "Stir in the curry powder and cook for 1 minute until fragrant.",
-      "Add the chicken pieces and cook until they are no longer pink, about 5-7 minutes.",
-      "Add the chopped tomatoes and cook until they soften, about 5 minutes.",
-      "Pour in the coconut milk and stir to combine.",
-      "Bring the mixture to a simmer, then reduce the heat to low and cook for 20-25 minutes, stirring occasionally.",
-      "Season with salt to taste.",
-      "Garnish with freshly chopped cilantro before serving."
-    ],
-    "image": "https://myfoodstory.com/wp-content/uploads/2020/10/Dhaba-Style-Chicken-Curry-2.jpg",
-    "prep_time": 20,
-    "cook_time": 40,
-    "servings": 4,
-    "nutrition": {
-      "calories": 600,
-      "fat": 30,
-      "protein": 40,
-      "carbs": 50
-    },
-    "tags": [
-      "Indian",
-      "Curry"
-    ],
-    "difficulty": "Medium",
-    "created_by": "668ec06d8f7e6db3cbc219c1"
-  }
+export const foodDishes = [
+  "Spaghetti Carbonara",
+  "Beef Stroganoff",
+  "Chicken Tikka Masala",
+  "Pad Thai",
+  "Margherita Pizza",
+  "Ratatouille",
+  "Sushi Rolls",
+  "Biryani",
+  "Chicken Alfredo",
+  "Moussaka",
+  "Falafel",
+  "Tacos",
+  "Clam Chowder",
+  "Lobster Bisque",
+  "Hamburger",
+  "Caesar Salad",
+  "Eggplant Parmesan",
+  "French Onion Soup",
+  "Chicken Noodle Soup",
+  "Beef Tacos",
+  "Vegan Burrito",
+  "Shrimp Scampi",
+  "Mushroom Risotto",
+  "Butter Chicken",
+  "Pho",
+  "Kimchi Fried Rice",
+  "Shakshuka",
+  "Stuffed Bell Peppers",
+  "Pulled Pork Sandwich",
+  "Beef Wellington",
+  "Chicken Quesadilla",
+  "Vegetable Stir Fry",
+  "Grilled Cheese Sandwich",
+  "BBQ Ribs",
+  "Lasagna",
+  "Lamb Kebabs",
+  "Paella",
+  "Crab Cakes",
+  "Peking Duck",
+  "Fettuccine Alfredo",
+  "Fish and Chips",
+  "Greek Salad",
+  "Ramen",
+  "Beef Bourguignon",
+  "Pork Schnitzel",
+  "Gumbo",
+  "Shepherd's Pie",
+  "Macaroni and Cheese",
+  "Chicken Pot Pie",
+  "Mango Sticky Rice",
+  "Chocolate Lava Cake",
+  "Tuna Tartare",
+  "Salmon Teriyaki",
+  "Ceviche",
+  "Bruschetta",
+  "Chicken Parmesan",
+  "Lentil Soup",
+  "Potato Leek Soup",
+  "Steak Frites",
+  "Omelette",
+  "Vegetarian Chili",
+  "Quiche Lorraine",
+  "Shrimp Tacos",
+  "Chicken Wings",
+  "Stuffed Mushrooms",
+  "Bacon Wrapped Dates",
+  "Caprese Salad",
+  "Banh Mi Sandwich",
+  "Pasta Primavera",
+  "Chicken Fried Rice",
+  "Vegetable Curry",
+  "Seafood Paella",
+  "Corned Beef and Cabbage",
+  "Pad See Ew",
+  "Grilled Salmon",
+  "Meatball Sub",
+  "Gnocchi",
+  "Chili Con Carne",
+  "Lobster Roll",
+  "Chicken Shawarma",
+  "Crème Brûlée",
+  "Panna Cotta",
+  "Pesto Pasta",
+  "Fajitas",
+  "Roast Chicken",
+  "Jambalaya",
+  "Baked Ziti",
+  "Tom Yum Soup",
+  "Spring Rolls",
+  "Spinach and Artichoke Dip",
+  "Miso Soup",
+  "Bangers and Mash",
+  "Chicken Satay",
+  "Samosas",
+  "Garlic Bread",
+  "Churros",
+  "Pumpkin Pie",
+  "Tiramisu",
+  "Baklava",
+  "Croque Monsieur",
+  "Poutine"
 ];
 
-export const reviews = [{
-    "rating": 5,
-    "comment": "I loved it",
-    "recipe": "",
-    "created_by": "668ed3da470a35309cfceb77"
-  },
 
-  {
-    "rating": 5,
-    "comment": "Amazing",
-    "recipe": "",
-    "created_by": "668ed3da470a35309cfceb77"
-  },
-  {
-    "rating": 4,
-    "comment": "It was good but kinda hard to make",
-    "recipe": "",
-    "created_by": "668ed3da470a35309cfceb77"
-  }
+export const ingredients = [
+  "Salt", "Pepper", "Olive Oil", "Garlic", "Onion", "Tomato", "Lemon", "Chicken Breast", "Ground Beef", "Basil",
+  "Parsley", "Thyme", "Rosemary", "Cilantro", "Oregano", "Bay Leaf", "Sage", "Chili Powder", "Paprika", "Cumin",
+  "Turmeric", "Coriander", "Ginger", "Soy Sauce", "Worcestershire Sauce", "Balsamic Vinegar", "Red Wine Vinegar",
+  "White Wine Vinegar", "Apple Cider Vinegar", "Rice Vinegar", "Honey", "Brown Sugar", "White Sugar", "Maple Syrup",
+  "Flour", "Cornstarch", "Baking Powder", "Baking Soda", "Yeast", "Cocoa Powder", "Vanilla Extract", "Almond Extract",
+  "Almonds", "Walnuts", "Pecans", "Cashews", "Peanuts", "Peanut Butter", "Almond Butter", "Coconut Oil", "Butter",
+  "Milk", "Heavy Cream", "Sour Cream", "Greek Yogurt", "Cheddar Cheese", "Mozzarella Cheese", "Parmesan Cheese",
+  "Feta Cheese", "Goat Cheese", "Blue Cheese", "Brie Cheese", "Cream Cheese", "Eggs", "Bread", "Rice", "Pasta",
+  "Quinoa", "Couscous", "Barley", "Farro", "Lentils", "Black Beans", "Chickpeas", "Kidney Beans", "Pinto Beans",
+  "Tofu", "Tempeh", "Seitan", "Mushrooms", "Bell Peppers", "Carrots", "Celery", "Cucumber", "Zucchini", "Eggplant",
+  "Broccoli", "Cauliflower", "Spinach", "Kale", "Lettuce", "Arugula", "Mixed Greens", "Potatoes", "Sweet Potatoes",
+  "Butternut Squash", "Pumpkin", "Acorn Squash", "Spaghetti Squash", "Corn", "Green Beans", "Peas", "Asparagus",
+  "Artichokes", "Beets", "Radishes", "Turnips", "Brussels Sprouts", "Leeks", "Scallions", "Chives", "Bok Choy",
+  "Napa Cabbage", "Red Cabbage", "Savoy Cabbage", "Caraway Seeds", "Fennel Seeds", "Sesame Seeds", "Chia Seeds",
+  "Flax Seeds", "Sunflower Seeds", "Pumpkin Seeds", "Dried Cranberries", "Raisins", "Dried Apricots", "Dried Figs",
+  "Dates", "Prunes", "Dried Mango", "Dried Pineapple", "Canned Tomatoes", "Tomato Paste", "Tomato Sauce",
+  "Crushed Tomatoes", "Sun-Dried Tomatoes", "Chicken Broth", "Beef Broth", "Vegetable Broth", "Fish Sauce",
+  "Anchovies", "Capers", "Olives", "Pickles", "Jalapenos", "Hot Sauce", "Sriracha", "Coconut Milk", "Coconut Cream",
+  "Shredded Coconut", "Pineapple", "Mango", "Banana", "Apple", "Orange", "Lime", "Grapefruit", "Strawberries",
+  "Blueberries", "Raspberries", "Blackberries", "Cherries", "Grapes", "Pears", "Peaches", "Plums", "Nectarines",
+  "Kiwi", "Papaya", "Watermelon", "Cantaloupe", "Honeydew", "Avocado", "Lettuce", "Romaine", "Iceberg Lettuce",
+  "Butter Lettuce", "Endive", "Radicchio", "Watercress", "Alfalfa Sprouts", "Bean Sprouts", "Bamboo Shoots",
+  "Water Chestnuts", "Snow Peas", "Snap Peas", "Okra", "Fennel", "Garlic Powder", "Onion Powder", "Mustard",
+  "Dijon Mustard", "Whole Grain Mustard", "Yellow Mustard", "Horseradish", "Mayonnaise", "Ketchup", "BBQ Sauce",
+  "Ranch Dressing", "Caesar Dressing", "Italian Dressing", "Tahini", "Hummus", "Salsa", "Guacamole", "Pesto",
+  "Marinara Sauce", "Soy Milk", "Almond Milk", "Oat Milk", "Coconut Milk", "Rice Milk", "Butter", "Ghee",
+  "Margarine", "Lard", "Shortening", "Chocolate Chips", "White Chocolate", "Dark Chocolate", "Milk Chocolate",
+  "Caramel", "Marshmallows"
+];
+
+export const recipeTags = [
+  "Italian", "Mexican", "Chinese", "Indian", "American", "Thai", "French", "Japanese", "Mediterranean", "Greek",
+  "Vegan", "Vegetarian", "Gluten-Free", "Low Carb", "High Protein", "Dairy-Free", "Nut-Free", "Soy-Free", "Paleo",
+  "Keto", "Whole30", "Appetizer", "Main Course", "Dessert", "Snack", "Breakfast", "Lunch", "Dinner", "Under 30 Minutes", "Low Calories"
 ];
