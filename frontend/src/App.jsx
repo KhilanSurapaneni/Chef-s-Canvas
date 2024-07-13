@@ -11,8 +11,9 @@ import Navbar from './components/Navbar/Navbar';
 import Register from './pages/Register';
 import Login from './pages/Login';
 import Error from './pages/Error';
+import SearchResults from './pages/SearchResults';
 import './index.css';
-import { AuthContext } from './AuthContext';  // Importing AuthContext for authentication state
+import { AuthContext } from './contexts/AuthContext';  // Importing AuthContext for authentication state
 
 const App = () => {
   const { isAuthenticated } = useContext(AuthContext);  // Using AuthContext to get the authentication state
@@ -35,6 +36,7 @@ const App = () => {
         <Route path='/recipes/:id/edit' element={isAuthenticated ? <EditRecipe /> : <Navigate to="/login" />} />
         <Route path='/register' element={<Register />} />
         <Route path='/login' element={<Login />} />
+        <Route path='/search-results' element={<SearchResults />} />
         <Route path="*" element={<Error />} /> {/* Catch-all route for undefined routes */}
       </Routes>
     </>

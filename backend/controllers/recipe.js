@@ -65,3 +65,24 @@ export const is_author = async (req,res) => {
         return res.status(500).send({ isAuthor: false });
     }
 }
+
+export const search = async (req, res) => {
+    const { query } = req.query;
+    if (!query) {
+        throw new ExpressError('Query parameter is required', 400);
+    }
+
+    const regexQuery = new RegExp(query, 'i'); // 'i' for case-insensitive search
+
+    const recipes = await Recipe.find({
+        $or: [
+            { title: { $regex: regexQuery } },
+            { 'ingredients.ingredient': { $regex: regexQuery } },
+            { tags: { $regex: regexQuery } }
+        ]
+    }).collation({ locale: 'en', strength: 1 }).populate("created_by").populate({
+        path: 'reviews' // Populate the reviews field
+    });
+
+    res.status(200).send(recipes);
+}

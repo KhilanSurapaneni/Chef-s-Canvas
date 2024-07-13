@@ -1,6 +1,6 @@
 import express from 'express';
 import catchAsync from '../utils/catchAsync.js';
-import { all_recipes, add_recipe, find_recipe, update_recipe, delete_recipe, is_author } from '../controllers/recipe.js';
+import { all_recipes, add_recipe, find_recipe, update_recipe, delete_recipe, is_author, search } from '../controllers/recipe.js';
 import { isAuthor, isLoggedIn } from '../middleware.js'; // Ensure correct path to middleware
 
 const router = express.Router();
@@ -9,6 +9,9 @@ const router = express.Router();
 router.route("/")
   .get(catchAsync(all_recipes))
   .post(isLoggedIn, catchAsync(add_recipe)); // Protect add recipe route
+
+router.route("/search")
+  .get(catchAsync(search));
 
 // Get, update, or delete a specific recipe by ID
 router.route("/:id")

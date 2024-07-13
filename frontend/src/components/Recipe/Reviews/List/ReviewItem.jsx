@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { ListItem, ListItemText, Typography, Box, Button, Divider, useTheme } from '@mui/material';
 import StarIcon from '@mui/icons-material/Star';
-import { AuthContext } from '../../../../AuthContext';
+import { AuthContext } from '../../../../contexts/AuthContext';
 
 const ReviewItem = ({ review, openEditDialog, handleDelete }) => {
     const { isAuthenticated, checkReviewAuthorStatus } = useContext(AuthContext);

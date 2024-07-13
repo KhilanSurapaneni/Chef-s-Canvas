@@ -76,6 +76,18 @@ const recipeSchema = new mongoose.Schema({
   }]
 }, { timestamps: true });
 
+// Create a text index with collation to ignore accents and case
+recipeSchema.index({
+  title: 'text',
+  'ingredients.ingredient': 'text',
+  tags: 'text'
+}, {
+  collation: {
+    locale: 'en',
+    strength: 1
+  }
+});
+
 // Middleware to delete associated reviews when a recipe is deleted
 recipeSchema.post("findOneAndDelete", async function (doc) {
   if (doc && doc.reviews && doc.reviews.length > 0) {

@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { handleSubmitLogin } from './functions';
-import { AuthContext } from '../../AuthContext';
+import { AuthContext } from '../../contexts/AuthContext';
 import { toast } from "react-toastify";
 import { TextField, Button, Container, Typography, Box, useTheme } from '@mui/material';
 

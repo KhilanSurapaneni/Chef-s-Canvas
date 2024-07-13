@@ -1,17 +1,19 @@
 import React, { useState, useContext } from 'react';
-import { AppBar, Toolbar, Button, Menu, MenuItem, Box, Typography, IconButton, useTheme } from '@mui/material';
-import MenuIcon from '@mui/icons-material/Menu';
+import { AppBar, Toolbar, Typography, Box, IconButton, useTheme, Button } from '@mui/material';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { AuthContext } from '../../AuthContext';
+import { AuthContext } from '../../contexts/AuthContext';
 import { toast } from 'react-toastify';
+import SearchBar from './SearchBar';
+import MenuItems from './MenuItems';
+import MenuIcon from '@mui/icons-material/Menu';
 
 const Navbar = () => {
   const [anchorEl, setAnchorEl] = useState(null);
   const { isAuthenticated, setIsAuthenticated } = useContext(AuthContext);
-  const backend_url = import.meta.env.VITE_BACKEND_URL;
   const navigate = useNavigate();
   const theme = useTheme();
+  const backend_url = import.meta.env.VITE_BACKEND_URL;
 
   const handleMenu = (event) => {
     setAnchorEl(event.currentTarget);
@@ -37,131 +39,34 @@ const Navbar = () => {
 
   return (
     <AppBar position="static" sx={{ backgroundColor: theme.palette.background.default, boxShadow: 'none' }}>
-      <Toolbar>
+      <Toolbar sx={{ justifyContent: 'space-between', padding: { xs: '0 1rem', md: '0 2rem' } }}>
         <Typography
-          variant="h6"
+          variant="h5"
           component={Link}
           to="/"
-          sx={{ textDecoration: 'none', color: theme.palette.text.primary, flexGrow: 1 }}
+          sx={{ textDecoration: 'none', color: theme.palette.text.primary, fontWeight: 'bold' }}
         >
           Chef's Canvas
         </Typography>
-        <Box sx={{ display: { xs: 'none', md: 'flex' }, flexGrow: 1 }}>
-          <Button
-            component={Link}
-            to="/recipes"
-            sx={{
-              color: theme.palette.text.primary,
-              '&:hover': {
-                backgroundColor: theme.palette.primary.main,
-                color: theme.palette.primary.contrastText,
-              },
-            }}
-          >
-            Browse Recipes
-          </Button>
-          <Button
-            component={Link}
-            to="/recipes/create"
-            sx={{
-              color: theme.palette.text.primary,
-              '&:hover': {
-                backgroundColor: theme.palette.primary.main,
-                color: theme.palette.primary.contrastText,
-              },
-            }}
-          >
-            Create a Recipe
-          </Button>
+        <Box sx={{ flexGrow: 1, display: 'flex', justifyContent: 'center', margin: { xs: '0 1rem', md: '0 2rem' } }}>
+          <SearchBar />
         </Box>
-        <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-          {!isAuthenticated ? (
-            <>
-              <Button
-                component={Link}
-                to="/register"
-                sx={{
-                  color: theme.palette.text.primary,
-                  '&:hover': {
-                    backgroundColor: theme.palette.primary.main,
-                    color: theme.palette.primary.contrastText,
-                  },
-                }}
-              >
-                Register
-              </Button>
-              <Button
-                component={Link}
-                to="/login"
-                sx={{
-                  color: theme.palette.text.primary,
-                  '&:hover': {
-                    backgroundColor: theme.palette.primary.main,
-                    color: theme.palette.primary.contrastText,
-                  },
-                }}
-              >
-                Login
-              </Button>
-            </>
-          ) : (
-            <Button
-              onClick={handleLogout}
-              sx={{
-                color: theme.palette.text.primary,
-                '&:hover': {
-                  backgroundColor: theme.palette.primary.main,
-                  color: theme.palette.primary.contrastText,
-                },
-              }}
-            >
-              Logout
-            </Button>
-          )}
-        </Box>
-        <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
+        <Box sx={{ display: 'flex', alignItems: 'center' }}>
+          <MenuItems 
+            anchorEl={anchorEl} 
+            handleMenu={handleMenu} 
+            handleClose={handleClose} 
+            isAuthenticated={isAuthenticated} 
+            handleLogout={handleLogout} 
+          />
           <IconButton
-            sx={{ color: theme.palette.text.primary }}
-            aria-controls="menu-appbar"
-            aria-haspopup="true"
+            edge="end"
+            aria-label="menu"
             onClick={handleMenu}
+            sx={{ display: { xs: 'flex', md: 'none' }, color : theme.palette.text.primary}}
           >
             <MenuIcon />
           </IconButton>
-          <Menu
-            id="menu-appbar"
-            anchorEl={anchorEl}
-            anchorOrigin={{
-              vertical: 'top',
-              horizontal: 'right',
-            }}
-            keepMounted
-            transformOrigin={{
-              vertical: 'top',
-              horizontal: 'right',
-            }}
-            open={Boolean(anchorEl)}
-            onClose={handleClose}
-          >
-            <MenuItem component={Link} to="/recipes" onClick={handleClose}>
-              Browse Recipes
-            </MenuItem>
-            <MenuItem component={Link} to="/recipes/create" onClick={handleClose}>
-              Create a Recipe
-            </MenuItem>
-            {!isAuthenticated ? (
-              <>
-                <MenuItem component={Link} to="/register" onClick={handleClose}>
-                  Register
-                </MenuItem>
-                <MenuItem component={Link} to="/login" onClick={handleClose}>
-                  Login
-                </MenuItem>
-              </>
-            ) : (
-              <MenuItem onClick={handleLogout}>Logout</MenuItem>
-            )}
-          </Menu>
         </Box>
       </Toolbar>
     </AppBar>
