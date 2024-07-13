@@ -34,16 +34,16 @@ const recipeSchema = new mongoose.Schema({
   },
   image: {
     type: String,
-    required: false,
+    required: true,
     trim: true
   },
   prep_time: {
     type: Number, // Time in minutes
-    required: false
+    required: true
   },
   cook_time: {
     type: Number, // Time in minutes
-    required: false
+    required: true
   },
   servings: {
     type: Number,
@@ -58,7 +58,7 @@ const recipeSchema = new mongoose.Schema({
   },
   tags: {
     type: [String],
-    required: false
+    required: true
   },
   difficulty: {
     type: String,
