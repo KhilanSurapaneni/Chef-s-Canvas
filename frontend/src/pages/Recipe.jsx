@@ -1,5 +1,6 @@
+// Recipe.js
 import React, { useEffect, useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import axios from 'axios';
 import { Container, Box, CircularProgress, Grid, useTheme } from '@mui/material';
 import RecipeDetails from '../components/Recipe/RecipeDetails';
@@ -18,6 +19,7 @@ const Recipe = () => {
     reviews: []
   });
   const navigate = useNavigate();
+  const location = useLocation();
   const theme = useTheme();
   const backend_url = import.meta.env.VITE_BACKEND_URL;
 
@@ -36,6 +38,15 @@ const Recipe = () => {
     };
     getData();
   }, [id, backend_url, navigate]);
+
+  useEffect(() => {
+    if (location.hash === '#reviews') {
+      const reviewsElement = document.getElementById('reviews');
+      if (reviewsElement) {
+        reviewsElement.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  }, [location]);
 
   if (loading) {
     return (

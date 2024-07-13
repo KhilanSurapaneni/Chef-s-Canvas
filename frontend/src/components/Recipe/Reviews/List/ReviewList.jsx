@@ -1,3 +1,4 @@
+// ReviewList.js
 import React, { useState } from 'react';
 import axios from 'axios';
 import { List, Typography, Box, useTheme } from '@mui/material';
@@ -59,7 +60,7 @@ const ReviewList = ({ reviews, backend_url }) => {
     };
 
     return (
-        <Box sx={{ p: 4, bgcolor: theme.palette.background.paper, boxShadow: 1, borderRadius: 1 }}>
+        <Box id="reviews" sx={{ p: 4, bgcolor: theme.palette.background.paper, boxShadow: 1, borderRadius: 1 }}>
             <Typography variant="h4" textAlign="center" fontWeight="bold" gutterBottom color={theme.palette.text.primary}>
                 Reviews
             </Typography>

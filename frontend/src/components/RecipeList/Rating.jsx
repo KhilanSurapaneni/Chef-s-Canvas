@@ -1,3 +1,4 @@
+// Rating.js
 import React from 'react';
 import { Box, Typography, useTheme } from '@mui/material';
 import StarIcon from '@mui/icons-material/Star';
@@ -22,7 +23,7 @@ const Rating = ({ recipe, showNumRatings = false }) => {
 
   const handleRatingClick = (event) => {
     event.stopPropagation();
-    navigate(`/`);
+    navigate(`/recipes/${recipe._id}#reviews`);
   };
 
   return (
