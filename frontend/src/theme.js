@@ -27,44 +27,53 @@ const theme = createTheme({
   typography: {
     fontFamily: 'Roboto, Arial, sans-serif',
     h1: {
+      fontFamily: 'Playfair Display, serif',
       fontSize: '2.5rem',
       fontWeight: 700,
       color: brown[900],
     },
     h2: {
+      fontFamily: 'Playfair Display, serif',
       fontSize: '2rem',
       fontWeight: 700,
       color: brown[900],
     },
     h3: {
+      fontFamily: 'Playfair Display, serif',
       fontSize: '1.75rem',
       fontWeight: 700,
       color: brown[900],
     },
     h4: {
+      fontFamily: 'Playfair Display, serif',
       fontSize: '1.5rem',
       fontWeight: 700,
       color: brown[900],
     },
     h5: {
+      fontFamily: 'Playfair Display, serif',
       fontSize: '1.25rem',
       fontWeight: 700,
       color: brown[900],
     },
     h6: {
+      fontFamily: 'Playfair Display, serif',
       fontSize: '1rem',
       fontWeight: 700,
       color: brown[900],
     },
     body1: {
+      fontFamily: 'Roboto, sans-serif',
       fontSize: '1rem',
       color: brown[700],
     },
     body2: {
+      fontFamily: 'Roboto, sans-serif',
       fontSize: '0.875rem',
       color: brown[700],
     },
     button: {
+      fontFamily: 'Roboto, sans-serif',
       fontSize: '1rem',
       fontWeight: 700,
       textTransform: 'none',
