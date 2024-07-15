@@ -44,7 +44,7 @@ function createFakeRecipes(users, num) {
                 quantity: faker.number.int({ min: 1, max: 300 }),
             })),
             directions: Array.from({ length: faker.number.int({ min: 3, max: 10 }) }, () => faker.lorem.sentence()),
-            image: faker.image.urlLoremFlickr({ category: 'food' }),
+            images: [faker.image.urlLoremFlickr({ category: 'food' }), faker.image.urlLoremFlickr({ category: 'food' })],
             prep_time: faker.number.int({ min: 5, max: 60 }),
             cook_time: faker.number.int({ min: 10, max: 100 }),
             servings: faker.number.int({ min: 1, max: 8 }),
@@ -93,10 +93,10 @@ async function seedDB() {
         await Review.deleteMany({});
 
         // Create sample users
-        const users = await createUsers(10);
+        const users = await createUsers(7);
 
         // Create sample recipes
-        const recipeData = createFakeRecipes(users, 50);
+        const recipeData = createFakeRecipes(users, 20);
         const insertedRecipes = await Recipe.insertMany(recipeData);
 
         // Create and insert reviews for each recipe

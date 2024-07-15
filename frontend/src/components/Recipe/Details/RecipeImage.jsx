@@ -1,17 +1,22 @@
 import React from 'react';
-import { CardMedia, Box } from '@mui/material';
+import { Box } from '@mui/material';
+import ImageCarousel from '../../RecipeList/ImageCarousel';
 
-const RecipeImage = ({ image, title }) => {
+const RecipeImage = ({ images, title }) => {
   return (
-    <Box display="flex" justifyContent="center" mb={2}>
-      <CardMedia
-        component="img"
-        alt={title}
-        height="100"
-        image={image}
-        title={title}
-        sx={{ width: 'auto', maxWidth: '40%', borderRadius: 2 }}
-      />
+    <Box 
+      display="flex" 
+      justifyContent="center" 
+      alignItems="center" 
+      mb={2} 
+      sx={{ 
+        maxWidth: '500px', 
+        maxHeight: '500px', 
+        width: '100%', 
+        margin: 'auto' 
+      }}
+    >
+      <ImageCarousel images={images} />
     </Box>
   );
 };

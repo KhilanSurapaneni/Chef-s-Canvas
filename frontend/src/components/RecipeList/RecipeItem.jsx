@@ -1,8 +1,9 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Card, CardActionArea, CardContent, CardMedia, Typography, Box, Divider, useTheme } from '@mui/material';
+import { Card, CardActionArea, CardContent, Box, Typography, Divider, useTheme } from '@mui/material';
 import RecipeTags from './RecipeTags';
 import Rating from './Rating';
+import ImageCarousel from './ImageCarousel';
 
 const RecipeItem = ({ recipe }) => {
   const navigate = useNavigate();
@@ -22,20 +23,13 @@ const RecipeItem = ({ recipe }) => {
           boxShadow: 6,
         },
         borderRadius: 3,
-        maxWidth: 600, // Increased maxWidth
+        maxWidth: 600,
         margin: 'auto',
       }}
-      onClick={handleCardClick}
     >
-      <CardActionArea>
-        <CardMedia
-          component="img"
-          height="220"
-          image={recipe.image}
-          alt={recipe.title}
-          sx={{ borderTopLeftRadius: 12, borderTopRightRadius: 12 }}
-        />
-        <CardContent>
+      <ImageCarousel images={recipe.images} />
+      <CardContent>
+        <Box onClick={handleCardClick} sx={{ cursor: 'pointer' }}>
           <Typography gutterBottom variant="h5" component="div" color={theme.palette.text.primary}>
             {recipe.title}
           </Typography>
@@ -46,16 +40,16 @@ const RecipeItem = ({ recipe }) => {
             <Typography>Difficulty: {recipe.difficulty}</Typography>
             <Typography>Calories: {recipe.nutrition.calories}</Typography>
           </Box>
-          <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', mt: 2 }}>
-            <RecipeTags tags={recipe.tags} />
-            <Rating recipe={recipe} />
-          </Box>
-          <Divider sx={{ my: 2 }} />
-          <Typography variant="body2" color={theme.palette.text.secondary} align="center">
-            Created by: {recipe.created_by?.username}
-          </Typography>
-        </CardContent>
-      </CardActionArea>
+        </Box>
+        <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', mt: 2 }}>
+          <RecipeTags tags={recipe.tags} />
+          <Rating recipe={recipe} />
+        </Box>
+        <Divider sx={{ my: 2 }} />
+        <Typography variant="body2" color={theme.palette.text.secondary} align="center">
+          Created by: {recipe.created_by?.username}
+        </Typography>
+      </CardContent>
     </Card>
   );
 };

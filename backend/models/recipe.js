@@ -32,11 +32,11 @@ const recipeSchema = new mongoose.Schema({
       message: 'At least one direction is required.'
     }
   },
-  image: {
+  images: [{
     type: String,
     required: true,
     trim: true
-  },
+  }],
   prep_time: {
     type: Number, // Time in minutes
     required: true
