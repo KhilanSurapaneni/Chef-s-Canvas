@@ -123,24 +123,28 @@ const MenuItems = ({ anchorEl, handleMenu, handleClose, isAuthenticated }) => {
         open={Boolean(anchorEl)}
         onClose={handleClose}
       >
-        <MenuItem component={Link} to="/recipes" onClick={handleClose}>
-          Browse
-        </MenuItem>
-        <MenuItem component={Link} to="/recipes/create" onClick={handleClose}>
-          Create
-        </MenuItem>
-        {!isAuthenticated ? (
-          <>
-            <MenuItem component={Link} to="/register" onClick={handleClose}>
-              Register
+        {[
+          <MenuItem key="browse" component={Link} to="/recipes" onClick={handleClose}>
+            Browse
+          </MenuItem>,
+          <MenuItem key="create" component={Link} to="/recipes/create" onClick={handleClose}>
+            Create
+          </MenuItem>,
+          !isAuthenticated ? (
+            [
+              <MenuItem key="register" component={Link} to="/register" onClick={handleClose}>
+                Register
+              </MenuItem>,
+              <MenuItem key="login" component={Link} to="/login" onClick={handleClose}>
+                Login
+              </MenuItem>
+            ]
+          ) : (
+            <MenuItem key="logout" onClick={handleLogout}>
+              Logout
             </MenuItem>
-            <MenuItem component={Link} to="/login" onClick={handleClose}>
-              Login
-            </MenuItem>
-          </>
-        ) : (
-          <MenuItem onClick={handleLogout}>Logout</MenuItem>
-        )}
+          )
+        ]}
       </Menu>
     </>
   );
