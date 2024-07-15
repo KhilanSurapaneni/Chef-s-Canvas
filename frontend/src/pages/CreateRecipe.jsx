@@ -9,10 +9,14 @@ import {
   addDirection,
   removeDirection,
   handleDirectionChange,
+  addImage,
+  removeImage,
+  handleImageChange,
   handleSubmit
 } from '../components/CreateRecipe/functions';
 import IngredientList from '../components/CreateRecipe/IngredientList';
 import DirectionList from '../components/CreateRecipe/DirectionList';
+import ImageList from '../components/CreateRecipe/ImageList';
 import { toast } from "react-toastify";
 
 import {
@@ -33,9 +37,9 @@ import {
 const CreateRecipe = () => {
   const [ingredients, setIngredients] = useState([{ ingredient: '', quantity: '' }]);
   const [directions, setDirections] = useState(['']);
+  const [images, setImages] = useState(['']); // State for image URLs
   const [formData, setFormData] = useState({
     title: '',
-    image: '',
     prep_time: '',
     cook_time: '',
     servings: '',
@@ -55,7 +59,7 @@ const CreateRecipe = () => {
   const validateForm = () => {
     let formErrors = {};
     if (!formData.title) formErrors.title = 'Title is required';
-    if (!formData.image) formErrors.image = 'Image URL is required';
+    if (!images.every(img => img)) formErrors.images = 'All image URLs must be filled';
     if (!formData.prep_time) formErrors.prep_time = 'Preparation time is required';
     if (!formData.cook_time) formErrors.cook_time = 'Cooking time is required';
     if (!formData.servings) formErrors.servings = 'Servings is required';
@@ -72,7 +76,7 @@ const CreateRecipe = () => {
   const handleSubmitForm = (event) => {
     event.preventDefault();
     if (validateForm()) {
-      handleSubmit(axios, event, formData, ingredients, directions, navigate, backend_url, setError, toast);
+      handleSubmit(axios, event, formData, ingredients, directions, images, navigate, backend_url, setError, toast);
     } else {
       toast.error('Please fill in all required fields');
     }
@@ -101,17 +105,11 @@ const CreateRecipe = () => {
           error={!!errors.title}
           helperText={errors.title}
         />
-        <TextField
-          fullWidth
-          label="Image URL"
-          id="image"
-          name="image"
-          type="url"
-          value={formData.image}
-          onChange={(event) => handleChange(event, setFormData, formData)}
-          margin="normal"
-          error={!!errors.image}
-          helperText={errors.image}
+        <ImageList
+          images={images}
+          handleImageChange={(index, event) => handleImageChange(index, event, images, setImages)}
+          addImage={() => addImage(images, setImages)}
+          removeImage={(index) => removeImage(index, images, setImages)}
         />
         <Grid container spacing={2}>
           <Grid item xs={6}>

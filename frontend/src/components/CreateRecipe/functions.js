@@ -7,6 +7,26 @@ export const handleChange = (event, setFormData, formData) => {
     });
 };
 
+// Adds a new image URL to the images array
+export const addImage = (images, setImages) => {
+    setImages([...images, '']); // Add a new empty image URL string to the array
+};
+
+// Removes an image URL from the images array based on the index
+export const removeImage = (index, images, setImages) => {
+    const newImages = images.filter((_, i) => i !== index); // Filter out the image URL at the specified index
+    setImages(newImages); // Update the state with the new images array
+};
+
+// Handles changes to specific image URLs by updating the state with the new value
+export const handleImageChange = (index, event, images, setImages) => {
+    const { value } = event.target; // Extract value from the event target
+    const newImages = images.map((image, i) =>
+      i === index ? value : image // Update the specific image URL with the new value
+    );
+    setImages(newImages); // Update the state with the new images array
+};
+
 // Adds a new ingredient to the ingredients array
 export const addIngredient = (ingredients, setIngredients) => {
     setIngredients([...ingredients, { ingredient: '', quantity: '' }]); // Add a new empty ingredient object to the array
@@ -48,7 +68,7 @@ export const handleDirectionChange = (index, event, directions, setDirections) =
 };
 
 // Handles the form submission for adding a new recipe
-export const handleSubmit = async (axios, event, formData, ingredients, directions, navigate, backend_url, setError, toast) => {
+export const handleSubmit = async (axios, event, formData, ingredients, directions, images, navigate, backend_url, setError, toast) => {
     event.preventDefault(); // Prevent the default form submission behavior
     setError(null); // Clear any previous errors
 
@@ -56,6 +76,7 @@ export const handleSubmit = async (axios, event, formData, ingredients, directio
         ...formData, // Spread the existing form data
         ingredients, // Include the ingredients array
         directions, // Include the directions array
+        images, // Include the images array
         nutrition: {
             calories: formData.calories,
             fat: formData.fat,
@@ -105,7 +126,7 @@ export const handleSubmit = async (axios, event, formData, ingredients, directio
 };
 
 // Handles the form submission for editing an existing recipe
-export const handleEditSubmit = async (axios, event, formData, ingredients, directions, navigate, backend_url, id, setError, toast) => {
+export const handleEditSubmit = async (axios, event, formData, ingredients, directions, images, navigate, backend_url, id, setError, toast) => {
     event.preventDefault(); // Prevent the default form submission behavior
     setError(null); // Clear any previous errors
 
@@ -113,6 +134,7 @@ export const handleEditSubmit = async (axios, event, formData, ingredients, dire
         ...formData, // Spread the existing form data
         ingredients, // Include the ingredients array
         directions, // Include the directions array
+        images, // Include the images array
         nutrition: {
             calories: formData.calories,
             fat: formData.fat,
@@ -129,7 +151,7 @@ export const handleEditSubmit = async (axios, event, formData, ingredients, dire
             },
         });
         const updated_recipe = response.data; // Get the updated recipe data from the response
-        toast.success('Succesfully updated recipe!'); // Show a success toast message
+        toast.success('Successfully updated recipe!'); // Show a success toast message
         navigate(`/recipes/${updated_recipe._id}/`); // Navigate to the updated recipe's page
     } catch (error) {
         if (error.response) {
