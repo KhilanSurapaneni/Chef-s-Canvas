@@ -7,7 +7,8 @@ Create, edit, and delete recipes with detailed information such as ingredients, 
 Review and rate recipes.
 Authentication and authorization to protect user data and ensure only authorized actions are performed.
 
-[### Demo](https://www.wevideo.com/view/3500142206)
+### Demo
+[Chef's Canvas](https://www.wevideo.com/view/3500142206)
 
 
 ## Technologies Used
