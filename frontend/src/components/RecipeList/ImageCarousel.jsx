@@ -4,7 +4,11 @@ import { Carousel } from 'react-responsive-carousel';
 
 const ImageCarousel = ({ images }) => {
   return (
-    <Carousel>
+    <Carousel 
+      autoPlay={true}
+      infiniteLoop={true} 
+      useKeyboardArrows={true}
+    >
       {images.map((image, index) => (
         <div key={index}>
           <img src={image} alt={`Recipe Image ${index + 1}`} />
