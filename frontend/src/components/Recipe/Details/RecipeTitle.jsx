@@ -1,5 +1,6 @@
 import React from 'react';
 import { Typography, Box, useTheme } from '@mui/material';
+import CreatedBy from '../../RecipeList/CreatedBy';
 
 const RecipeTitle = ({ title, created_by }) => {
   const theme = useTheme();
@@ -15,12 +16,7 @@ const RecipeTitle = ({ title, created_by }) => {
       >
         {title}
       </Typography>
-      <Typography
-        variant="subtitle1"
-        color={theme.palette.text.secondary}
-      >
-        by {created_by}
-      </Typography>
+      <CreatedBy username={created_by} />
     </Box>
   );
 };

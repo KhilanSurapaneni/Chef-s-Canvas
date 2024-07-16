@@ -5,6 +5,7 @@ import RecipeTitle from './Details/RecipeTitle';
 import RecipeImage from './Details/RecipeImage';
 import RecipeSection from './Details/RecipeSection';
 import Rating from '../RecipeList/Rating';
+import CreatedBy from '../RecipeList/CreatedBy';
 
 const RecipeDetails = ({ recipe }) => {
   const theme = useTheme();
@@ -13,7 +14,7 @@ const RecipeDetails = ({ recipe }) => {
     <Box sx={{ padding: 2, backgroundColor: theme.palette.background.paper }}>
       <Box sx={{ padding: 2, marginBottom: 2 }}>
         <RecipeImage images={recipe.images} title={recipe.title} />
-        <RecipeTitle title={recipe.title} created_by={recipe.created_by.username} />
+        <RecipeTitle title={recipe.title} created_by={recipe.created_by.username}/>
         <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', mt: 1 }}>
           <RecipeTags tags={recipe.tags} />
           <Rating recipe={recipe} showNumRatings={true} />

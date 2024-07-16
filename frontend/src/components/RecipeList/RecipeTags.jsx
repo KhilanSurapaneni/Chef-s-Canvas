@@ -45,7 +45,7 @@ const RecipeTags = ({ tags }) => {
             color: theme.palette.primary.dark,
             borderColor: theme.palette.primary.main,
             '&:hover': {
-              transform: 'scale(1.1)',
+              transform: 'scale(1.05)',
               backgroundColor: theme.palette.primary.dark,
               borderColor: theme.palette.primary.main,
               color: theme.palette.primary.main,

@@ -4,6 +4,7 @@ import { Card, CardActionArea, CardContent, Box, Typography, Divider, useTheme }
 import RecipeTags from './RecipeTags';
 import Rating from './Rating';
 import ImageCarousel from './ImageCarousel';
+import CreatedBy from './CreatedBy';
 
 const RecipeItem = ({ recipe }) => {
   const navigate = useNavigate();
@@ -46,9 +47,7 @@ const RecipeItem = ({ recipe }) => {
           <Rating recipe={recipe} />
         </Box>
         <Divider sx={{ my: 2 }} />
-        <Typography variant="body2" color={theme.palette.text.secondary} align="center">
-          Created by: {recipe.created_by?.username}
-        </Typography>
+        <CreatedBy username={recipe.created_by?.username} />
       </CardContent>
     </Card>
   );
