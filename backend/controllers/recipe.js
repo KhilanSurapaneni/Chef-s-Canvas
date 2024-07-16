@@ -1,5 +1,6 @@
 import Recipe from '../models/recipe.js';
 import ExpressError from '../utils/expressError.js';
+import User from '../models/user.js';
 
 export const all_recipes = async (req, res) => {
     const recipes = await Recipe.find({}).populate("created_by").populate({
@@ -36,6 +37,11 @@ export const delete_recipe = async (req, res) => {
 export const add_recipe = async (req, res) => {
     const recipe = new Recipe(req.body.recipe);
     recipe.created_by = req.user._id;
+    const user = await User.findById(req.user._id);
+    if(!user){
+        throw new ExpressError("Could not find user", 404);
+    }
+    recipe.created_by_username = user.username;
     await recipe.save();
     res.status(201).send(recipe);
 }
@@ -78,7 +84,8 @@ export const search = async (req, res) => {
         $or: [
             { title: { $regex: regexQuery } },
             { 'ingredients.ingredient': { $regex: regexQuery } },
-            { tags: { $regex: regexQuery } }
+            { tags: { $regex: regexQuery } },
+            { created_by_username: {$regex: regexQuery} }
         ]
     }).collation({ locale: 'en', strength: 1 }).populate("created_by").populate({
         path: 'reviews' // Populate the reviews field

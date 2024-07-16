@@ -70,6 +70,10 @@ const recipeSchema = new mongoose.Schema({
     ref: "User",
     required: true
   },
+  created_by_username : {
+    type: String,
+    required: false
+  },
   reviews: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: "Review"

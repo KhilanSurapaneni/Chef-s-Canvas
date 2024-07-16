@@ -37,6 +37,7 @@ async function createUsers(num) {
 function createFakeRecipes(users, num) {
     const fakeRecipes = [];
     for (let i = 0; i < num; i++) {
+        let u = faker.helpers.arrayElement(users);
         const recipe = {
             title: faker.helpers.arrayElement(foodDishes),
             ingredients: Array.from({ length: faker.number.int({ min: 3, max: 15 }) }, () => ({
@@ -56,7 +57,8 @@ function createFakeRecipes(users, num) {
             },
             tags: Array.from({ length: faker.number.int({ min: 1, max: 3 }) }, () => faker.helpers.arrayElement(recipeTags)),
             difficulty: faker.helpers.arrayElement(['Easy', 'Medium', 'Hard']),
-            created_by: faker.helpers.arrayElement(users)._id,
+            created_by: u._id,
+            created_by_username: u.username
         };
         fakeRecipes.push(recipe);
     }
